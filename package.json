@@ -15,6 +15,7 @@
   "scripts": {
     "start": "node node_modules/grunt-cli/bin/grunt",
     "test": "node node_modules/grunt-cli/bin/grunt test",
+    "eslint": "./node_modules/.bin/eslint ./",
     "postinstall": "node node_modules/grunt-cli/bin/grunt install"
   },
   "dependencies": {
