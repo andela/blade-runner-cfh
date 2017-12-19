@@ -49,7 +49,7 @@ module.exports = function(app, passport, mongoose) {
                 url: config.db,
                 collection: 'sessions',
                 mongoose_connection: mongoose.connection,
-                autoReconnect: true
+                auto_reconnect: true
             })
         }));
 
