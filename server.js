@@ -1,5 +1,4 @@
-require('dotenv').config()
-
+require('dotenv').config();
 /**
  * Module dependencies.
  */
