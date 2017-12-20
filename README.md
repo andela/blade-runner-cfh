@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/andela/blade-runner-cfh.svg?branch=chore%2F153741750%2Fintegrate-travis-ci)](https://travis-ci.org/andela/blade-runner-cfh)
+
 Cards for Humanity - [http://cfh.io](http://cfh.io)
 ===========
 Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.
