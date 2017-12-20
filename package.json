@@ -13,10 +13,9 @@
     "npm": "5.5.1"
   },
   "scripts": {
-    "start": "node node_modules/grunt-cli/bin/grunt",
-    "test": "node node_modules/grunt-cli/bin/grunt test",
-    "eslint": "./node_modules/.bin/eslint ./",
-    "postinstall": "node node_modules/grunt-cli/bin/grunt install"
+    "postinstall": "node node_modules/gulp/bin/gulp install",
+    "start": "node node_modules/gulp/bin/gulp build &&  node node_modules/gulp/bin/gulp",
+    "test": "NODE_ENV=test && node node_modules/gulp/bin/gulp test"
   },
   "dependencies": {
     "async": "~0.2.9",
