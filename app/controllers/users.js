@@ -1,6 +1,7 @@
 /**
  * Module dependencies.
  */
+const isEmail = require('validator/lib/isEmail');
 var mongoose = require('mongoose'),
   User = mongoose.model('User');
 var avatars = require('./avatars').all();
@@ -185,4 +186,35 @@ exports.user = function(req, res, next, id) {
       req.profile = user;
       next();
     });
+};
+
+
+exports.search = (req, res) => {
+  // search users with query ==>
+  const { user } = req.query;
+
+  const queryObject = {};
+  // check if there is a query at all . 
+  if (!user || (user && typeof parseInt(user) === 'int')) {
+    return res.status(422).json({
+      message: 'No user search query provided.'
+    });
+  }
+
+  isEmail(user) ? queryObject.email = user : queryObject.name = user;
+
+  User.find(queryObject, (error, users) => {
+    if (error) {
+      console.log(error);
+    }
+
+    if (users.length > 0) {
+      const userResponse = users.map(({ name, email, avatar, username }) => ({
+        name, email, avatar, username
+      }));
+      return res.json({ users: userResponse });      
+    }
+
+    return res.status(404).json({ message: `A user with that ${queryObject.email ? 'email': 'name'} was not found.` });    
+  });
 };
