@@ -28,6 +28,15 @@
             "MethodDefinition": true,
             "ClassDeclaration": true
         }
-    }]
+    }],
+    "global": {
+      "require": true,
+      "describe": true,
+      "it": true,
+      "beforeEach": true,
+      "before": true,
+      "afterEach": true,
+      "after": true
+    }
   }
 }

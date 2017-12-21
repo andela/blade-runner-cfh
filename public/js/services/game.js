@@ -1,6 +1,5 @@
 angular.module('mean.system')
-  .factory('game', ['socket', '$timeout', function (socket, $timeout) {
-
+  .factory('game', ['$rootScope', 'socket', '$timeout', function ($rootScope, socket, $timeout) {
   var game = {
     id: null, // This player's socket ID, so we know who this player is
     gameID: null,
@@ -12,7 +11,7 @@ angular.module('mean.system')
     table: [],
     czar: null,
     playerMinLimit: 3,
-    playerMaxLimit: 6,
+    playerMaxLimit: 12,
     pointLimit: null,
     state: null,
     round: 0,
@@ -58,6 +57,11 @@ angular.module('mean.system')
   socket.on('id', function(data) {
     game.id = data.id;
   });
+  // When the maxPlayersReached event is got from socket.io, 
+  // emit a global event to all scopes , so all listeners can act on the socket event.\
+  socket.on('maxPlayersReached', () => {
+    $rootScope.$emit('maxPlayersReached');
+  });
 
   socket.on('prepareGame', function(data) {
     game.playerMinLimit = data.playerMinLimit;
@@ -67,7 +71,6 @@ angular.module('mean.system')
   });
 
   socket.on('gameUpdate', function(data) {
-
     // Update gameID field only if it changed.
     // That way, we don't trigger the $scope.$watch too often
     if (game.gameID !== data.gameID) {
