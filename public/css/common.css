@@ -14,9 +14,9 @@ body{
 
 .overlay {
 	position: absolute;
-	width: 100vh;
+	width: 100vw;
 	height: 100vh;
-	background: rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.6);
   color: white;
 	display: flex;
   justify-content: center;
@@ -25,10 +25,9 @@ body{
 }
 
 .how-to-play{
-  margin-top: 10vh;
+  margin: 10vh 10vw 10vh 10vw;
   background: black;
   color: white;
-  height: 80vh;
 }
 #how-to-play_header{
   padding-top: 5vh;
@@ -41,12 +40,46 @@ body{
 }
 
 .card{
-  margin: calc(20% / 3) calc(20% / 3) calc(20% / 3) 0;
-  height: 45vh;
-  width: calc(80% / 3);
+  padding: 10px;
+  margin: calc(20% / 3) 2vw calc(20% / 3) 4vw;
   background-color: white;
   color: black;
   /*align-items: center;*/
   justify-content: center;
   word-wrap: break-word;
+  border-radius: 10px;
 }
+
+.charity_content{
+  padding-top: 50px;
+  margin-bottom: 50px;
+}
+
+.team_container{
+  position: relative;
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.team_image{
+  padding: 30px;
+  width: 200px;
+  border-radius: 100px;
+}
+
+.team_names{
+  width: 200px;
+}
+
+/* .image_overlay:hov {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	background: rgba(0, 0, 0, 0.3);
+  color: white;
+	display: flex;
+  border-radius: 100px;
+  top: 0;
+  margin: 20px; 
+
+} */
