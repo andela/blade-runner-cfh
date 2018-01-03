@@ -30,6 +30,26 @@ body {
   transition: 0.5s ease;
 }
 
+.bg-blue {
+  background-color: #49A0B5!important;
+}
+
+.headers {
+  font-family: Montserrat;
+  margin-bottom: 40px;
+}
+
+.navbar {
+  min-height: 80px;
+  width: 100%;
+  transition: 0.5s ease;
+}
+
+.scrolled.navbar {
+  min-height: 40px; 
+  transition: 0.5s ease;
+}
+
 #background-image{
   background-image: url('../img/cfhcard.jpg');
   background-attachment: fixed;
