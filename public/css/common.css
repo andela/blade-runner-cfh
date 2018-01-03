@@ -1,5 +1,33 @@
-body{
+
+body {
+  top: 0;
+  margin: 0;
+  padding: 0;
+  font-family: Open Sans;
+}
+
+.body-wrapper{
   overflow-x: hidden;
+}
+
+.bg-blue {
+  background-color: #49A0B5!important;
+}
+
+.headers {
+  font-family: Montserrat;
+  margin-bottom: 40px;
+}
+
+.navbar {
+  min-height: 80px;
+  width: 100%;
+  transition: 0.5s ease;
+}
+
+.scrolled.navbar {
+  min-height: 40px; 
+  transition: 0.5s ease;
 }
 
 #background-image{
@@ -24,42 +52,20 @@ body{
 
 }
 
-.how-to-play{
-  margin: 10vh 10vw 10vh 10vw;
-  background: black;
-  color: white;
-}
 #how-to-play_header{
   padding-top: 5vh;
 }
 
-.card-container{
-   flex-wrap: wrap;
-   width: 100%
-   
-}
 
-.card{
+.content{
   padding: 10px;
-  margin: calc(20% / 3) 2vw calc(20% / 3) 4vw;
-  background-color: white;
-  color: black;
-  /*align-items: center;*/
-  justify-content: center;
-  word-wrap: break-word;
-  border-radius: 10px;
+  align-items: center;
 }
 
 .charity_content{
-  padding-top: 50px;
   margin-bottom: 50px;
 }
 
-.team_container{
-  position: relative;
-  width: 80vw;
-  margin: 0 auto;
-}
 
 .team_image{
   padding: 30px;
@@ -67,19 +73,11 @@ body{
   border-radius: 100px;
 }
 
-.team_names{
-  width: 200px;
+.icon {
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
 }
-
-/* .image_overlay:hov {
-	position: absolute;
-	width: 200px;
-	height: 200px;
-	background: rgba(0, 0, 0, 0.3);
-  color: white;
-	display: flex;
-  border-radius: 100px;
-  top: 0;
-  margin: 20px; 
-
-} */
