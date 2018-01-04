@@ -5,6 +5,9 @@ body {
   overflow-x: hidden;
   font-family: Open Sans; }
 
+.body-wrapper {
+  overflow-x: hidden; }
+
 .bg-blue, footer {
   background-color: #49A0B5 !important; }
 
