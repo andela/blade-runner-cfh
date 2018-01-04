@@ -1,97 +1,78 @@
-
 body {
   top: 0;
   margin: 0;
   padding: 0;
-  font-family: Open Sans;
-}
+  font-family: Open Sans; }
 
-.body-wrapper{
-  overflow-x: hidden;
-}
+.body-wrapper {
+  overflow-x: hidden; }
 
 .bg-blue {
-  background-color: #49A0B5!important;
-}
+  background-color: #49A0B5 !important; }
 
 .headers {
   font-family: Montserrat;
-  margin-bottom: 40px;
-}
+  margin-bottom: 40px; }
 
 .navbar {
   min-height: 80px;
   width: 100%;
-  transition: 0.5s ease;
-}
+  transition: 0.5s ease; }
 
 .scrolled.navbar {
-  min-height: 40px; 
-  transition: 0.5s ease;
-}
+  min-height: 40px;
+  transition: 0.5s ease; }
 
 .bg-blue {
-  background-color: #49A0B5!important;
-}
+  background-color: #49A0B5 !important; }
 
 .headers {
   font-family: Montserrat;
-  margin-bottom: 40px;
-}
+  margin-bottom: 40px; }
 
 .navbar {
   min-height: 80px;
   width: 100%;
-  transition: 0.5s ease;
-}
+  transition: 0.5s ease; }
 
 .scrolled.navbar {
-  min-height: 40px; 
-  transition: 0.5s ease;
-}
+  min-height: 40px;
+  transition: 0.5s ease; }
 
-#background-image{
-  background-image: url('../img/cfhcard.jpg');
+#background-image {
+  background-image: url("../img/cfhcard.jpg");
   background-attachment: fixed;
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
-  position: relative;
-}
+  position: relative; }
 
 .overlay {
-	position: absolute;
-	width: 100vw;
-	height: 100vh;
-	background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
   color: white;
-	display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; }
 
-}
+#how-to-play_header {
+  padding-top: 10vh; }
 
-#how-to-play_header{
-  padding-top: 5vh;
-}
-
-
-.content{
+.content {
   padding: 10px;
-  align-items: center;
-}
+  align-items: center; }
 
-.charity_content{
-  margin-bottom: 50px;
-}
+.charity_content {
+  margin-top: 10vh;
+  margin-bottom: 50px; }
 
-
-.team_image{
+.team_image {
   padding: 30px;
   width: 200px;
-  border-radius: 100px;
-}
+  border-radius: 100px; }
 
 .icon {
   display: inline-block;
@@ -99,5 +80,4 @@ body {
   height: 4em;
   stroke-width: 0;
   stroke: currentColor;
-  fill: currentColor;
-}
+  fill: currentColor; }
