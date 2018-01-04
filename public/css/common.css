@@ -1,97 +1,117 @@
-
 body {
   top: 0;
   margin: 0;
   padding: 0;
-  font-family: Open Sans;
-}
-
-.body-wrapper{
   overflow-x: hidden;
-}
+  font-family: Open Sans; }
 
-.bg-blue {
-  background-color: #49A0B5!important;
-}
+.bg-blue, footer {
+  background-color: #49A0B5 !important; }
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white; }
 
 .headers {
   font-family: Montserrat;
-  margin-bottom: 40px;
-}
+  margin-bottom: 40px; }
+
+.hero-title {
+  font-family: Bree Serif;
+  font-size: 4rem; }
+
+.member-content-wrapper {
+  display: flex;
+  justify-content: center; }
+
+.hero-text {
+  padding: 2rem; }
 
 .navbar {
   min-height: 80px;
   width: 100%;
-  transition: 0.5s ease;
-}
+  transition: 0.5s ease; }
 
 .scrolled.navbar {
-  min-height: 40px; 
-  transition: 0.5s ease;
-}
+  min-height: 40px;
+  transition: 0.5s ease; }
 
-.bg-blue {
-  background-color: #49A0B5!important;
-}
-
-.headers {
-  font-family: Montserrat;
-  margin-bottom: 40px;
-}
-
-.navbar {
-  min-height: 80px;
-  width: 100%;
-  transition: 0.5s ease;
-}
-
-.scrolled.navbar {
-  min-height: 40px; 
-  transition: 0.5s ease;
-}
-
-#background-image{
-  background-image: url('../img/cfhcard.jpg');
+#background-image {
+  background-image: url("../img/main.jpeg");
   background-attachment: fixed;
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
-  position: relative;
-}
+  position: relative; }
 
 .overlay {
-	position: absolute;
-	width: 100vw;
-	height: 100vh;
-	background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
   color: white;
-	display: flex;
+  display: flex;
   justify-content: center;
+  align-items: center; }
+
+#how-to-play_header {
+  padding-top: 5vh; }
+
+.how-to-play, .charity-section, .team-section, .info-section {
+  min-height: 70vh;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  /* Align the bootstrap's container vertically */
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  width: 100%;
+  /* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
+     hence the bootstrap's container won't be aligned to the center anymore.
+  
+     Therefore, we should use the following declarations to get it centered again */
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center; }
 
-}
+.charity-section {
+  background-color: azure; }
 
-#how-to-play_header{
-  padding-top: 5vh;
-}
+.info-section {
+  background-color: azure; }
 
+.card-container {
+  flex-wrap: wrap;
+  width: 100%; }
 
-.content{
+.content {
   padding: 10px;
-  align-items: center;
-}
+  align-items: center; }
 
-.charity_content{
-  margin-bottom: 50px;
-}
+.charity_content {
+  margin-bottom: 50px; }
 
-
-.team_image{
+.team_image {
   padding: 30px;
   width: 200px;
-  border-radius: 100px;
-}
+  border-radius: 100px; }
+
+.team_image {
+  filter: gray;
+  -webkit-filter: grayscale(5);
+  -webkit-transition: all .8s ease-in-out; }
+
+.team_image:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+  -webkit-transform: scale(1.05); }
 
 .icon {
   display: inline-block;
@@ -99,5 +119,9 @@ body {
   height: 4em;
   stroke-width: 0;
   stroke: currentColor;
-  fill: currentColor;
-}
+  fill: currentColor; }
+
+footer {
+  margin-top: 100px;
+  margin-bottom: 0px;
+  padding: 40px; }
