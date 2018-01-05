@@ -3,13 +3,15 @@ var async = require('async');
 module.exports = function(app, passport, auth) {
     //User Routes
     var users = require('../app/controllers/users');
+    var authenticate = require('../config/middlewares/authentication');
+    
     app.get('/signin', users.signin);
     app.get('/signup', users.signup);
     app.get('/chooseavatars', users.checkAvatar);
     app.get('/signout', users.signout);
 
     //Setting up the users api
-    app.post('/users', users.create);
+    app.post('/api/users', authenticate.validateInput, authenticate.checkEmail, authenticate.checkUsername, users.create);
     app.post('/users/avatars', users.avatars);
 
     // Donation Routes

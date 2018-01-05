@@ -6,6 +6,12 @@
     "es6": true,
     "mocha": true
   },
+  "globals": {
+    "beforeEach": false,
+    "describe": false,
+    "require": false,
+    "it": false
+  },
   "rules": {
     "one-var": 0,
     "one-var-declaration-per-line": 0,
