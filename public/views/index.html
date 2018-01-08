@@ -60,10 +60,10 @@
                 <a class="nav-link" href="#">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Sign Up</a>
+                <a class="nav-link" href="#!/signup">Sign Up</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Sign In</a>
+                <a class="nav-link" href="#!/signin">Sign In</a>
               </li>
             </ul>
           </div>
@@ -83,9 +83,11 @@
                 </div>
           </div>
             
-            <div class="text-center">
-              <button data-aos="fade-up" class="btn btn-info btn-lg animated fadeInUp">SignUp</button>
-              <button data-aos="fade-up" class="btn btn-info btn-lg animated fadeInUp">Play As Guest</button>
+            <div class="row d-flex justify-content-between px-4">
+              <!-- <button data-aos="fade-up" class="btn btn-lg animated fadeInUp mr-auto">SignUp</button> -->
+              <div class="col-md-6 mr-auto"> <a href="/#!/signup" class="btn btn-sm animated-button victoria-one hvr-sweep-to-left">Sign up</a> </div>
+              <!-- <button data-aos="fade-up" class="btn btn-lg animated fadeInUp">Play As Guest</button> -->
+              <div class="col-md-6"> <a href="/play" class="btn btn-sm animated-button victoria-two hvr-sweep-to-right">Play As Guest</a> </div>
             </div>
         </div>
       </div>
@@ -93,9 +95,11 @@
 
     <div class="info-section" id="home">
       <div class="container">
-        <h1 class="text-center headers text-info">What is Cards For Humanity?</h1>
-        <p>Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.</p>
-        <p><span class="text-danger">Warning!</span> This game contains offensive, profane, explicit content created by Cards Against Humanity and provided here, uncensored and complete, in digital form. Human Resources made us say that.</p>
+        <div class="px-4">
+            <h1 class="text-center headers text-white">What is Cards For Humanity?</h1>
+            <p class="info-text">Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.</p>
+            <p class="info-text"><span class="text-danger">Warning!</span> This game contains offensive, profane, explicit content created by Cards Against Humanity and provided here, uncensored and complete, in digital form. Human Resources made us say that.</p>    
+        </div>
       </div>
     </div>
 
@@ -103,7 +107,7 @@
       <div class="container">
         <div class="row">
           <div class="align-self-center">
-      <div class="text-center text-info headers" data-aos="fade-up" id="how-to-play_header"><h1>HOW TO PLAY</h1></div>
+      <div class="text-center headers" data-aos="fade-up" id="how-to-play_header"><h1>HOW TO PLAY</h1></div>
       <div class="container card-container mt-5">
         <div class="row">
           
@@ -136,8 +140,8 @@
 
     <div class="charity-section" id="charity">
     <div class="container">
-      <div class="charity-main">
-      <h1 class="text-center headers text-info">
+      <div class="charity-main px-4">
+      <h1 class="text-center headers text-white">
         CHARITY
       </h1>
       <div class="charity_content">
@@ -157,7 +161,7 @@
                 All donations go to the Make-a-Wish Foundation and benefit children in need.</p>                             
             </div>
             <br>
-            <button class="btn btn-block btn-info" data-aos="flip-left">Donate Now</button>
+            <button class="btn btn-block" data-aos="flip-left">Donate Now</button>
           </div>
         </div>
       </div>
@@ -167,7 +171,7 @@
 
     <div class="team-section" id="about-us">
       <div class="container">
-        <h1 class="text-center text-info headers">THE TEAM</h1>
+        <h1 class="text-center headers">THE TEAM</h1>
           <div class="row team_container text-center">
 
             <div class="col-sm-12 col-md-1"></div>
@@ -203,7 +207,7 @@
                 <div class="member-content-wrapper">
                   <div class="member-content">
                     <img class="team_image" src="../img/kenny.jpg">
-                    <div class="text-center team_names">Sanni Kehinde</div>
+                    <div class="text-center team_names">Kehinde Sanni</div>
                   </div>
                 </div>
             </div>
@@ -212,7 +216,7 @@
                 <div class="member-content-wrapper justify-content-center">
                   <div class="member-content">
                     <img class="team_image" src="../img/gbenga.jpg">
-                    <div class="text-center team_names">Oshinaga Gbenga</div>
+                    <div class="text-center team_names">Gbenga Oshinaga</div>
                   </div>
                 </div>
             </div>
@@ -225,7 +229,7 @@
   <footer>
     <div class="container">
       <p class="text-white">Legal stuff: This game is based on the
-         <a href="http://cardsagainsthumanity.com" class="text-dark">Cards Against Humanity</a> card game, 
+         <a href="http://cardsagainsthumanity.com" class="text-white">Cards Against Humanity</a> card game, 
         which is CC licensed (BY-NC-SA). Cards for Humanity is not affiliated with Cards Against Humanity. 
         In complying with the Creative Commons license of the Cards Against Humanity card game, all proceeds 
         from donations go directly to charity</p>
