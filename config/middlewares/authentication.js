@@ -11,7 +11,7 @@ const secret = process.env.JWT_SECRET;
 * @param {*} req
 * @param {*} res
 * @param {*} next
-* @returns {*} return
+* @return {*} return
 */
 exports.verifyUser = function (req, res, next) {
   const token = req.headers['x-access-token'] || req.headers.token;
@@ -34,9 +34,10 @@ exports.verifyUser = function (req, res, next) {
 };
 /**
 * @description validate user input
-* @param {object} req 
-* @param {object} res 
-* @param {*} next 
+* @param {object} req
+* @param {object} res
+* @param {*} next
+* @return {object} validated response
 */
 exports.validateInput = function (req, res, next) {
   req.checkBody({
@@ -102,50 +103,50 @@ exports.validateInput = function (req, res, next) {
     return res.status(400).send({ errors: allErrors });
   }
   next();
-}
+};
 
 /**
-* @description check if email already exist 
-* @param {object} req 
-* @param {object} res 
-* @param {*} next 
+* @description check if email already exist
+* @param {object} req
+* @param {object} res
+* @param {*} next
+* @return {object} error message
 */
 exports.checkEmail = function (req, res, next) {
   return User.findOne({
     email: req.body.email
   }).then((email) => {
-    console.log(email)
     if (email) {
-      return res.status(400).send({
+      return res.status(409).send({
         errors: [{
           field: 'email',
           message: 'Email has already be chosen'
         }]
-      })
+      });
     }
     next();
   }).catch(error => res.status(400).send(error));
-}
+};
 
 /**
 * @description check if username already exist
-* @param {*} req 
-* @param {*} res 
-* @param {*} next 
+* @param {object} req
+* @param {object} res
+* @param {*} next
+* @return {object} error message
 */
 exports.checkUsername = function (req, res, next) {
   return User.findOne({
     username: req.body.username
   }).then((users) => {
-    console.log('users');
     if (users) {
-      return res.status(400).send({
+      return res.status(409).send({
         errors: [{
           field: 'username',
           message: 'Username has already been chosen'
         }]
-      })
+      });
     }
-    next()
-  })
-}
+    next();
+  });
+};
