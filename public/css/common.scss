@@ -91,23 +91,9 @@ a.animated-button:link, a.animated-button:visited {
 a.animated-button.victoria-one {
 	border: 2px solid $base-color;
 }
-// a.animated-button.victoria-one:after {
-// 	background: $base-color;
-// 	-moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
-// 	-ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
-// 	-webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
-// 	transform: translateX(-50%) translateY(-50%) rotate(-25deg);
-// }
 a.animated-button.victoria-two {
 	border: 2px solid $base-color;
 }
-// a.animated-button.victoria-two:after {
-// 	background: $base-color;
-// 	-moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-// 	-ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-// 	-webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-// 	transform: translateX(-50%) translateY(-50%) rotate(25deg);
-// }
 
 /* Sweep To Left */
 .hvr-sweep-to-left {

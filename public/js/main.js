@@ -2,7 +2,7 @@
 $(window).scroll(() => {
   if ($(window).scrollTop() > 100) {
     $('.navbar').addClass('scrolled bg-blue');
-  } else{
+  } else {
     $('.navbar').removeClass('scrolled bg-blue');
   }
 });
