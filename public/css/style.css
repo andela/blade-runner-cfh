@@ -6,6 +6,15 @@
    text-transform: uppercase;
  }
 
+
+ .error-messages {
+   color: red;
+   font-size: 16px;
+   text-align: center;
+   padding-top: 15px;
+ }
+
+
  #landing-charity {
    width: 300px !important;
    margin-left: 15px !important;

@@ -38,6 +38,21 @@
         <a href="/auth/google"><img class="login-item" src="/img/icons/google.png"></a>
       </div>
       <p id="create">Or create a username/password and select an avatar:</p>
+      <div class="error-messages" ng-show="hasError('name')">
+        {{ serverErrors.name }}
+      </div>
+      <div class="error-messages" ng-show="hasError('username')">
+        {{ serverErrors.username }}
+      </div>
+      <div class="error-messages" ng-show="hasError('email')">
+        {{ serverErrors.email }}
+      </div>
+      <div class="error-messages" ng-show="hasError('password')">
+        {{ serverErrors.password }}
+      </div>
+      <div class="error-messages" ng-show="hasError('avatar')">
+        {{ serverErrors.avatar }}
+      </div>
 
       <div class="sign-body">
         <div class="more-sign">
@@ -47,26 +62,17 @@
               <div class="controls">
                 <input class="input-info" id="name" type="text" name="name" placeholder="Full name" ng-model=data.name required novalidate />
               </div>
-              <div style="color:red" ng-show="hasError('name')">
-                {{ serverErrors.name }}
-              </div>
             </div>
             <div class="control-group">
               <label for="username" class="control-label"></label>
               <div class="controls">
                 <input class="input-info" id="username" type="text" name="username" placeholder="Username" ng-model=data.username required novalidate />
               </div>
-              <div style="color:red" ng-show="hasError('username')">
-                  {{ serverErrors.username }}
-                </div>
             </div>
             <div class="control-group">
               <label for="email" class="control-label"></label>
               <div class="controls">
                 <input class="input-info" id="email" type="email" name="email" placeholder="Email" ng-model=data.email required novalidate />
-              </div>
-              <div style="color:red" ng-show="hasError('email')">
-                {{ serverErrors.email }}
               </div>
             </div>
             <div class="control-group">
@@ -74,9 +80,6 @@
               <div class="controls">
                 <input class="input-info" id="password" type="password" name="password" placeholder="Password" ng-model=data.password required novalidate />
               </div>
-              <div style="color:red" ng-show="hasError('password')">
-                {{ serverErrors.password }}
-            </div>
             </div>
             <div id="contain-avatars">
               <ul class="avatar-list">
@@ -86,9 +89,6 @@
                   </input>
                 </li>
               </ul>
-              <div style="color:red" ng-show="hasError('avatar')" >
-                {{ serverErrors.avatar }}
-              </div>
             </div>
             <div class="form-actions">
               <button id="sign-up-btn-other" type='submit'>Sign Up</button>
