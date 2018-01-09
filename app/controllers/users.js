@@ -194,8 +194,8 @@ exports.search = (req, res) => {
   const { user } = req.query;
 
   const queryObject = {};
-  // check if there is a query at all . 
-  if (!user || (user && typeof parseInt(user) === 'int')) {
+  // check if there is a query at all .
+  if (!user || (user && typeof parseInt(user, 10) === 'int')) {
     return res.status(422).json({
       message: 'No user search query provided.'
     });
@@ -205,16 +205,20 @@ exports.search = (req, res) => {
 
   User.find(queryObject, (error, users) => {
     if (error) {
-      console.log(error);
+      return res.status(500).json({
+        message: 'Server error.'
+      });
     }
 
     if (users.length > 0) {
-      const userResponse = users.map(({ name, email, avatar, username }) => ({
+      const userResponse = users.map(({
+        name, email, avatar, username
+      }) => ({
         name, email, avatar, username
       }));
-      return res.json({ users: userResponse });      
+      return res.json({ users: userResponse });
     }
 
-    return res.status(404).json({ message: `A user with that ${queryObject.email ? 'email': 'name'} was not found.` });    
+    return res.status(404).json({ message: `A user with that ${queryObject.email ? 'email' : 'name'} was not found.` });
   });
 };

@@ -1,6 +1,6 @@
 angular.module('mean.system')
   .factory('game', ['$rootScope', 'socket', '$timeout', ($rootScope, socket, $timeout) => {
-    var game = {
+    const game = {
       id: null, // This player's socket ID, so we know who this player is
       gameID: null,
       players: [],
