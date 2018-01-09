@@ -345,3 +345,6 @@ footer {
     padding: 1.5rem;
     @extend .bg-blue
 }
+.no-radius {
+  border-radius: 0px !important;
+}

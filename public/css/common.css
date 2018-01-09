@@ -294,3 +294,6 @@ footer {
   margin-top: 50px;
   margin-bottom: 0px;
   padding: 1.5rem; }
+
+.no-radius {
+  border-radius: 0px !important; }

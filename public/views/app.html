@@ -1,5 +1,50 @@
-<div class="container">
-  <div class="row">
-    <h1 class="text-center">This is the home page.</h1>
-  </div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CFH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Bree+Serif|Montserrat">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet"
+    href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css">
+  </head>
+  <body>
+    <main class="body-wrapper">
+      <div id="background-image">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3 card no-radius" style="height: 40px;">
+              
+            </div>
+            <div class="col-md-6 card no-radius" style="height: 40px;"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<script>
+  $(document).ready(() => {
+    AOS.init({
+      offset: 200,
+      duration: 600,
+      easing: 'ease-in-sine',
+      delay: 100,
+    });
+
+    AOS.refresh()
+  })
+</script>
 </div>
+</body>
+</html>
+  
+  
