@@ -14,7 +14,6 @@
     "no-param-reassign": 0,
     "comma-dangle": 0,
     "no-undef": 1,
-    "allowTernary": true,
     "no-unused-expressions": 0,
     "curly": ["error", "multi-line"],
     "import/no-unresolved": [2, { "commonjs" : true }],
