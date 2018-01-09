@@ -16,6 +16,7 @@
     "curly": ["error", "multi-line"],
     "import/no-unresolved": [2, { "commonjs" : true }],
     "no-shadow": ["error", { "allow": ["req", "res", "err"] }],
+    "no-undef": 0,
     "valid-jsdoc": ["error", {
       "requireReturn": true,
       "requireReturnType": true,
@@ -28,6 +29,15 @@
             "MethodDefinition": true,
             "ClassDeclaration": true
         }
-    }]
+    }],
+    "global": {
+      "require": true,
+      "describe": true,
+      "it": true,
+      "beforeEach": true,
+      "before": true,
+      "afterEach": true,
+      "after": true
+    }
   }
 }
