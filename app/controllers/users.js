@@ -195,7 +195,7 @@ exports.search = (req, res) => {
 
   const queryObject = {};
   // check if there is a query at all .
-  if (!user || (user && typeof parseInt(user, 10) === 'int')) {
+  if (!user || (user && typeof parseInt(user, 10) === 'number')) {
     return res.status(422).json({
       message: 'No user search query provided.'
     });
