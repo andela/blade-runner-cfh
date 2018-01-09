@@ -16,6 +16,7 @@
     "no-undef": 0,
     "no-unused-expressions": 0,
     "curly": ["error", "multi-line"],
+    "import/no-unresolved": 0,
     "no-shadow": ["error", { "allow": ["req", "res", "err"] }],
     "valid-jsdoc": ["error", {
       "requireReturn": true,
