@@ -42,7 +42,7 @@ var walk = function(path) {
 };
 walk(models_path);
 
-//bootstrap passport config file
+//  bootstrap passport config file
 require('./config/passport')(passport);
 
 var app = express();
