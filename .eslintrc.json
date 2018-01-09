@@ -6,6 +6,19 @@
     "es6": true,
     "mocha": true
   },
+  "globals": {
+    "document": true,
+    "localStorage": true,
+    "$": true,
+    "window": true,
+    "AOS": true,
+    "require": true,
+    "describe": true,
+    "it": true,
+    "before": true,
+    "after": true,
+    "jQuery": true
+  },
   "rules": {
     "one-var": 0,
     "one-var-declaration-per-line": 0,
