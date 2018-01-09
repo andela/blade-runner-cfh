@@ -30,6 +30,9 @@
             "MethodDefinition": true,
             "ClassDeclaration": true
         }
-    }]
+    }],
+    "global": {
+      "$": true
+    }
   }
 }
