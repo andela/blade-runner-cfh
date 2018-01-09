@@ -1,10 +1,10 @@
 /**
  * Module dependencies.
  */
-const isEmail = require('validator/lib/isEmail');
-var mongoose = require('mongoose'),
+const { isEmail } = require('validator');
+const mongoose = require('mongoose'),
   User = mongoose.model('User');
-var avatars = require('./avatars').all();
+const avatars = require('./avatars').all();
 
 /**
  * Auth callback
