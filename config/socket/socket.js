@@ -135,6 +135,8 @@ module.exports = function(io) {
           game.prepareGame();
         }
       } else {
+        socket.emit('maxPlayersReached');
+        console.log('THE GAME HAS STARTED ALREADY !!!');
         // TODO: Send an error message back to this user saying the game has already started
       }
     } else {
