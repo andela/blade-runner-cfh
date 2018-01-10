@@ -4,6 +4,7 @@ const users = require('../app/controllers/users');
 const avatars = require('../app/controllers/avatars');
 const answers = require('../app/controllers/answers');
 const questions = require('../app/controllers/questions');
+const authenticate = require('../config/middlewares/authentication');
 
 module.exports = (app, passport) => {
 // User Routes
@@ -16,7 +17,7 @@ module.exports = (app, passport) => {
   app.get('/api/search/users', users.search);
 
   // Setting up the users api
-  app.post('/users', users.create);
+  app.post('/api/users', authenticate.validateInput, authenticate.checkEmail, authenticate.checkUsername, users.create);
   app.post('/users/avatars', users.avatars);
 
   // Donation Routes

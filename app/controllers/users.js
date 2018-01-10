@@ -3,6 +3,8 @@
  */
 const { isEmail } = require('validator');
 const mongoose = require('mongoose'),
+  jwt = require('jsonwebtoken'),
+  secret = process.env.JWT_SECRET,
   User = mongoose.model('User');
 const avatars = require('./avatars').all();
 
@@ -95,7 +97,10 @@ exports.create = function (req, res) {
       data: user,
       token
     }); 
-  }).catch(error => res.status(400).send(error));
+  }).catch(error => {
+    console.log(error);
+    return res.status(400).send(error);
+  });
 };
 
 /**
@@ -185,7 +190,7 @@ exports.search = (req, res) => {
 
   const queryObject = {};
   // check if there is a query at all .
-  if (!user || (user && typeof parseInt(user, 10) === 'number')) {
+  if (!user) {
     return res.status(422).json({
       message: 'No user search query provided.'
     });

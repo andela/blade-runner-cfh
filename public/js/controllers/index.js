@@ -1,30 +1,24 @@
 angular.module('mean.system')
   .controller('IndexController', ['$scope', '$window', 'Global', '$http', '$location', 'socket', 'game', 'AvatarService',
-    function ($scope, $window, Global, $http, $location, socket, game, AvatarService) {
+    ($scope, $window, Global, $http, $location, socket, game, AvatarService) => {
       $scope.global = Global;
       $scope.data = {};
       $scope.serverErrors = {};
 
-    $scope.animateHomeLink = () => {
-      console.log('animateHomeLink was clicked.');
-    };
+      $scope.playAsGuest = () => {
+        game.joinGame();
+        $location.path('/app');
+      };
 
-    $scope.playAsGuest = function() {
-      game.joinGame();
-      $location.path('/app');
-    };
-
-      $scope.showError = function () {
+      $scope.showError = () => {
         if ($location.search().error) {
           return $location.search().error;
-        } else {
-          return false;
         }
+
+        return false;
       };
 
-      $scope.hasError = (field) => {
-        return $scope.serverErrors[field] !== undefined;
-      };
+      $scope.hasError = field => $scope.serverErrors[field] !== undefined;
 
       $scope.signUp = () => {
         const successCallback = (res) => {
@@ -46,7 +40,7 @@ angular.module('mean.system')
 
       $scope.avatars = [];
       AvatarService.getAvatars()
-        .then(function (data) {
+        .then((data) => {
           $scope.avatars = data;
         });
     }]);

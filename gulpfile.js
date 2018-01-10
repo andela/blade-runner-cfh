@@ -2,7 +2,6 @@ const gulp = require('gulp');
 const bower = require('gulp-bower');
 const browserSync = require('browser-sync');
 const nodemon = require('gulp-nodemon');
-const sass = require('gulp-sass');
 const eslint = require('gulp-eslint');
 const mocha = require('gulp-mocha');
 const exit = require('gulp-exit');
@@ -32,25 +31,18 @@ gulp.task('watch', () => {
   gulp.watch('public/js/**', browserSync.reload());
   gulp.watch('app/**/*.js', browserSync.reload());
   gulp.watch('public/views/**', browserSync.reload());
-  gulp.watch('public/css/common.scss', ['sass']);
   gulp.watch('public/css/**', browserSync.reload());
 });
 
-// compile scss to css
-gulp.task('sass', () => {
-  gulp.src('public/css/common.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('public/css/'));
-});
 
 // provide linting for files
 gulp.task('eslint', () => {
   gulp.src(['gulpfile.babel.js',
-      'public/js/**/*.js',
-      'test/**/*.js',
-      'app/**/*.js',
-      'config/**/*.js'
-    ])
+    'public/js/**/*.js',
+    'test/**/*.js',
+    'app/**/*.js',
+    'config/**/*.js'
+  ])
     .pipe(eslint());
 });
 
@@ -103,6 +95,6 @@ gulp.task('test', () => {
 
 gulp.task('install', ['bower']);
 
-gulp.task('build', ['sass', 'transfer-bower']);
+gulp.task('build', ['transfer-bower']);
 
 gulp.task('default', ['nodemon', 'watch']);
