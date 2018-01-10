@@ -1,16 +1,19 @@
-const async = require('async');
-const users = require('../app/controllers/users');
+
 const index = require('../app/controllers/index');
+const users = require('../app/controllers/users');
+const avatars = require('../app/controllers/avatars');
 const answers = require('../app/controllers/answers');
 const questions = require('../app/controllers/questions');
-const avatars = require('../app/controllers/avatars');
 
-module.exports = function (app, passport, auth) {
-  // User Routes
+module.exports = (app, passport) => {
+// User Routes
+
   app.get('/signin', users.signin);
   app.get('/signup', users.signup);
   app.get('/chooseavatars', users.checkAvatar);
   app.get('/signout', users.signout);
+
+  app.get('/api/search/users', users.search);
 
   // Setting up the users api
   app.post('/users', users.create);

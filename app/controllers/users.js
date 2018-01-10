@@ -1,9 +1,10 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),
+const { isEmail } = require('validator');
+const mongoose = require('mongoose'),
   User = mongoose.model('User');
-var avatars = require('./avatars').all();
+const avatars = require('./avatars').all();
 
 /**
  * Auth callback
@@ -74,37 +75,27 @@ exports.checkAvatar = function(req, res) {
 };
 
 /**
- * Create user
+ * @description function to create a new user
+ * @param {object} req
+ * @param {object} res
+ * @returns {*} return
  */
-exports.create = function(req, res) {
-  if (req.body.name && req.body.password && req.body.email) {
-    User.findOne({
-      email: req.body.email
-    }).exec(function(err,existingUser) {
-      if (!existingUser) {
-        var user = new User(req.body);
-        // Switch the user's avatar index to an actual avatar url
-        user.avatar = avatars[user.avatar];
-        user.provider = 'local';
-        user.save(function(err) {
-          if (err) {
-            return res.render('/#!/signup?error=unknown', {
-              errors: err.errors,
-              user: user
-            });
-          }
-          req.logIn(user, function(err) {
-            if (err) return next(err);
-            return res.redirect('/#!/');
-          });
-        });
-      } else {
-        return res.redirect('/#!/signup?error=existinguser');
-      }
+exports.create = function (req, res) {
+  const user = new User(req.body);
+  user.provider = 'local';
+
+  user.avatar = avatars[Math.floor(Math.random() * 12) + 1];
+
+  user.save().then(user => {
+    const token = jwt.sign({ id: user._id }, secret, {
+      expiresIn: '3h',
     });
-  } else {
-    return res.redirect('/#!/signup?error=incomplete');
-  }
+    return res.status(201).send({
+      message: 'User created',
+      data: user,
+      token
+    }); 
+  }).catch(error => res.status(400).send(error));
 };
 
 /**
@@ -185,4 +176,39 @@ exports.user = function(req, res, next, id) {
       req.profile = user;
       next();
     });
+};
+
+
+exports.search = (req, res) => {
+  // search users with query ==>
+  const { user } = req.query;
+
+  const queryObject = {};
+  // check if there is a query at all .
+  if (!user || (user && typeof parseInt(user, 10) === 'number')) {
+    return res.status(422).json({
+      message: 'No user search query provided.'
+    });
+  }
+
+  isEmail(user) ? queryObject.email = user : queryObject.name = user;
+
+  User.find(queryObject, (error, users) => {
+    if (error) {
+      return res.status(500).json({
+        message: 'Server error.'
+      });
+    }
+
+    if (users.length > 0) {
+      const userResponse = users.map(({
+        name, email, avatar, username
+      }) => ({
+        name, email, avatar, username
+      }));
+      return res.json({ users: userResponse });
+    }
+
+    return res.status(404).json({ message: `A user with that ${queryObject.email ? 'email' : 'name'} was not found.` });
+  });
 };
