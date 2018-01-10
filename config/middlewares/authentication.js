@@ -83,12 +83,6 @@ exports.validateInput = function (req, res, next) {
         options: [{ min: 6 }],
         errorMessage: 'Please input a valid user with atleast 6 characters'
       }
-    },
-    avatar: {
-      notEmpty: {
-        options: true,
-        errorMessage: 'Avatar must be selected.'
-      }
     }
   });
   const errors = req.validationErrors();

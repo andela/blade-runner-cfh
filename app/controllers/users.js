@@ -85,7 +85,7 @@ exports.create = function (req, res) {
   const user = new User(req.body);
   user.provider = 'local';
 
-  user.avatar = avatars[req.body.avatar];
+  user.avatar = avatars[Math.floor(Math.random() * 12) + 1];
 
   user.save().then(user => {
     const token = jwt.sign({ id: user._id }, secret, {
@@ -96,7 +96,7 @@ exports.create = function (req, res) {
       data: user,
       token
     }); 
-  }).catch(error => res.status(400).send(error))
+  }).catch(error => res.status(400).send(error));
 };
 
 /**

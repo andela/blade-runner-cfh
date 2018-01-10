@@ -12,7 +12,6 @@ const {
   missingName,
   missingEmail,
   missingPassword,
-  missingAvatar,
   missingUsername,
   invalidName,
   invalidEmail,
@@ -134,20 +133,6 @@ describe('Testing user endpoint', () => {
         if (errors.length >= 1) {
           expect(errors[0].message).equal('Please input a valid password with atleast 8 characters');
           expect(errors[0].field).equal('password');
-          expect(res).to.have.status(400);
-        }
-        done();
-      });
-  });
-  it('should not sign up a user without an avatar', (done) => {
-    chai.request(server)
-      .post('/api/users')
-      .send(missingAvatar)
-      .end((err, res) => {
-        const { errors } = res.body;
-        if (errors.length >= 1) {
-          expect(errors[0].message).equal('Avatar must be selected.');
-          expect(errors[0].field).equal('avatar');
           expect(res).to.have.status(400);
         }
         done();

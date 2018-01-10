@@ -81,15 +81,6 @@
                 <input class="input-info" id="password" type="password" name="password" placeholder="Password" ng-model=data.password required novalidate />
               </div>
             </div>
-            <div id="contain-avatars">
-              <ul class="avatar-list">
-                <li ng-repeat="avatar in avatars" class="avatars ng-scope">
-                  <input name="avatar" type='radio' ng-model=data.avatar value="{{$index}}">
-                    <img ng-src="{{avatar}}">
-                  </input>
-                </li>
-              </ul>
-            </div>
             <div class="form-actions">
               <button id="sign-up-btn-other" type='submit'>Sign Up</button>
             </div>
