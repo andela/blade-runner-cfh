@@ -1,16 +1,16 @@
 language: node_js
 
-node_js: 
+node_js:
   - stable
-  
+
 services:
- - mongodb
+  - mongodb
 
 install:
   - npm install
 
 script:
- - npm test
+  - npm test
 
 before_script:
   - sleep 15

@@ -1,0 +1,74 @@
+{
+  "Users": {
+    "validUser": {
+      "name": "sannikayz",
+      "email": "sannidevs@gmail.com",
+      "password": "developertest",
+      "avatar": "fdret",
+      "username": "developer"
+    },
+    "missingName": {
+      "name": "",
+      "email": "sannidevs@gmail.com",
+      "password": "developertest",
+      "avatar": "fdret",
+      "username": "developer"
+    },
+    "missingEmail": {
+      "name": "sannikayz",
+      "email": "",
+      "password": "developertest",
+      "avatar": "fdret",
+      "username": "developer"
+    },
+    "missingPassword": {
+      "name": "sannikayz",
+      "email": "sannidevs@gmail.com",
+      "password": "",
+      "avatar": "fdret",
+      "username": "developer"
+    },
+    "missingUsername": {
+      "name": "sannikayz",
+      "email": "sannidevs@gmail.com",
+      "password": "developertest",
+      "avatar": "fdret",
+      "username": ""
+    },
+    "invalidName": {
+      "name": "le",
+      "email": "sannidevs@gmail.com",
+      "password": "developertest",
+      "avatar": "fdret",
+      "username": ""
+    },
+    "invalidEmail": {
+      "name": "sannikayz",
+      "email": "ken.com",
+      "password": "developertest",
+      "avatar": "fdret",
+      "username": ""
+    },
+    "invalidUsername": {
+      "name": "sannikayz",
+      "email": "sannidevs@gmail.com",
+      "password": "developertest",
+      "avatar": "fdret",
+      "username": "ken"
+    },
+    "invalidPassword": {
+      "name": "sannikayz",
+      "email": "sannidevs@gmail.com",
+      "password": "ken",
+      "avatar": "fdret",
+      "username": "developer"
+    },
+    "existingUsername": {
+      "name": "sannikayz",
+      "email": "sannidevts@gmail.com",
+      "password": "developertest",
+      "avatar": "fdret",
+      "username": "developer"
+    }
+  }
+}
