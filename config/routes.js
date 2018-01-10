@@ -1,3 +1,4 @@
+
 const index = require('../app/controllers/index');
 const users = require('../app/controllers/users');
 const avatars = require('../app/controllers/avatars');
@@ -6,6 +7,7 @@ const questions = require('../app/controllers/questions');
 
 module.exports = (app, passport) => {
 // User Routes
+
   app.get('/signin', users.signin);
   app.get('/signup', users.signup);
   app.get('/chooseavatars', users.checkAvatar);
