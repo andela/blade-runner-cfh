@@ -1,27 +1,26 @@
 angular.module('mean.system')
-  .factory('game', ['socket', '$timeout', function (socket, $timeout) {
-
-  var game = {
-    id: null, // This player's socket ID, so we know who this player is
-    gameID: null,
-    players: [],
-    playerIndex: 0,
-    winningCard: -1,
-    winningCardPlayer: -1,
-    gameWinner: -1,
-    table: [],
-    czar: null,
-    playerMinLimit: 3,
-    playerMaxLimit: 6,
-    pointLimit: null,
-    state: null,
-    round: 0,
-    time: 0,
-    curQuestion: null,
-    notification: null,
-    timeLimits: {},
-    joinOverride: false
-  };
+  .factory('game', ['$rootScope', 'socket', '$timeout', ($rootScope, socket, $timeout) => {
+    const game = {
+      id: null, // This player's socket ID, so we know who this player is
+      gameID: null,
+      players: [],
+      playerIndex: 0,
+      winningCard: -1,
+      winningCardPlayer: -1,
+      gameWinner: -1,
+      table: [],
+      czar: null,
+      playerMinLimit: 3,
+      playerMaxLimit: 12,
+      pointLimit: null,
+      state: null,
+      round: 0,
+      time: 0,
+      curQuestion: null,
+      notification: null,
+      timeLimits: {},
+      joinOverride: false
+    };
 
   var notificationQueue = [];
   var timeout = false;
@@ -55,9 +54,14 @@ angular.module('mean.system')
     $timeout(decrementTime, 950);
   };
 
-  socket.on('id', function(data) {
-    game.id = data.id;
-  });
+    socket.on('id', (data) => {
+      game.id = data.id;
+    });
+    // When the maxPlayersReached event is got from socket.io,
+    // emit a global event to all scopes , so all listeners can act on the socket event.\
+    socket.on('maxPlayersReached', () => {
+      $rootScope.$emit('maxPlayersReached');
+    });
 
   socket.on('prepareGame', function(data) {
     game.playerMinLimit = data.playerMinLimit;
@@ -67,7 +71,6 @@ angular.module('mean.system')
   });
 
   socket.on('gameUpdate', function(data) {
-
     // Update gameID field only if it changed.
     // That way, we don't trigger the $scope.$watch too often
     if (game.gameID !== data.gameID) {

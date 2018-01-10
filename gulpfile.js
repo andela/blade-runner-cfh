@@ -96,7 +96,7 @@ gulp.task('test', () => {
   gulp.src('./test/**/*.js')
     .pipe(mocha({
       reporter: 'spec',
-      timeout: '500000'
+      exit: true
     }))
     .pipe(exit());
 });
