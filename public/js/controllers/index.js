@@ -5,10 +5,14 @@ angular.module('mean.system')
       $scope.data = {};
       $scope.serverErrors = {};
 
-      $scope.playAsGuest = function () {
-        game.joinGame();
-        $location.path('/app');
-      };
+    $scope.animateHomeLink = () => {
+      console.log('animateHomeLink was clicked.');
+    };
+
+    $scope.playAsGuest = function() {
+      game.joinGame();
+      $location.path('/app');
+    };
 
       $scope.showError = function () {
         if ($location.search().error) {

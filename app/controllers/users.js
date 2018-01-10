@@ -1,11 +1,10 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),
-  User = mongoose.model('User'),
-  jwt = require('jsonwebtoken'),
-  secret = process.env.JWT_SECRET;
-var avatars = require('./avatars').all();
+const { isEmail } = require('validator');
+const mongoose = require('mongoose'),
+  User = mongoose.model('User');
+const avatars = require('./avatars').all();
 
 /**
  * Auth callback
@@ -177,4 +176,39 @@ exports.user = function(req, res, next, id) {
       req.profile = user;
       next();
     });
+};
+
+
+exports.search = (req, res) => {
+  // search users with query ==>
+  const { user } = req.query;
+
+  const queryObject = {};
+  // check if there is a query at all .
+  if (!user || (user && typeof parseInt(user, 10) === 'number')) {
+    return res.status(422).json({
+      message: 'No user search query provided.'
+    });
+  }
+
+  isEmail(user) ? queryObject.email = user : queryObject.name = user;
+
+  User.find(queryObject, (error, users) => {
+    if (error) {
+      return res.status(500).json({
+        message: 'Server error.'
+      });
+    }
+
+    if (users.length > 0) {
+      const userResponse = users.map(({
+        name, email, avatar, username
+      }) => ({
+        name, email, avatar, username
+      }));
+      return res.json({ users: userResponse });
+    }
+
+    return res.status(404).json({ message: `A user with that ${queryObject.email ? 'email' : 'name'} was not found.` });
+  });
 };

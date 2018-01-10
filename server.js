@@ -21,11 +21,10 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
     auth = require('./config/middlewares/authorization'),
     mongoose = require('mongoose');
 
-mongoose.Promise = global.Promise;
-
-
-//Bootstrap db connection
-var db = mongoose.connect(config.db);
+//  Bootstrap db connection
+mongoose.connect(config.db, {
+  useMongoClient: true
+});
 
 //Bootstrap models
 var models_path = __dirname + '/app/models';
@@ -44,7 +43,7 @@ var walk = function (path) {
 };
 walk(models_path);
 
-//bootstrap passport config
+//  bootstrap passport config file
 require('./config/passport')(passport);
 
 var app = express();
