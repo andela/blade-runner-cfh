@@ -297,3 +297,26 @@ footer {
 
 .no-radius {
   border-radius: 0px !important; }
+
+.game-container {
+  padding: 30px;
+  height: 100vh; }
+
+.timer {
+  font-size: 170px; }
+
+.fp-height {
+  height: 50%; }
+
+forty-p-height {
+  height: 40%; }
+
+.hp-height {
+  height: 100%; }
+
+.player img {
+  height: 60px;
+  width: 60px; }
+
+.player {
+  padding: 6px; }
