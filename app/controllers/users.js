@@ -82,24 +82,23 @@ exports.checkAvatar = function(req, res) {
  * @param {object} res
  * @returns {*} return
  */
-exports.create = function (req, res) {
+exports.create = (req, res) => {
   const user = new User(req.body);
   user.provider = 'local';
 
   user.avatar = avatars[Math.floor(Math.random() * 12) + 1];
 
-  user.save().then(user => {
-    const token = jwt.sign({ id: user._id }, secret, {
+  user.save().then((newUser) => {
+    // eslint-disable-next-line no-underscore-dangle
+    const token = jwt.sign({ id: newUser._id }, secret, {
       expiresIn: '3h',
     });
     return res.status(201).send({
       message: 'User created',
-      data: user,
+      data: newUser,
       token
-    }); 
-  }).catch(error => {
-    return res.status(400).send(error);
-  });
+    });
+  }).catch(error => res.status(400).send(error));
 };
 
 /**
