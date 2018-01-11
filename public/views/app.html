@@ -7,207 +7,128 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Bree+Serif|Montserrat">
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/game.css">
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet"
     href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css">
   </head>
   <body>
-    <main class="body-wrapper">
-      <div id="background-image">
-        <div class="container-fluid">
-          <div class="game-container">
-            <div class="row hp-height">
-              <div class="col-md-9">
-                <div class="row" style="height: 40%;">
-                  <div class="col-md-4">
-                      <div class="card hp-height" style="border-radius: 50%;">
-                        <h1 class="timer text-center mx-auto my-auto">09</h1>
-                        <small class="mx-auto my-auto">Time remaining</small>
-                      </div>
-                  </div>
-                  <div class="col-md-8">
-                      <div class="card hp-height no-radius">
+    <div class="body-wrapper" ng-controller="GameController">
+      <header class="header">
+        <nav class="navbar navbar-dark navbar-expand-sm scrolled bg-blue">
+          <div class="container">
+            <span class="navbar-brand mb-0 h1">Cards For Humanity</span>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbar-links">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Twitter</a>
+                </li>
 
-                      </div>
-                  </div>
-                </div>
-                <div class="row" style="height: 60%; padding-top: 20px;">
-                  <div class="col-md-12">
-                      <div class="card hp-height no-radius">
-                        answers
-                      </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card hp-height no-radius">
-                    <ul class="list-unstyled" style="overflow-y: scroll; max-height: 500px;">
-                        <li class="media player">
-                          <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                          <div class="media-body">
-                            <h6 class="mt-2">Kati Frantz</h6>
-                            <span class="font-weight-bold">0 / 5</span>
-                          </div>
-                        </li>
-
-                        <li class="media player">
-                            <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                            <div class="media-body">
-                              <h6 class="mt-2">Kati Frantz</h6>
-                              <span class="font-wwight-bold">0 / 5</span>
-                            </div>
-                          </li>
-                          <li class="media player">
-                              <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                              <div class="media-body">
-                                <h6 class="mt-2">Kati Frantz</h6>
-                                <span class="font-wwight-bold">0 / 5</span>
-                              </div>
-                            </li>
-                            <li class="media player">
-                                <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                                <div class="media-body">
-                                  <h6 class="mt-2">Kati Frantz</h6>
-                                  <span class="font-wwight-bold">0 / 5</span>
-                                </div>
-                              </li>
-                              <li class="media player">
-                                  <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                                  <div class="media-body">
-                                    <h6 class="mt-2">Kati Frantz</h6>
-                                    <span class="font-wwight-bold">0 / 5</span>
-                                  </div>
-                                </li>
-                                <li class="media player">
-                                    <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                                    <div class="media-body">
-                                      <h6 class="mt-2">Kati Frantz</h6>
-                                      <span class="font-wwight-bold">0 / 5</span>
-                                    </div>
-                                  </li>
-                                  <li class="media player">
-                                      <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                                      <div class="media-body">
-                                        <h6 class="mt-2">Kati Frantz</h6>
-                                        <span class="font-wwight-bold">0 / 5</span>
-                                      </div>
-                                    </li>
-                                    <li class="media player">
-                                        <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                          <h6 class="mt-2">Kati Frantz</h6>
-                                          <span class="font-wwight-bold">0 / 5</span>
-                                        </div>
-                                      </li>
-                                      <li class="media player">
-                                          <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                                          <div class="media-body">
-                                            <h6 class="mt-2">Kati Frantz</h6>
-                                            <span class="font-wwight-bold">0 / 5</span>
-                                          </div>
-                                        </li>
-
-                                        <li class="media player">
-                                            <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                                            <div class="media-body">
-                                              <h6 class="mt-2">Kati Frantz</h6>
-                                              <span class="font-wwight-bold">0 / 5</span>
-                                            </div>
-                                          </li>
-                                          <li class="media player">
-                                              <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                                              <div class="media-body">
-                                                <h6 class="mt-2">Kati Frantz</h6>
-                                                <span class="font-wwight-bold">0 / 5</span>
-                                              </div>
-                                            </li>
-                                            <li class="media player">
-                                                <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                                                <div class="media-body">
-                                                  <h6 class="mt-2">Kati Frantz</h6>
-                                                  <span class="font-wwight-bold">0 / 5</span>
-                                                </div>
-                                              </li>
-                                              <li class="media player">
-                                                  <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                                                  <div class="media-body">
-                                                    <h6 class="mt-2">Kati Frantz</h6>
-                                                    <span class="font-wwight-bold">0 / 5</span>
-                                                  </div>
-                                                </li>
-                                                <li class="media player">
-                                                    <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                                                    <div class="media-body">
-                                                      <h6 class="mt-2">Kati Frantz</h6>
-                                                      <span class="font-wwight-bold">0 / 5</span>
-                                                    </div>
-                                                  </li>
-                                                  <li class="media player">
-                                                      <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                                                      <div class="media-body">
-                                                        <h6 class="mt-2">Kati Frantz</h6>
-                                                        <span class="font-wwight-bold">0 / 5</span>
-                                                      </div>
-                                                    </li>
-                                                    <li class="media player">
-                                                        <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                                                        <div class="media-body">
-                                                          <h6 class="mt-2">Kati Frantz</h6>
-                                                          <span class="font-wwight-bold">0 / 5</span>
-                                                        </div>
-                                                      </li>
-
-                    </ul>
-                </div>
-              </div>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Abandon Game</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Take Tour</a>
+                </li>
+              </ul>
             </div>
           </div>
-          <div class="small-device">
-            <h1 class="text-center mx-auto my-auto font-weight-bold" style="color: white;">
-              Please use a larger device to play game.
-            </h1>
-          </div>
-          <!--<div class="game-container">
-            <div class="row" style="height: 40%;"> 
-              <div class="col-md-3">
-                <div class="card hp-height" style="border-radius: 50%;">
-                  <h1 class="timer text-center mx-auto my-auto">09</h1>
-                  <small class="mx-auto my-auto">Time remaining</small>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="card hp-height no-radius">
+        </nav>
+      </header>
 
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card hp-height no-radius" style="padding: 10px; overflow-y: scroll;">
-                  <ul class="list-unstyled">
-                    <li class="media player">
-                      <img class="mr-3 rounded-circle" src="http://i.pravatar.cc/300" alt="Generic placeholder image">
-                      <div class="media-body">
-                        <h6 class="mt-2">Kati Frantz</h6>
-                        <span class="font-wwight-bold">0 / 5</span>
-                      </div>
-                    </li>
-                </div>
-              </div>
-            </div>
-            <div class="row" style="height: 60%; padding-top: 20px;">
-              <div class="col-md-9">
-                <div class="card hp-height no-radius">
+      <main>
+        <div class="game-overlay">
+        <div id="background-image">
+          <div class="game-content container">
+            <div class="row">
+              <div class="col-sm-12 col-md-9">
+                <div class="row">
+                  <div class="container col-sm-12 col-md-3 col-lg-3" style="margin-bottom: 20px;">
+                    <div class="timer text-center" style="background-color: white;" ng-bind="game.time">
                   
+                    </div>
+                  </div>
+                  <div class="container col-sm-12 col-md-9 col-lg-9">
+                    <div class="question-section" style="background-color: white; width: 100%; height: 100%;">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                    </div>
+                  </div>
+                </div>
+                <div class="container row" style="margin-top: 5vh;">
+                  <div class="col-md-9 offset-md-3 col-lg-9 offset-lg-3">
+                    <div class="row" style="margin-left: 4%;">
+                      <div class="col-xs-6 col-sm-6 cards-wrapper col-md-3 col-lg-3">
+                        <div class="cards">
+
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 cards-wrapper col-md-3 col-lg-3">
+                        <div class="cards">
+
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 cards-wrapper col-md-3 col-lg-3">
+                        <div class="cards">
+
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 cards-wrapper col-md-3 col-lg-3">
+                        <div class="cards">
+
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 cards-wrapper col-md-3 col-lg-3">
+                        <div class="cards">
+
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 cards-wrapper col-md-3 col-lg-3">
+                        <div class="cards">
+
+                        </div>
+                      </div>
+
+                      <div class="col-xs-6 col-sm-6 cards-wrapper col-md-3 col-lg-3">
+                        <div class="cards">
+
+                        </div>
+                      </div>
+
+                      <div class="col-xs-6 col-sm-6 cards-wrapper col-md-3 col-lg-3">
+                        <div class="cards">
+
+                        </div>
+                      </div>
+                      <div class="container col-sm-12 col-md-9 col-lg-9" style="height: 100%"  ng-show="false">
+                          <div class="awaiting-players" style="background-color: white; width: 100%; height: 100%;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                          </div>
+                        </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-3">
-                <div class="card hp-height no-radius"></div>
+              <div class="col-sm-12 col-md-3" style="width: 100%; height: 100%;">
+                  <ul class="list-group users-wrapper">
+                      <li class="list-group-item users"><img src="http://i.pravatar.cc/300" class="users-image mr-2">Dapibus ac facilisis in</li>
+                      <li class="list-group-item list-group-item-success users"><img src="http://i.pravatar.cc/300" class="users-image mr-2"> Dapibus ac facilisis in</li>
+                      <li class="list-group-item list-group-item-info users"><img src="http://i.pravatar.cc/300" class="users-image mr-2"> Cras sit amet nibh libero</li>
+                      <li class="list-group-item list-group-item-warning users"><img src="http://i.pravatar.cc/300" class="users-image mr-2"> Porta ac consectetur ac</li>
+                      <li class="list-group-item list-group-item-danger users"><img src="http://i.pravatar.cc/300" class="users-image mr-2"> Vestibulum at eros</li>
+                  </ul>
               </div>
             </div>
-          </div>-->
+          </div>
+          <div style="height: 25vh"></div>
         </div>
-      </div>
-    </main>
+        </div>
+      </main>
+    </div>
+  </body>
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -215,9 +136,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 <script>
-  var gameContainer = $('.game-container');
-  var smallDevice = $('.small-device');
-
   $(document).ready(() => {
     AOS.init({
       offset: 200,
@@ -228,27 +146,6 @@
 
     AOS.refresh()
   })
-
-  function hasSmallScreen() {
-    if (window.innerHeight <= 600 || window.innerWidth <= 800) {
-        return true;
-    }
-
-    return false;
-  }
-
-  function checkWidth () {
-    if(hasSmallScreen()) {
-      gameContainer.hide();
-      smallDevice.show();
-    } else {
-      gameContainer.show();
-      smallDevice.hide();
-    }
-  }
-
-  $(document).ready(checkWidth);
-  $(window).on('resize', checkWidth);
 </script>
 </div>
 </body>

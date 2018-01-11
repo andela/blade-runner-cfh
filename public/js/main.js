@@ -1,4 +1,3 @@
-
 $(window).scroll(() => {
   if ($(window).scrollTop() > 100) {
     $('.navbar').addClass('scrolled bg-blue');
@@ -6,3 +5,4 @@ $(window).scroll(() => {
     $('.navbar').removeClass('scrolled bg-blue');
   }
 });
+

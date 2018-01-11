@@ -5,8 +5,9 @@
     <title>CFH</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Bree+Serif|Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pt+Sans+Caption|Satisfy">
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet"
@@ -36,209 +37,211 @@
         </symbol>
         </defs>
         </svg>
-    <header class="header">
-      <nav class="navbar navbar-dark fixed-top navbar-expand-sm">
+      <header class="header">
+        <nav class="navbar navbar-dark fixed-top navbar-expand-sm">
+          <div class="container">
+            <span class="navbar-brand mb-0 h1">Cards For Humanity</span>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbar-links">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#" id="home-link"
+                  ng-click="animateHomeLink"
+                  >Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">How To Play</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Charity</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#!/signup">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#!/signin">Sign In</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main>
+
+        <div id="background-image">
+          <div class="overlay">
+            <div class="overlay_content">
+              <div>
+                <div class="container">
+                  <h1 class="text-center hero-title animated fadeInDown">Cards For Humanity</h1>
+                  <h5 class="text-center hero-text animated fadeInLeft">A game for horrible people desperately trying to do good</h5>
+                    </div>
+              </div>
+                
+                <div class="row d-flex justify-content-between px-4">
+                  <div class="col-md-6 mr-auto"> <a href="/#!/signup" class="btn btn-sm animated-button victoria-one hvr-sweep-to-left">Sign up</a> </div>
+                  <div class="col-md-6"> <a href="/play" class="btn btn-sm animated-button victoria-two hvr-sweep-to-right">Play As Guest</a> </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-section" id="home">
+          <div class="container">
+            <div class="px-4">
+                <h1 class="text-center headers text-white">What is Cards For Humanity?</h1>
+                <p class="info-text">Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.</p>
+                <p class="info-text"><span class="text-danger">Warning!</span> This game contains offensive, profane, explicit content created by Cards Against Humanity and provided here, uncensored and complete, in digital form. Human Resources made us say that.</p>    
+            </div>
+          </div>
+        </div>
+
+        <div class="how-to-play" id="how-to-play">
+          <div class="container">
+            <div class="row">
+              <div class="align-self-center">
+          <div class="text-center headers" data-aos="fade-up" id="how-to-play_header"><h1>HOW TO PLAY</h1></div>
+          <div class="container card-container mt-5">
+            <div class="row">
+              
+              <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
+                  <div class="mx-auto"><svg class="icon icon-flag"><use xlink:href="#icon-flag"></use></svg></div>
+                  <div class="mt-4 px-4"><p data-aos="fade-up">Each player begins with, and will always have, 10 white answer cards</p></div>
+              </div>
+
+              <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
+                <div><svg class="icon icon-spades"><use xlink:href="#icon-spades"></use></svg></div>
+                <div class="mt-4 px-4"><p data-aos="fade-up">For each round, one player is randomly chosen as the Card Czar</p></div>
+              </div>
+
+              <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
+                <div><svg class="icon icon-clubs"><use xlink:href="#icon-clubs"></use></svg></div>
+                <div class="mt-4 px-4"><p data-aos="fade-up">Everyone else answers the black question card by clicking on the answer card they want to use</p></div>
+              </div>
+
+              <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
+                <div><svg class="icon icon-trophy"><use xlink:href="#icon-trophy"></use></svg></div>
+                  <div class="mt-4 px-4"><p data-aos="fade-up">The Card Czar then picks a favorite answer, and whoever played that answer wins the round</p></div>
+                </div>
+      
+            </div>
+          </div>
+          </div>
+          </div>
+          </div>
+        </div>
+
+        <div class="charity-section" id="charity">
         <div class="container">
-          <span class="navbar-brand mb-0 h1">Cards For Humanity</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          <div class="collapse navbar-collapse" id="navbar-links">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#" id="home-link"
-                 ng-click="animateHomeLink"
-                >Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">How To Play</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Charity</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#!/signup">Sign Up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#!/signin">Sign In</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-  <main>
-
-    <div id="background-image">
-      <div class="overlay">
-        <div class="overlay_content">
-          <div>
-            <div class="container">
-              <h1 class="text-center hero-title animated fadeInDown">Cards For Humanity</h1>
-              <h5 class="text-center hero-text animated fadeInLeft">A game for horrible people desperately trying to do good</h5>
+          <div class="charity-main px-4">
+          <h1 class="text-center headers text-white">
+            CHARITY
+          </h1>
+          <div class="charity_content">
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6" data-aos="fade-right">
+                  <iframe width="100%" height="320" src="https://www.youtube.com/embed/6--fxBe1Ecg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+      
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6 charity-text">
+                <div>
+                    "If you don't give back, no one will like you™" - crowdrise.com
+                    We're quite sure you feel the same way, so we've integrated donation widgets 
+                    (via crowdrise.com), along with some not-so-subtle reminders throughout the game to 
+                    give you the opportunity to donate. If you're signed in when you donate, we'll even 
+                    upgrade your account and place a crown on your avatar's head (to remind other players 
+                    how much better you are than them).
+                    All donations go to the Make-a-Wish Foundation and benefit children in need.                         
                 </div>
-          </div>
-            
-            <div class="row d-flex justify-content-between px-4">
-              <div class="col-md-6 mr-auto"> <a href="/#!/signup" class="btn btn-sm animated-button victoria-one hvr-sweep-to-left">Sign up</a> </div>
-              <div class="col-md-6"> <a href="/play" class="btn btn-sm animated-button victoria-two hvr-sweep-to-right">Play As Guest</a> </div>
-            </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="info-section" id="home">
-      <div class="container">
-        <div class="px-4">
-            <h1 class="text-center headers text-white">What is Cards For Humanity?</h1>
-            <p class="info-text">Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.</p>
-            <p class="info-text"><span class="text-danger">Warning!</span> This game contains offensive, profane, explicit content created by Cards Against Humanity and provided here, uncensored and complete, in digital form. Human Resources made us say that.</p>    
-        </div>
-      </div>
-    </div>
-
-    <div class="how-to-play" id="how-to-play">
-      <div class="container">
-        <div class="row">
-          <div class="align-self-center">
-      <div class="text-center headers" data-aos="fade-up" id="how-to-play_header"><h1>HOW TO PLAY</h1></div>
-      <div class="container card-container mt-5">
-        <div class="row">
-          
-          <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
-              <div class="mx-auto"><svg class="icon icon-flag"><use xlink:href="#icon-flag"></use></svg></div>
-              <div class="mt-4 px-4"><p data-aos="fade-up">Each player begins with, and will always have, 10 white answer cards</p></div>
-          </div>
-
-          <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
-            <div><svg class="icon icon-spades"><use xlink:href="#icon-spades"></use></svg></div>
-            <div class="mt-4 px-4"><p data-aos="fade-up">For each round, one player is randomly chosen as the Card Czar</p></div>
-          </div>
-
-          <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
-            <div><svg class="icon icon-clubs"><use xlink:href="#icon-clubs"></use></svg></div>
-            <div class="mt-4 px-4"><p data-aos="fade-up">Everyone else answers the black question card by clicking on the answer card they want to use</p></div>
-          </div>
-
-          <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
-            <div><svg class="icon icon-trophy"><use xlink:href="#icon-trophy"></use></svg></div>
-              <div class="mt-4 px-4"><p data-aos="fade-up">The Card Czar then picks a favorite answer, and whoever played that answer wins the round</p></div>
-            </div>
-  
-        </div>
-      </div>
-      </div>
-      </div>
-      </div>
-    </div>
-
-    <div class="charity-section" id="charity">
-    <div class="container">
-      <div class="charity-main px-4">
-      <h1 class="text-center headers text-white">
-        CHARITY
-      </h1>
-      <div class="charity_content">
-        <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-6" data-aos="fade-right">
-              <iframe width="100%" height="320" src="https://www.youtube.com/embed/6--fxBe1Ecg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-  
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-6 charity-text">
-            <div>
-                "If you don't give back, no one will like you™" - crowdrise.com
-                We're quite sure you feel the same way, so we've integrated donation widgets 
-                (via crowdrise.com), along with some not-so-subtle reminders throughout the game to 
-                give you the opportunity to donate. If you're signed in when you donate, we'll even 
-                upgrade your account and place a crown on your avatar's head (to remind other players 
-                how much better you are than them).
-                All donations go to the Make-a-Wish Foundation and benefit children in need.                         
-            </div>
-            <br>
-            <button class="btn btn-block">Donate Now</button>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-    </div>
-
-    <div class="team-section" id="about-us">
-      <div class="container">
-        <h1 class="text-center headers">THE TEAM</h1>
-          <div class="row team_container text-center">
-
-            <div class="col-sm-12 col-md-1"></div>
-
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-right"> 
-              <div class="member-content-wrapper">
-                <div class="member-content">
-                <img class="team_image" src="../img/seunagbeye-headshot.jpg">
-                <p class="text-center team_names">Seun Agbeye</p>
-                </div>
+                <br>
+                <button class="btn btn-block">Donate Now</button>
               </div>
             </div>
-  
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-right">
-                <div class="member-content-wrapper">
-                  <div class="member-content">
-                    <img class="team_image" src="../img/kati.jpg">
-                    <div class="text-center team_names">Kati Frantz</div>
-                  </div>
-                </div>
-            </div>
-  
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-up"> 
-                <div class="member-content-wrapper">
-                  <div class="member-content">
-                    <img class="team_image" src="../img/nkoyo.jpg">
-                    <div class="text-center team_names">Nkoyo Ating</div>
-                  </div>
-                </div>
-            </div>
-            
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-left"> 
-                <div class="member-content-wrapper">
-                  <div class="member-content">
-                    <img class="team_image" src="../img/kenny.jpg">
-                    <div class="text-center team_names">Kehinde Sanni</div>
-                  </div>
-                </div>
-            </div>
-  
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-left"> 
-                <div class="member-content-wrapper justify-content-center">
-                  <div class="member-content">
-                    <img class="team_image" src="../img/gbenga.jpg">
-                    <div class="text-center team_names">Gbenga Oshinaga</div>
-                  </div>
-                </div>
-            </div>
+          </div>
+          </div>
+        </div>
+        </div>
 
-            <div class="col-sm-12 col-md-1"></div>
+        <div class="team-section" id="about-us">
+          <div class="container">
+            <h1 class="text-center headers">THE TEAM</h1>
+              <div class="row team_container text-center">
+
+                <div class="col-sm-12 col-md-1"></div>
+
+                <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-right"> 
+                  <div class="member-content-wrapper">
+                    <div class="member-content">
+                    <img class="team_image" src="../img/seunagbeye-headshot.jpg">
+                    <p class="text-center team_names">Seun Agbeye</p>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-right">
+                    <div class="member-content-wrapper">
+                      <div class="member-content">
+                        <img class="team_image" src="../img/kati.jpg">
+                        <div class="text-center team_names">Kati Frantz</div>
+                      </div>
+                    </div>
+                </div>
+      
+                <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-up"> 
+                    <div class="member-content-wrapper">
+                      <div class="member-content">
+                        <img class="team_image" src="../img/nkoyo.jpg">
+                        <div class="text-center team_names">Nkoyo Ating</div>
+                      </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-left"> 
+                    <div class="member-content-wrapper">
+                      <div class="member-content">
+                        <img class="team_image" src="../img/kenny.jpg">
+                        <div class="text-center team_names">Kehinde Sanni</div>
+                      </div>
+                    </div>
+                </div>
+      
+                <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-left"> 
+                    <div class="member-content-wrapper justify-content-center">
+                      <div class="member-content">
+                        <img class="team_image" src="../img/gbenga.jpg">
+                        <div class="text-center team_names">Gbenga Oshinaga</div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-1"></div>
+              </div>
+              </div>
           </div>
-          </div>
-      </div>
-  </main>
-  <footer>
-    <div class="container">
-      <p class="text-white">Legal stuff: This game is based on the
-         <a href="http://cardsagainsthumanity.com" class="text-white">Cards Against Humanity</a> card game, 
-        which is CC licensed (BY-NC-SA). Cards for Humanity is not affiliated with Cards Against Humanity. 
-        In complying with the Creative Commons license of the Cards Against Humanity card game, all proceeds 
-        from donations go directly to charity</p>
+      </main>
+      <footer>
+        <div class="container">
+          <p class="text-white">Legal stuff: This game is based on the
+            <a href="http://cardsagainsthumanity.com" class="text-white">Cards Against Humanity</a> card game, 
+            which is CC licensed (BY-NC-SA). Cards for Humanity is not affiliated with Cards Against Humanity. 
+            In complying with the Creative Commons license of the Cards Against Humanity card game, all proceeds 
+            from donations go directly to charity</p>
+        </div>
+      </footer>
     </div>
-  </footer>
+  </body>
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<script src="../js/main.js"></script>
 <script>
   $(document).ready(() => {
     AOS.init({

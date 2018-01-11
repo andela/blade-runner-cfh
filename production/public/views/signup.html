@@ -1,0 +1,97 @@
+<div id="main-bod" ng-controller="IndexController">
+  <!-- Fixed Logo & Menu Bar Start -->
+  <div id="top-part">
+    <div class="wpb-top-bar">
+      <div class="mod-contain" id="navver">
+        <div class="row">
+          <!-- Logo -->
+          <div class="wpb-logo-container">
+            <div id="landing-logo"> 
+              <span id="first-word">Cards</span>
+              <span id="second-word"> for</span> 
+              <span id="third-word">Humanity</span> 
+            </div> 
+            <div class="col-md-9 wpb-menu-container">
+              <ul class="wpb-main-menu">
+                <li><a href="/">Home</a></li>
+              </ul>
+            </div>
+          </div>      
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Fixed Logo & Menu Bar End -->
+
+<!-- Landing Start -->
+<div class="wpb-teaser parallax-background" id="homer">
+  <div class="background-opacity"></div> 
+  <div class="modified-container">
+    <div class="row" id="main-text"> 
+    <!-- Teaser Text Start -->
+    <div id="landing-logo">
+      <h2 id="slogan">Sign Up with:</h2>
+      <div id="login-buttons">
+        <a href="/auth/facebook"><img class="login-item" src="/img/icons/facebook.png"></a>
+        <a href="/auth/github"><img class="login-item" src="/img/icons/github.png"></a>
+        <a href="/auth/twitter"><img class="login-item" src="/img/icons/twitter.png"></a>
+        <a href="/auth/google"><img class="login-item" src="/img/icons/google.png"></a>
+      </div>
+      <p id="create">Or create a username/password and select an avatar:</p>
+      <div class="error-messages" ng-show="hasError('name')">
+        {{ serverErrors.name }}
+      </div>
+      <div class="error-messages" ng-show="hasError('username')">
+        {{ serverErrors.username }}
+      </div>
+      <div class="error-messages" ng-show="hasError('email')">
+        {{ serverErrors.email }}
+      </div>
+      <div class="error-messages" ng-show="hasError('password')">
+        {{ serverErrors.password }}
+      </div>
+      <div class="error-messages" ng-show="hasError('avatar')">
+        {{ serverErrors.avatar }}
+      </div>
+
+      <div class="sign-body">
+        <div class="more-sign">
+          <form class="signup form-horizontal" ng-submit="signUp()">
+            <div class="control-group">
+              <label for="name" class="control-label"></label>
+              <div class="controls">
+                <input class="input-info" id="name" type="text" name="name" placeholder="Full name" ng-model=data.name required novalidate />
+              </div>
+            </div>
+            <div class="control-group">
+              <label for="username" class="control-label"></label>
+              <div class="controls">
+                <input class="input-info" id="username" type="text" name="username" placeholder="Username" ng-model=data.username required novalidate />
+              </div>
+            </div>
+            <div class="control-group">
+              <label for="email" class="control-label"></label>
+              <div class="controls">
+                <input class="input-info" id="email" type="email" name="email" placeholder="Email" ng-model=data.email required novalidate />
+              </div>
+            </div>
+            <div class="control-group">
+              <label for="password" class="control-label"></label>
+              <div class="controls">
+                <input class="input-info" id="password" type="password" name="password" placeholder="Password" ng-model=data.password required novalidate />
+              </div>
+            </div>
+            <div class="form-actions">
+              <button id="sign-up-btn-other" type='submit'>Sign Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+

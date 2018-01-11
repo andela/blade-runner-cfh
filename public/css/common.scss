@@ -1,4 +1,3 @@
-
 $base-color: #E35F53;
 $base-color-compliment: lighten(#1B1B1B, 0%);
 
@@ -7,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: Open Sans;
+  font-family: Pt Sans Caption;
 }
 
 .body-wrapper{
@@ -182,14 +181,14 @@ a.animated-button.victoria-two {
 }
 
 .headers {
-  font-family: Montserrat;
+  font-family: Satisfy;
   margin-bottom: 40px;
   padding-top: 5vh;
   color: $base-color;
 }
 
 .hero-title {
-    font-family: Bree Serif;
+    font-family: Satisfy;
     font-size: 4rem;
 }
 
@@ -211,16 +210,6 @@ a.animated-button.victoria-two {
 .scrolled.navbar {
   min-height: 40px; 
   transition: 0.5s ease;
-}
-
-#background-image{
-  background-image: url('../img/main.jpg');
-  background-attachment: fixed;
-  height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100vw;
-  position: relative;
 }
 
 .overlay {
@@ -281,6 +270,19 @@ a.animated-button.victoria-two {
   .charity-text {
       margin-top: 25px;
   }
+
+  .timer{
+    border-radius: 50%;
+    margin-left:20%; 
+  }
+
+  .cards-wrapper{
+    width: 50%;
+  }
+
+  .users-wrapper{
+    margin-top: 1.5rem; 
+  }
 }
 
 .team-section {
@@ -339,37 +341,10 @@ a.animated-button.victoria-two {
   fill: currentColor;
 }
 
+
 footer {
     margin-top: 50px;
     margin-bottom: 0px;
     padding: 1.5rem;
     @extend .bg-blue
-}
-.no-radius {
-  border-radius: 0px !important;
-}
-
-.game-container {
-  padding: 30px;
-  height: 100vh;
-}
-.timer {
-  font-size: 170px;
-}
-.fp-height {
-  height: 50%;
-}
-forty-p-height{
-  height: 40%;
-}
-
-.hp-height {
-  height: 100%;
-}
-.player img {
-  height: 60px;
-  width: 60px;
-}
-.player {
-  padding: 6px;
 }
