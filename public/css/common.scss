@@ -202,6 +202,51 @@ a.animated-button.victoria-two {
     padding: 2rem;
 }
 
+.app-login-form {
+  max-width: 380px;
+  margin-top: -25px;
+}
+
+.card-login {
+  background-color: #fff;
+  padding: 30px;
+}
+
+.m-x-auto {
+  margin-right: auto!important;
+  margin-left: auto!important;
+}
+
+.circular-button {
+width: 50px;
+height: 50px;
+padding: 6px 0px;
+margin: 6px 4px;
+border-radius: 60px;
+font-size: 14px;
+}
+
+.logo-img {
+width: 100px;
+}
+.avatar-img {
+width: 55px;
+}
+
+.error-messages {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+};
+
+.background-image {
+  background-image: url("../img/main.jpg");
+  background-attachment: fixed;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  position: relative; }
 .navbar {
   min-height: 80px;
   width: 100%;

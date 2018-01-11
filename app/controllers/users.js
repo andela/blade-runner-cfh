@@ -84,8 +84,7 @@ exports.checkAvatar = function(req, res) {
 exports.create = function (req, res) {
   const user = new User(req.body);
   user.provider = 'local';
-
-  user.avatar = avatars[req.body.avatar];
+  user.avatar = avatars[Math.floor(Math.random() * 12) + 1];
 
   user.save().then(user => {
     const token = jwt.sign({ id: user._id }, secret, {
@@ -98,6 +97,22 @@ exports.create = function (req, res) {
     }); 
   }).catch(error => res.status(400).send(error))
 };
+
+exports.signIn = function (req, res) {
+  return User.findOne({
+    user: req.body.user
+  }).then((user) => {
+    if (user) {
+      const token = jwt.sign({ id: user._id }, secret, {
+        expiresIn: '3h',
+      });
+      return res.status(200).send({
+        message: 'Signin successful',
+        token
+      });
+    }
+  });
+}
 
 /**
  * Assign avatar to user

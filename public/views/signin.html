@@ -1,71 +1,88 @@
-<div id="main-bod" ng-controller="IndexController">
-  <!-- Fixed Logo & Menu Bar Start -->
-  <div id="top-part">
-    <div class="wpb-top-bar">
-      <div class="mod-contain" id="navver">
-        <div class="row">
-          <!-- Logo -->
-          <div class="wpb-logo-container">
-            <div id="landing-logo"> 
-              <span id="first-word">Cards</span>
-              <span id="second-word"> for</span> 
-              <span id="third-word">Humanity</span> 
-            </div> 
-            <div class="col-md-9 wpb-menu-container">
-              <ul class="wpb-main-menu">
-                <li><a href="/">Home</a></li>
-              </ul>
-            </div>
-          </div>      
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- Fixed Logo & Menu Bar End -->
-
-<!-- Landing Start -->
-<div class="wpb-teaser parallax-background" id="homer">
-  <div class="background-opacity"></div> 
-  <div class="modified-container">
-    <div class="row" id="main-text"> 
-    <!-- Teaser Text Start -->
-    <div id="landing-logo">
-      <h2 id="slogan">Sign in with:</h2>
-      <div id="login-buttons">
-        <a href="/auth/facebook"><img class="login-item" src="/img/icons/facebook.png"></a>
-        <a href="/auth/github"><img class="login-item" src="/img/icons/github.png"></a>
-        <a href="/auth/twitter"><img class="login-item" src="/img/icons/twitter.png"></a>
-        <a href="/auth/google"><img class="login-item" src="/img/icons/google.png"></a>
-      </div>
-      <p id="create">Or log in below:</p>
-
-      <div class="sign-body">
-        <div class="more-sign">
-          <div class="sign-error" ng-show="showError() === 'invalid'">
-            Please check your username/password and try again.
-          </div>
-          <form class="signup form-horizontal" action="/users/session" method="post">
-            <div class="control-group">
-              <label for="email" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="email" type="text" name="email" placeholder="Email" required novalidate />
+<!doctype html>
+<html lang="en">
+<head>
+<title>CFH</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+<div id="background-image">
+    <div id="main-bod" ng-controller="IndexController" class="container">
+        <div class="pt-5">
+          <form class="mx-auto app-login-form card-login" ng-submit="signIn()">
+            <section class="text-center">
+              <img class="img-fluid rounded-circle logo-img" src="img/image.png" alt="">
+            </section>
+            <div class="error-messages fa fa-exclamation-triangle" ng-show="errorExist()">
+                {{ serverErrors.message }}
               </div>
+            <section class="pt-4 input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </span>
+              <input class="form-control" type="email" placeholder="Email" ng-model="data.email">
+            </section>
+            <section class="pt-4 pb-3 input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+              </span>
+              <input class="form-control" type="password" placeholder="Password" ng-model="data.password">
+            </section>
+            <div class="pt-2">
+              <button style="border-radius: 55px 55px 55px 55px;" class="btn btn-block text-capitalize">
+                sign in
+              </button>
             </div>
-            <div class="control-group">
-              <label for="password" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="password" type="password" name="password" placeholder="Password" required novalidate />
+            <div>
+              <div>
+                <p class="pt-5 text-center">
+                  Or Sign In using
+                </p>
               </div>
-            </div>
-            <div class="form-actions top-margin">
-              <button id="sign-up-btn-other" type='submit'>Sign In</button>
+              <div>
+                <div class="d-flex justify-content-center">
+                  <div>
+                    <button style="background: #3F5795" class="btn circular-button">
+                      <span>
+                        <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div>
+                    <button style="background-color: #49A0EC" class="btn circular-button">
+                      <span>
+                        <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div>
+                    <button style="background-color: #D9503F" class="btn btn-default circular-button btn-lg">
+                      <i class="fa fa-google fa-2x" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-center">
+                    Don't have an account? <a href="#!/signup">
+                      Sign up
+                    </a>
+                  </p>
+                </div>
+              </div>
             </div>
           </form>
         </div>
       </div>
-    </div>
-    </div>
-    </div>
-  </div>
 </div>
-
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>

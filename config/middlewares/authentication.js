@@ -83,12 +83,6 @@ exports.validateInput = function (req, res, next) {
         options: [{ min: 6 }],
         errorMessage: 'Please input a valid user with atleast 6 characters'
       }
-    },
-    avatar: {
-      notEmpty: {
-        options: true,
-        errorMessage: 'Avatar must be selected.'
-      }
     }
   });
   const errors = req.validationErrors();
@@ -104,6 +98,35 @@ exports.validateInput = function (req, res, next) {
   }
   next();
 };
+
+exports.validateUserSignin = function (req, res, next) {
+  if (!req.body.email) {
+    return res.status(400).send({
+        message: 'email field cannot be empty'
+    });
+  }
+  if (!req.body.password) {
+    return res.status(400).send({
+        message: 'Password field cannot be empty'
+    });
+  }
+  return User.findOne({
+    email: req.body.email
+  }).then((user) => {
+    if (!user) {
+      return res.status(400).send({
+          message: 'Incorrect Login details'
+      });
+    }
+    if (bcrypt.compareSync(req.body.password, user.hashed_password)) {
+      next();
+    } else {
+      res.status(400).send({
+          message: 'Incorrect Login details'
+      });
+    }
+  });
+}
 
 /**
 * @description check if email already exist

@@ -12,6 +12,7 @@ module.exports = function(app, passport, auth) {
 
     //Setting up the users api
     app.post('/api/users', authenticate.validateInput, authenticate.checkEmail, authenticate.checkUsername, users.create);
+    app.post('/api/users/signin', authenticate.validateUserSignin, users.signIn);    
     app.post('/users/avatars', users.avatars);
 
     // Donation Routes
