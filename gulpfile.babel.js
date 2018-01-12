@@ -6,17 +6,32 @@ import bower from 'gulp-bower';
 import eslint from 'gulp-eslint';
 import nodemon from 'gulp-nodemon';
 import browserSync from 'browser-sync';
+import livereload from 'gulp-livereload';
 
 gulp.task('bower', () => {
   bower().pipe(gulp.dest('./bower_components'));
 });
+
+gulp.task('reload-html', () => {
+  setTimeout(() => {
+    gulp.src(['public/views/**']).pipe(livereload());
+  }, 1000);
+});
+
+gulp.task('reload-css', () => {
+  setTimeout(() => {
+    gulp.src(['./public/css']).pipe(livereload());
+  }, 1000);
+});
+
 
 gulp.task('watch', () => {
   gulp.watch('app/views/**', browserSync.reload());
   gulp.watch('public/js/**', browserSync.reload());
   gulp.watch('app/**/*.js', browserSync.reload());
   gulp.watch('public/views/**', browserSync.reload());
-  gulp.watch('public/css/**', browserSync.reload());
+  gulp.watch('public/**/*.html', ['reload-html', 'rebuild']);
+  gulp.watch('public/**/*.css', ['reload-css', 'rebuild']);
 });
 
 gulp.task('eslint', () => {
@@ -31,14 +46,15 @@ gulp.task('eslint', () => {
 
 gulp.task('nodemon', () => {
   nodemon({
-    script: 'server.js', // run ES5 code
+    script: './production/server.js', // run ES5 code
     ext: 'js html jade json scss css',
     ignore: ['README.md', 'node_modules/**', '.DS_Store'],
     watch: ['app', 'config', 'public', 'server.js'], // watch ES2015 code
     env: {
       PORT: 3000,
       NODE_ENV: 'development'
-    }
+    },
+    task: ['rebuild']
   });
 });
 
@@ -111,5 +127,6 @@ gulp.task('move-files', ['move-json', 'move-jade', 'move-test-json', 'move-publi
 
 gulp.task('build', ['transfer-bower', 'move-files', 'babel']);
 
-gulp.task('default', ['nodemon', 'watch']);
+gulp.task('rebuild', ['babel', 'move-json', 'move-jade', 'move-test-json', 'move-public']);
 
+gulp.task('default', ['nodemon', 'watch']);

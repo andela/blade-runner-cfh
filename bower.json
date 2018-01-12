@@ -6,7 +6,8 @@
     "angular-bootstrap": "~0.4.0",
     "angular-ui-utils": "0.0.4",
     "underscore": "~1.5.2",
-    "aos": "^2.2.0"
+    "aos": "^2.2.0",
+    "intro.js": "^2.7.0"
   },
   "exportsOverride": {
     "bootstrap": {
