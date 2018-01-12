@@ -62,7 +62,7 @@ describe("Game Server",function(){
     });
   });
 
-  it('Should start game when startGame event is sent with 3 players', function(done){
+  it.only('Should start game when startGame event is sent with 3 players', function(done){
     var client1, client2, client3;
     client1 = io.connect(socketURL, options);
     var disconnect = function() {

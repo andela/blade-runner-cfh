@@ -84,6 +84,11 @@ gulp.task('move-json', () => {
     .pipe(gulp.dest('./production/config/env'));
 });
 
+gulp.task('move-test-json', () => {
+  gulp.src('test/*json')
+    .pipe(gulp.dest('./production/test'));
+});
+
 gulp.task('move-public', () => {
   gulp.src(['public/**/*', '!public/js/**'])
     .pipe(gulp.dest('./production/public'));
@@ -102,7 +107,7 @@ gulp.task('babel', () =>
 
 gulp.task('install', ['bower']);
 
-gulp.task('move-files', ['move-json', 'move-jade', 'move-public']);
+gulp.task('move-files', ['move-json', 'move-jade', 'move-test-json', 'move-public']);
 
 gulp.task('build', ['transfer-bower', 'move-files', 'babel']);
 

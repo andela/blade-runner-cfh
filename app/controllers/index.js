@@ -8,7 +8,7 @@
  * @param {obg} res express response object
  * @returns {redirect} redirect user
  */
-exports.play = (req, res) => {
+export const play = (req, res) => {
   if (Object.keys(req.query)[0] === 'custom') {
     res.redirect('/#!/app?custom');
   } else {
@@ -16,7 +16,7 @@ exports.play = (req, res) => {
   }
 };
 
-exports.render = (req, res) => {
+export const render = (req, res) => {
   res.render('index', {
     user: req.user ? JSON.stringify(req.user) : 'null'
   });
