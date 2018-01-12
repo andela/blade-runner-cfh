@@ -1,10 +1,15 @@
 /**
  * Module dependencies.
  */
-const { isEmail } = require('validator');
-const mongoose = require('mongoose'),
-  User = mongoose.model('User');
-const avatars = require('./avatars').all();
+
+import mongoose from 'mongoose';
+import jwt from 'jsonwebtoken';
+import isEmail from 'validator/lib/isEmail';
+import { all } from './avatars';
+
+const secret = process.env.JWT_SECRET;
+const User = mongoose.model('User');
+const avatars = all();
 
 /**
  * Auth callback
@@ -80,21 +85,22 @@ exports.checkAvatar = function(req, res) {
  * @param {object} res
  * @returns {*} return
  */
-exports.create = function (req, res) {
+exports.create = (req, res) => {
   const user = new User(req.body);
   user.provider = 'local';
 
   user.avatar = avatars[Math.floor(Math.random() * 12) + 1];
 
-  user.save().then(user => {
-    const token = jwt.sign({ id: user._id }, secret, {
+  user.save().then((newUser) => {
+    // eslint-disable-next-line no-underscore-dangle
+    const token = jwt.sign({ id: newUser._id }, secret, {
       expiresIn: '3h',
     });
     return res.status(201).send({
       message: 'User created',
-      data: user,
+      data: newUser,
       token
-    }); 
+    });
   }).catch(error => res.status(400).send(error));
 };
 
@@ -185,7 +191,7 @@ exports.search = (req, res) => {
 
   const queryObject = {};
   // check if there is a query at all .
-  if (!user || (user && typeof parseInt(user, 10) === 'number')) {
+  if (!user) {
     return res.status(422).json({
       message: 'No user search query provided.'
     });

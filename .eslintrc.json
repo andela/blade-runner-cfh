@@ -37,6 +37,7 @@
       "requireParamDescription": false,
       "requireReturnDescription": true
     }],
+    "import/extensions": 0,
     "require-jsdoc": ["error", {
         "require": {
             "FunctionDeclaration": true,

@@ -13,7 +13,7 @@ const secret = process.env.JWT_SECRET;
 * @param {*} next
 * @return {*} return
 */
-exports.verifyUser = function (req, res, next) {
+exports.verifyUser = (req, res, next) => {
   const token = req.headers['x-access-token'] || req.headers.token;
   if (!token) {
     return res.status(403).send({
@@ -39,7 +39,7 @@ exports.verifyUser = function (req, res, next) {
 * @param {*} next
 * @return {object} validated response
 */
-exports.validateInput = function (req, res, next) {
+exports.validateInput = (req, res, next) => {
   req.checkBody({
     name: {
       notEmpty: {
@@ -106,8 +106,8 @@ exports.validateInput = function (req, res, next) {
 * @param {*} next
 * @return {object} error message
 */
-exports.checkEmail = function (req, res, next) {
-  return User.findOne({
+exports.checkEmail = (req, res, next) => (
+  User.findOne({
     email: req.body.email
   }).then((email) => {
     if (email) {
@@ -119,8 +119,8 @@ exports.checkEmail = function (req, res, next) {
       });
     }
     next();
-  }).catch(error => res.status(400).send(error));
-};
+  }).catch(error => res.status(400).send(error))
+);
 
 /**
 * @description check if username already exist
@@ -129,8 +129,8 @@ exports.checkEmail = function (req, res, next) {
 * @param {*} next
 * @return {object} error message
 */
-exports.checkUsername = function (req, res, next) {
-  return User.findOne({
+exports.checkUsername = (req, res, next) => (
+  User.findOne({
     username: req.body.username
   }).then((users) => {
     if (users) {
@@ -142,5 +142,5 @@ exports.checkUsername = function (req, res, next) {
       });
     }
     next();
-  });
-};
+  })
+);
