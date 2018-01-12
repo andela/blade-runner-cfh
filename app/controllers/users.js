@@ -1,12 +1,15 @@
 /**
  * Module dependencies.
  */
-const { isEmail } = require('validator');
-const mongoose = require('mongoose'),
-  jwt = require('jsonwebtoken'),
-  secret = process.env.JWT_SECRET,
-  User = mongoose.model('User');
-const avatars = require('./avatars').all();
+
+import mongoose from 'mongoose';
+import jwt from 'jsonwebtoken';
+import isEmail from 'validator/lib/isEmail';
+import avatars from './avatars';
+
+const secret = process.env.JWT_SECRET;
+const User = mongoose.model('User');
+const allAvatars = avatars.all();
 
 /**
  * Auth callback
@@ -86,7 +89,7 @@ exports.create = (req, res) => {
   const user = new User(req.body);
   user.provider = 'local';
 
-  user.avatar = avatars[Math.floor(Math.random() * 12) + 1];
+  user.avatar = allAvatars[Math.floor(Math.random() * 12) + 1];
 
   user.save().then((newUser) => {
     // eslint-disable-next-line no-underscore-dangle
@@ -107,12 +110,12 @@ exports.create = (req, res) => {
 exports.avatars = function(req, res) {
   // Update the current user's profile to include the avatar choice they've made
   if (req.user && req.user._id && req.body.avatar !== undefined &&
-    /\d/.test(req.body.avatar) && avatars[req.body.avatar]) {
+    /\d/.test(req.body.avatar) && allAvatars[req.body.avatar]) {
     User.findOne({
       _id: req.user._id
     })
     .exec(function(err, user) {
-      user.avatar = avatars[req.body.avatar];
+      user.avatar = allAvatars[req.body.avatar];
       user.save();
     });
   }

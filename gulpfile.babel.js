@@ -73,7 +73,8 @@ gulp.task('test', () => {
   gulp.src('./test/**/*.js')
     .pipe(mocha({
       reporter: 'spec',
-      exit: true
+      exit: true,
+      compilers: 'babel-core/register'
     }))
     .pipe(exit());
 });
@@ -81,6 +82,11 @@ gulp.task('test', () => {
 gulp.task('move-json', () => {
   gulp.src('config/env/*.json')
     .pipe(gulp.dest('./production/config/env'));
+});
+
+gulp.task('move-test-json', () => {
+  gulp.src('test/*json')
+    .pipe(gulp.dest('./production/test'));
 });
 
 gulp.task('move-public', () => {
@@ -101,7 +107,7 @@ gulp.task('babel', () =>
 
 gulp.task('install', ['bower']);
 
-gulp.task('move-files', ['move-json', 'move-jade', 'move-public']);
+gulp.task('move-files', ['move-json', 'move-jade', 'move-test-json', 'move-public']);
 
 gulp.task('build', ['transfer-bower', 'move-files', 'babel']);
 
