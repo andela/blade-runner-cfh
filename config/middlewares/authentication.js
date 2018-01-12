@@ -40,6 +40,7 @@ exports.verifyUser = function (req, res, next) {
 * @return {object} validated response
 */
 exports.validateInput = function (req, res, next) {
+  const name = req.sanitize('name').trim();
   req.checkBody({
     name: {
       notEmpty: {
@@ -49,10 +50,6 @@ exports.validateInput = function (req, res, next) {
       isLength: {
         options: [{ min: 3 }],
         errorMessage: 'Name should be atleast three characters'
-      },
-      matches: {
-        options: [(/^[A-Za-z][^ ]+( [^]+)*$/g)],
-        errorMessage: 'Invalid name, ensure you name contain only alphabets'
       }
     },
     email: {

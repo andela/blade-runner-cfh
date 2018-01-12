@@ -217,6 +217,21 @@ a.animated-button.victoria-two {
   margin-left: auto!important;
 }
 
+.pt-8 {
+  padding-top: 80px;
+}
+
+.static-footer {
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
 .circular-button {
 width: 50px;
 height: 50px;
@@ -236,11 +251,10 @@ width: 55px;
 .error-messages {
   color: red;
   font-size: 14px;
-  text-align: center;
 };
 
 .background-image {
-  background-image: url("../img/main.jpg");
+  background-image: url("photo-1506362802973-bd1717de901c.jpeg");
   background-attachment: fixed;
   height: 100vh;
   background-size: cover;
@@ -259,7 +273,7 @@ width: 55px;
 }
 
 #background-image{
-  background-image: url('../img/main.jpg');
+  background-image: url('https://images.unsplash.com/photo-1506362802973-bd1717de901c?auto=format&fit=crop&w=1622&q=80');
   background-attachment: fixed;
   height: 100vh;
   background-size: cover;

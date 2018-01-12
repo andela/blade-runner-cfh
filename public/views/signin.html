@@ -9,32 +9,76 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="stylesheet" href="css/common.css">
+<style>
+    .has-error {
+      border: 1px solid red;
+    }
+  </style>
 </head>
 <body>
 <div id="background-image">
+    <header class="header">
+        <nav class="navbar navbar-dark navbar-expand-sm scrolled bg-blue">
+          <div class="container">
+            <span class="navbar-brand mb-0 h1">Cards For Humanity</span>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbar-links">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/#!/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">How To Play</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Charity</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#!/signin">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!/signup">Sign Up</a>
+                      </li>
+                  <span ng-show="showOptions">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#!/signup">Sign Up</a>
+                      </li>
+                  </span>
+                  <span ng-show="showOptions">
+                      <li class="nav-item">
+                          <a class="nav-link" href="#!/signin">Sign In</a>
+                      </li>
+                  </span>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
     <div id="main-bod" ng-controller="IndexController" class="container">
-        <div class="pt-5">
+        <div class="pt-8">
           <form class="mx-auto app-login-form card-login" ng-submit="signIn()">
-            <section class="text-center">
-              <img class="img-fluid rounded-circle logo-img" src="img/image.png" alt="">
-            </section>
-            <div class="error-messages fa fa-exclamation-triangle" ng-show="errorExist()">
-                {{ serverErrors.message }}
-              </div>
             <section class="pt-4 input-group">
               <span class="input-group-addon">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </span>
-              <input class="form-control" type="email" placeholder="Email" ng-model="data.email">
+              <input class="form-control" type="email" placeholder="Email" ng-class="{ 'has-error': hasError('email') }" ng-model="data.email">
             </section>
             <section class="pt-4 pb-3 input-group">
               <span class="input-group-addon">
                 <i class="fa fa-lock" aria-hidden="true"></i>
               </span>
-              <input class="form-control" type="password" placeholder="Password" ng-model="data.password">
+              <input class="form-control" type="password" placeholder="Password" ng-class="{ 'has-error': hasError('password') }" ng-model="data.password">
             </section>
+            <div class="error-messages text-center" ng-show="errorExist()">
+                {{ serverErrors.message }}
+              </div>
             <div class="pt-2">
-              <button style="border-radius: 55px 55px 55px 55px;" class="btn btn-block text-capitalize">
+              <button class="btn btn-block text-capitalize">
                 sign in
               </button>
             </div>
@@ -78,6 +122,15 @@
           </form>
         </div>
       </div>
+      <footer class="static-footer">
+          <div class="container">
+            <p class="text-white">Legal stuff: This game is based on the
+               <a href="http://cardsagainsthumanity.com" class="text-white">Cards Against Humanity</a> card game, 
+              which is CC licensed (BY-NC-SA). Cards for Humanity is not affiliated with Cards Against Humanity. 
+              In complying with the Creative Commons license of the Cards Against Humanity card game, all proceeds 
+              from donations go directly to charity</p>
+          </div>
+        </footer>
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
