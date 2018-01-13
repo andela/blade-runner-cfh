@@ -107,12 +107,13 @@ exports.create = (req, res) => {
 
 const signIn = (req, res) => {
   User.findOne({
-    user: req.body.user
+    email: req.body.email
   }).then((user) => {
     if (user) {
-      const token = jwt.sign({ id: user._id }, {
+      const token = jwt.sign({ id: user._id }, secret, {
         expiresIn: '3h',
       });
+
       return res.status(200).send({
         message: 'SignIn successful',
         token
