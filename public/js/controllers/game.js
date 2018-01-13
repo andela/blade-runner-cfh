@@ -119,6 +119,12 @@ angular.module('mean.system')
           $('#inviteNewPlayers').modal();
           return;
         }
+        if (game.players.length >= game.playerMinLimit) {
+          $('#confirmStartGame').modal();
+        }
+      };
+
+      $scope.confirmStartGame = () => {
         game.startGame();
       };
 
