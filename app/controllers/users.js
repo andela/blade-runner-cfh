@@ -104,6 +104,25 @@ exports.create = (req, res) => {
   }).catch(error => res.status(400).send(error));
 };
 
+
+const signIn = (req, res) => {
+  User.findOne({
+    user: req.body.user
+  }).then((user) => {
+    if (user) {
+      const token = jwt.sign({ id: user._id }, {
+        expiresIn: '3h',
+      });
+      return res.status(200).send({
+        message: 'SignIn successful',
+        token
+      });
+    }
+  }).catch(error => res.status(400).send(error));
+};
+
+export default signIn;
+
 /**
  * Assign avatar to user
  */
