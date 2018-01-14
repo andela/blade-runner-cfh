@@ -1,97 +1,168 @@
-<div id="main-bod" ng-controller="IndexController">
-  <!-- Fixed Logo & Menu Bar Start -->
-  <div id="top-part">
-    <div class="wpb-top-bar">
-      <div class="mod-contain" id="navver">
-        <div class="row">
-          <!-- Logo -->
-          <div class="wpb-logo-container">
-            <div id="landing-logo"> 
-              <span id="first-word">Cards</span>
-              <span id="second-word"> for</span> 
-              <span id="third-word">Humanity</span> 
-            </div> 
-            <div class="col-md-9 wpb-menu-container">
-              <ul class="wpb-main-menu">
-                <li><a href="/">Home</a></li>
+<!doctype html>
+<html lang="en">
+<head>
+<title>CFH</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/common.css">
+<style>
+  .has-error {
+    border: 1px solid red;
+  }
+</style>
+</head>
+<body>
+<div id="background-image">
+    <header class="header">
+        <nav class="navbar navbar-dark navbar-expand-sm scrolled bg-blue">
+          <div class="container">
+            <span class="navbar-brand mb-0 h1">Cards For Humanity</span>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbar-links">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/#!/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">How To Play</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Charity</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#!/signin">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!/signup">Sign Up</a>
+                      </li>
+                  <span ng-show="showOptions">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#!/signup">Sign Up</a>
+                      </li>
+                  </span>
+                  <span ng-show="showOptions">
+                      <li class="nav-item">
+                          <a class="nav-link" href="#!/signin">Sign In</a>
+                      </li>
+                  </span>
               </ul>
             </div>
-          </div>      
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- Fixed Logo & Menu Bar End -->
-
-<!-- Landing Start -->
-<div class="wpb-teaser parallax-background" id="homer">
-  <div class="background-opacity"></div> 
-  <div class="modified-container">
-    <div class="row" id="main-text"> 
-    <!-- Teaser Text Start -->
-    <div id="landing-logo">
-      <h2 id="slogan">Sign Up with:</h2>
-      <div id="login-buttons">
-        <a href="/auth/facebook"><img class="login-item" src="/img/icons/facebook.png"></a>
-        <a href="/auth/github"><img class="login-item" src="/img/icons/github.png"></a>
-        <a href="/auth/twitter"><img class="login-item" src="/img/icons/twitter.png"></a>
-        <a href="/auth/google"><img class="login-item" src="/img/icons/google.png"></a>
-      </div>
-      <p id="create">Or create a username/password and select an avatar:</p>
-      <div class="error-messages" ng-show="hasError('name')">
-        {{ serverErrors.name }}
-      </div>
-      <div class="error-messages" ng-show="hasError('username')">
-        {{ serverErrors.username }}
-      </div>
-      <div class="error-messages" ng-show="hasError('email')">
-        {{ serverErrors.email }}
-      </div>
-      <div class="error-messages" ng-show="hasError('password')">
-        {{ serverErrors.password }}
-      </div>
-      <div class="error-messages" ng-show="hasError('avatar')">
-        {{ serverErrors.avatar }}
-      </div>
-
-      <div class="sign-body">
-        <div class="more-sign">
-          <form class="signup form-horizontal" ng-submit="signUp()">
-            <div class="control-group">
-              <label for="name" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="name" type="text" name="name" placeholder="Full name" ng-model=data.name required novalidate />
-              </div>
+          </div>
+        </nav>
+      </header>
+  	<div id="main-bod" ng-controller="IndexController" class="container">
+        <div class="pt-8">
+          <form class="mx-auto app-login-form card-login" ng-submit="signUp()">
+            <div class="error-messages fa fa-exclamation-triangle text-center" ng-show="hasError('avatar')">
+                {{ serverErrors.avatar }}
             </div>
-            <div class="control-group">
-              <label for="username" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="username" type="text" name="username" placeholder="Username" ng-model=data.username required novalidate />
-              </div>
+            <section class="pt-3 input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-user" aria-hidden="true"></i>	
+              </span>
+              <input ng-class="{'has-error': hasError('name')}" class="form-control" type="text" placeholder="Name" ng-model=data.name required novalidate />
+            </section>
+            <div class="error-messages fa fa-exclamation-triangle text-center" ng-show="hasError('name')">
+              {{ serverErrors.name }}
+          </div>
+            <section class="pt-2 input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </span>
+              <input class="form-control" type="text" placeholder="Username" ng-class="{ 'has-error': hasError('username') }" ng-model=data.username required novalidate />
+            </section>
+            <div class="error-messages fa fa-exclamation-triangle text-center" ng-show="hasError('username')">
+              {{ serverErrors.username }}
             </div>
-            <div class="control-group">
-              <label for="email" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="email" type="email" name="email" placeholder="Email" ng-model=data.email required novalidate />
-              </div>
+            <section class="pt-2 input-group">
+              <span class="input-group-addon">
+                  <i class="fa fa-envelope-o" aria-hidden="true"></i>                  
+              </span>
+              <input class="form-control" type="email" placeholder="Email" ng-class="{ 'has-error': hasError('email') }" ng-model=data.email required novalidate>
+            </section>
+            <div class="error-messages fa fa-exclamation-triangle text-center" ng-show="hasError('email')">
+              {{ serverErrors.email }}
+          </div>
+            <section class="pt-2 pb-2 input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+              </span>
+              <input class="form-control" type="password" placeholder="Password" ng-class="{ 'has-error': hasError('password') }" ng-model=data.password required novalidate />
+            </section>
+            <div class="error-messages fa fa-exclamation-triangle text-center" ng-show="hasError('password')">
+              {{ serverErrors.password }}
+          </div>
+            <div>
             </div>
-            <div class="control-group">
-              <label for="password" class="control-label"></label>
-              <div class="controls">
-                <input class="input-info" id="password" type="password" name="password" placeholder="Password" ng-model=data.password required novalidate />
-              </div>
+            <div class="pt-2">
+              <button id="sign-up-btn-other" class="btn btn-block text-capitalize">
+                sign up
+              </button>
             </div>
-            <div class="form-actions">
-              <button id="sign-up-btn-other" type='submit'>Sign Up</button>
+            <div>
+              <div>
+                <p class="pt-5 text-center">
+                  Or Sign Up using
+                </p>
+              </div>
+              <div>
+                <div class="d-flex justify-content-center">
+                  <div>
+                    <button class="btn circular-button facebook-btn">
+                      <span>
+                        <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div>
+                    <button class="btn circular-button twitter-btn">
+                      <span>
+                        <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div>
+                    <button class="btn btn-default circular-button btn-lg google-btn">
+                      <i class="fa fa-google fa-2x" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-center">
+                    Have an account? <a href="#!/signin">
+                      Sign in
+                    </a>
+                  </p>
+                </div>
+              </div>
             </div>
           </form>
         </div>
       </div>
-    </div>
-    </div>
-    </div>
-  </div>
+      <footer class="static-footer">
+          <div class="container">
+            <p class="text-white">Legal stuff: This game is based on the
+               <a href="http://cardsagainsthumanity.com" class="text-white">Cards Against Humanity</a> card game, 
+              which is CC licensed (BY-NC-SA). Cards for Humanity is not affiliated with Cards Against Humanity. 
+              In complying with the Creative Commons license of the Cards Against Humanity card game, all proceeds 
+              from donations go directly to charity</p>
+          </div>
+        </footer>
 </div>
 
-
-
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>

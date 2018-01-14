@@ -4,6 +4,16 @@ angular.module('mean.system')
       $scope.global = Global;
       $scope.data = {};
       $scope.serverErrors = {};
+      $scope.showOptions = true;
+
+      $scope.showOptions = () => {
+        if (window.localStorage.token) {
+          $scope.showOptions = false;
+        } else {
+          $scope.showOptions = true;
+        }
+      };
+      $scope.showOptions();
 
       $scope.playAsGuest = () => {
         game.joinGame();

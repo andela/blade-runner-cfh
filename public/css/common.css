@@ -184,6 +184,70 @@ a.animated-button.victoria-two {
 .hero-text {
   padding: 2rem; }
 
+.app-login-form {
+  max-width: 380px;
+  margin-top: -25px;
+}
+  
+.card-login {
+  background-color: #fff;
+  padding: 30px;
+}
+  
+.m-x-auto {
+  margin-right: auto!important;
+  margin-left: auto!important;
+}
+  
+.pt-8 {
+  padding-top: 80px;
+}
+  
+.static-footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+  
+.circular-button {
+  width: 50px;
+  height: 50px;
+  padding: 6px 0px;
+  margin: 6px 4px;
+  border-radius: 60px;
+  font-size: 14px;
+}
+  
+.logo-img {
+  width: 100px;
+}
+
+.avatar-img {
+  width: 55px;
+}
+  
+.error-messages {
+  color: red;
+  font-size: 14px;
+};
+
+.facebook-btn {
+  background: #3F5795
+}
+
+.twitter-btn {
+  background-color: #49A0EC
+}
+
+.google-btn {
+  background-color: #D9503F
+}
+  
 .navbar {
   min-height: 80px;
   width: 100%;
@@ -194,7 +258,7 @@ a.animated-button.victoria-two {
   transition: 0.5s ease; }
 
 #background-image {
-  background-image: url("../img/main.jpg");
+  background-image: url("https://images.unsplash.com/photo-1506362802973-bd1717de901c?auto=format&fit=crop&w=1622&q=80");
   background-attachment: fixed;
   height: 100vh;
   background-size: cover;
