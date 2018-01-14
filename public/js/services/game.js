@@ -137,6 +137,8 @@ angular.module('mean.system')
       game.players = data.players;
     }
 
+    console.log('the data and game are: ', data, game);
+
     if (newState || game.curQuestion !== data.curQuestion) {
       game.state = data.state;
     }

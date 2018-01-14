@@ -22,6 +22,9 @@ angular.module('mean.system')
         $('#maxPlayersReached').modal();
       });
 
+      $scope.percentageOfPlayersFound = () =>
+        `${Math.floor(($scope.game.players.length / $scope.game.playerMaxLimit) * 100)}%`;
+
       $scope.pickCard = (card) => {
         if (!$scope.hasPickedCards) {
           if ($scope.pickedCards.indexOf(card.id) < 0) {
