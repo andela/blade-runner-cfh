@@ -3,15 +3,21 @@ angular.module('mean.system')
     '$rootScope',
     '$scope',
     'game',
+    'routeActions',
     '$timeout',
     '$location',
+    '$window',
     'MakeAWishFactsService',
-    ($rootScope, $scope, game, $timeout, $location, MakeAWishFactsService) => {
+    (
+      $rootScope, $scope, game, routeActions, $timeout,
+      $location, $window, MakeAWishFactsService
+    ) => {
       $scope.hasPickedCards = false;
       $scope.winningCardPicked = false;
       $scope.showTable = false;
       $scope.modalShown = false;
       $scope.game = game;
+      $scope.routeActions = routeActions;
       $scope.pickedCards = [];
       let makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
       $scope.makeAWishFact = makeAWishFacts.pop();
@@ -124,8 +130,18 @@ angular.module('mean.system')
         }
       };
 
+      // start game and save it
       $scope.confirmStartGame = () => {
         game.startGame();
+        const token = $window.localStorage.getItem('token');
+        if (token) {
+          routeActions.saveGame(`/api/games/${game.gameID}/start`, game, token)
+            .then(() => {
+              $scope.message = 'Game saved successfully';
+            }, () => {
+              $scope.message = 'Game not saved';
+            });
+        }
       };
 
       $scope.abandonGame = () => {
@@ -148,6 +164,18 @@ angular.module('mean.system')
 
       // In case player doesn't pick a card in time, show the table
       $scope.$watch('game.state', () => {
+        // if game has ended, update game data
+        if (game.state === 'game ended') {
+          const token = $window.localStorage.getItem('token');
+          if (token) {
+            routeActions.updateGame(`/api/games/${game.gameID}/start`, game, token)
+              .then(() => {
+                $scope.message = 'Game updated successfully';
+              }, () => {
+                $scope.message = 'Game not updated';
+              });
+          }
+        }
         if (game.state === 'waiting for czar to decide' && $scope.showTable === false) {
           $scope.showTable = true;
         }
