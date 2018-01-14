@@ -14,6 +14,7 @@ export function createGame(req, res) {
     owner: req.body.owner,
     players: req.body.players,
     winner: '',
+    rounds: req.body.rounds,
     completed: req.body.completed
   }, (error, result) => {
     if (error) {
@@ -42,6 +43,7 @@ export function updateGame(req, res) {
       owner: req.body.owner,
       players: req.body.players,
       winner: req.body.winner,
+      rounds: req.body.rounds,
       completed: req.body.completed
     });
 

@@ -8,6 +8,7 @@ const Game = new Schema({
   owner: String,
   players: [],
   winner: String,
+  rounds: Number,
   completed: Boolean
 }, { timestamps: true });
 

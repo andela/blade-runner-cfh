@@ -11,6 +11,7 @@ angular.module('mean.system')
           owner: game.players[0].id,
           players: game.players,
           winner: '',
+          rounds: game.round,
           completed: false
         }
       }),
@@ -24,6 +25,7 @@ angular.module('mean.system')
           owner: game.players[0].id,
           players: game.players,
           winner: game.gameWinner,
+          rounds: game.round,
           completed: true
         }
       })
