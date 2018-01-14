@@ -146,6 +146,13 @@ exports.checkUsername = (req, res, next) => (
   })
 );
 
+/**
+* @description validate user signin input
+* @param {object} req
+* @param {object} res
+* @param {*} next
+* @return {object} error message
+*/
 const validateUserSignIn = (req, res, next) => {
   if (!req.body.email) {
     return res.status(400).send({
