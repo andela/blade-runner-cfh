@@ -154,7 +154,7 @@ const validateUserSignIn = (req, res, next) => {
   }
   if (!req.body.password) {
     return res.status(400).send({
-      message: 'Password field cannnot be empty'
+      message: 'Password field cannot be empty'
     });
   }
   return User.findOne({
