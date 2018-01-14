@@ -200,7 +200,7 @@ a.animated-button.victoria-two {
 }
   
 .pt-8 {
-  padding-top: 80px;
+  padding-top: 120px;
 }
   
 .static-footer {
@@ -234,10 +234,14 @@ a.animated-button.victoria-two {
 .error-messages {
   color: red;
   font-size: 14px;
-};
+}
+
+.has-error {
+  border: 1px solid red;
+}
 
 .facebook-btn {
-  background: #3F5795
+  background-color: #3F5795
 }
 
 .twitter-btn {
@@ -357,4 +361,12 @@ a.animated-button.victoria-two {
 footer {
   margin-top: 50px;
   margin-bottom: 0px;
+  font-family: Quattrocento Sans, sans-serif;
   padding: 1.5rem; }
+
+body {
+  font-family: Quattrocento Sans !important;
+}
+.navbar-brand {
+  font-family: Berkshire Swash !important;
+}
