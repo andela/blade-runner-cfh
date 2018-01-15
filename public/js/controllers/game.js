@@ -209,8 +209,57 @@ angular.module('mean.system')
         }
       });
 
+      $scope.gameTour = introJs();
+
+      $scope.gameTour.setOptions({
+        steps: [{
+          intro: 'Welcome to cards for humanity (the coolest people call it CFH). You want to play this game ? Then let me take you on a quick tour'
+        },
+
+        {
+          element: '#question-container-outer',
+          intro: 'Game needs a minimum of 3 players to start. Wait for the minimum number of players then start the game. Also when the game starts, the questions are displayed here'
+        },
+        {
+          element: '#timer-container',
+          intro: 'You have 20 seconds to submit an answer. After time out, the CZAR selects his favorite answer. Whoever submits CZAR\'s favorite answer wins the round'
+        },
+        {
+          element: '#answers-container',
+          intro: 'These are the rules of the game',
+          position: 'top'
+        },
+        {
+          element: '#abandon-game-button',
+          intro: 'Played enough ? Click here to quit game'
+        },
+        {
+          element: '#tweet-container',
+          intro: 'Want to tell others about the game ? share on twitter'
+        }
+        ],
+        showStepNumbers: true,
+        disableInteraction: true,
+        overlayOpacity: 0.5,
+        showBullets: false
+      });
+
+      $scope.takeTour = () => {
+        if (!localStorage.takenTour) {
+          const timeout = setTimeout(() => {
+            $scope.gameTour.start();
+            clearTimeout(timeout);
+          }, 500);
+          localStorage.setItem('takenTour', true);
+        }
+      };
+
+      $scope.retakeTour = () => {
+        localStorage.removeItem('takenTour');
+        $scope.takeTour();
+      };
+
       if ($location.search().game && !(/^\d+$/).test($location.search().game)) {
-        //  console.log('joining custom game');
         game.joinGame('joinGame', $location.search().game);
       } else if ($location.search().custom) {
         game.joinGame('joinGame', null, true);

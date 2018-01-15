@@ -54,7 +54,7 @@ gulp.task('nodemon', () => {
       PORT: 3000,
       NODE_ENV: 'development'
     },
-    task: ['rebuild']
+    tasks: ['rebuild']
   });
 });
 
@@ -83,7 +83,14 @@ gulp.task('angular-bootstrap', () => {
     .pipe(gulp.dest('./public/lib/angular-bootstrap'));
 });
 
-gulp.task('transfer-bower', ['angular', 'bootstrap', 'angularUtils', 'angular-bootstrap']);
+// transfer bower packages(dependencies) for introjs
+gulp.task('intro.js', () => {
+  gulp.src('bower_components/intro.js/**/*')
+    .pipe(gulp.dest('./public/lib/intro.js'));
+});
+
+
+gulp.task('transfer-bower', ['angular', 'bootstrap', 'angularUtils', 'angular-bootstrap', 'intro.js']);
 
 gulp.task('test', () => {
   gulp.src('./test/**/*.js')
@@ -130,4 +137,3 @@ gulp.task('build', ['transfer-bower', 'move-files', 'babel']);
 gulp.task('rebuild', ['babel', 'move-json', 'move-jade', 'move-test-json', 'move-public']);
 
 gulp.task('default', ['nodemon', 'watch']);
-
