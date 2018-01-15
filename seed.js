@@ -5,6 +5,9 @@ const logger = Logger.create('seed');
 
 require('dotenv').config();
 
+const dbArray = process.env.MONGOHQ_URL.split('/');
+const dbName = dbArray[dbArray.length - 1];
+
 MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
   if (err) return logger.info('Could not connect to the database.');
   logger.info('Connected to database drivers.');
@@ -4414,7 +4417,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
     }
   ];
 
-  const myDB = db.db(process.env.DATABASE_NAME);
+  const myDB = db.db(process.env.DATABASE_NAME || dbName);
   myDB.collection('questions').insertMany(questions, (error, result) => {
     if (error) return logger.info('Unable to post to database');
     logger.info(JSON.stringify(result.ops));
