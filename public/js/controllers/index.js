@@ -48,9 +48,7 @@ angular.module('mean.system')
         $http.post('/api/users', $scope.data).then(successCallback, errorCallBack);
       };
 
-      $scope.errorExist = function errorExist() {
-        return $scope.serverErrors.message !== undefined;
-      };
+      $scope.errorExist = () => $scope.serverErrors.message !== undefined;
 
       $scope.signOut = () => {
         window.localStorage.removeItem('token');

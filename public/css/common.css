@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: Open Sans; }
+  font-family: 'Quattrocento Sans', sans-serif; }
 
 .body-wrapper {
   overflow-x: hidden; }
@@ -168,13 +168,13 @@ a.animated-button.victoria-two {
   color: white; }
 
 .headers {
-  font-family: Montserrat;
+  font-family: 'Berkshire Swash', cursive;
   margin-bottom: 40px;
   padding-top: 5vh;
   color: #E35F53; }
 
 .hero-title {
-  font-family: Bree Serif;
+  font-family: 'Berkshire Swash', cursive;
   font-size: 4rem; }
 
 .member-content-wrapper {
@@ -261,6 +261,18 @@ a.animated-button.victoria-two {
   min-height: 40px;
   transition: 0.5s ease; }
 
+<<<<<<< HEAD
+=======
+#background-image {
+  background-image: url("../img/image.png");
+  background-attachment: fixed;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  position: relative; }
+
+>>>>>>> 5cbc78a1b75d52281d9721ee5ab117a8a3394ce7
 .overlay {
   position: absolute;
   width: 100vw;
@@ -349,6 +361,7 @@ a.animated-button.victoria-two {
   stroke: currentColor;
   fill: currentColor; }
 
-.navbar-brand {
-  font-family: Berkshire Swash !important;
-}
+footer {
+  margin-top: 50px;
+  margin-bottom: 0px;
+  padding: 1.5rem; }
