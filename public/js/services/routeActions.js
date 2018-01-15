@@ -1,3 +1,5 @@
+/* eslint func-names: ["error", "never"] */
+
 angular.module('mean.system')
   .factory('routeActions', ['$http', function ($http) {
     return {

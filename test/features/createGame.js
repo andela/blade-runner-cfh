@@ -23,6 +23,7 @@ describe('api endpoint for create game in db', () => {
   before(async () => {
     const user = new User(fakeUser);
     const returnedUser = await user.save();
+    // eslint-disable-next-line
     token = jwt.sign({ id: returnedUser._id }, secret, {
       expiresIn: '3h',
     });
