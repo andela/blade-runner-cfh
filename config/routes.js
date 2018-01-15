@@ -1,3 +1,5 @@
+import validateUserSignIn from '../config/middlewares/authentication';
+import signIn from '../app/controllers/users';
 
 const index = require('../app/controllers/index');
 const users = require('../app/controllers/users');
@@ -18,6 +20,7 @@ module.exports = (app, passport) => {
 
   // Setting up the users api
   app.post('/api/users', authenticate.validateInput, authenticate.checkEmail, authenticate.checkUsername, users.create);
+  app.post('/api/users/signin', validateUserSignIn, signIn);
   app.post('/users/avatars', users.avatars);
 
   // Donation Routes
