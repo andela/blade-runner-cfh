@@ -54,7 +54,7 @@ gulp.task('nodemon', () => {
       PORT: 3000,
       NODE_ENV: 'development'
     },
-    task: ['rebuild']
+    tasks: ['rebuild']
   });
 });
 
