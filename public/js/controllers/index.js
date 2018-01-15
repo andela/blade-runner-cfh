@@ -4,6 +4,16 @@ angular.module('mean.system')
       $scope.global = Global;
       $scope.data = {};
       $scope.serverErrors = {};
+      $scope.showOptions = true;
+
+      $scope.showOptions = () => {
+        if (window.localStorage.token) {
+          $scope.showOptions = false;
+        } else {
+          $scope.showOptions = true;
+        }
+      };
+      $scope.showOptions();
 
       $scope.playAsGuest = () => {
         game.joinGame();
@@ -36,6 +46,31 @@ angular.module('mean.system')
           });
         };
         $http.post('/api/users', $scope.data).then(successCallback, errorCallBack);
+      };
+
+      $scope.errorExist = () => $scope.serverErrors.message !== undefined;
+
+      $scope.signOut = () => {
+        window.localStorage.removeItem('token');
+        $location.path('/');
+        window.location.reload(true);
+      };
+
+      $scope.signIn = () => {
+        const successCallback = (res) => {
+          const { token } = res.data;
+          if (token) {
+            $window.localStorage.setItem('token', token);
+          }
+          $location.path('/');
+        };
+
+        const errorCallBack = (err) => {
+          $scope.serverErrors = {};
+          const errorsFromServer = err.data.message;
+          $scope.serverErrors.message = errorsFromServer;
+        };
+        $http.post('/api/users/signin', $scope.data).then(successCallback, errorCallBack);
       };
 
       $scope.avatars = [];
