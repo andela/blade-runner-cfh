@@ -21,7 +21,7 @@ export function createGame(req, res) {
       res.status(400).send({ error });
       return;
     }
-    res.status(200).send({ result });
+    res.status(201).send({ result });
   });
 }
 

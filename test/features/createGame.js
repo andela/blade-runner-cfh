@@ -39,7 +39,7 @@ describe('api endpoint for create game in db', () => {
         completed: false
       })
       .end((err, res) => {
-        res.should.have.status(200);
+        res.should.have.status(201);
         res.body.result.owner.should.equal('1');
         done();
       });
