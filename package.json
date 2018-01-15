@@ -12,14 +12,13 @@
     "node": "8.9.0"
   },
   "scripts": {
-    "postinstall": "node node_modules/gulp/bin/gulp install",
     "start": "node production/server.js",
     "test": "NODE_ENV=test && node node_modules/gulp/bin/gulp test",
     "coverage": "npm test && nyc report --reporter=text-lcov | coveralls",
     "eslint": "./node_modules/.bin/eslint ./",
     "start:dev": "./node_modules/.bin/gulp",
     "db:seed": "node seed",
-    "heroku-postbuild": "./node_modules/.bin/gulp build"
+    "heroku-postbuild": "./node_modules/.bin/gulp install && ./node_modules/.bin/gulp build"
   },
   "dependencies": {
     "async": "~0.2.9",
