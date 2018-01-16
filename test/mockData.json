@@ -69,6 +69,26 @@
       "password": "developertest",
       "avatar": "fdret",
       "username": "developer"
+    },
+    "missingSigninEmail": {
+      "email": "",
+      "password": "developertest"
+    },
+    "missingSigninPassword": {
+      "email": "sannidevts@gmail.com",
+      "password": ""
+    },
+    "invalidSignin": {
+      "email": "sannidevdssts@gmail.com",
+      "password": "jdevelopertest"
+    },
+    "invalidSigninPassword": {
+      "email": "sannidevts@gmail.com",
+      "password": "jjfhfdfgdfffhg"
+    },
+    "validSignin": {
+      "email": "sannidevs@gmail.com",
+      "password": "developertest"
     }
   }
 }

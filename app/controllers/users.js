@@ -92,7 +92,6 @@ exports.create = (req, res) => {
   user.avatar = avatars[Math.floor(Math.random() * 12) + 1];
 
   user.save().then((newUser) => {
-    // eslint-disable-next-line no-underscore-dangle
     const token = jwt.sign({ id: newUser._id }, secret, {
       expiresIn: '3h',
     });
@@ -103,6 +102,30 @@ exports.create = (req, res) => {
     });
   }).catch(error => res.status(400).send(error));
 };
+
+/**
+ * @description function to sign in a user
+ * @param {object} req
+ * @param {object} res
+ * @returns {*} return
+ */
+const signIn = (req, res) => {
+  User.findOne({
+    email: req.body.email
+  }).then((user) => {
+    if (user) {
+      const token = jwt.sign({ id: user._id }, secret, {
+        expiresIn: '3h',
+      });
+      return res.status(200).send({
+        message: 'SignIn successful',
+        token
+      });
+    }
+  }).catch(error => res.status(400).send(error));
+};
+
+export default signIn;
 
 /**
  * Assign avatar to user

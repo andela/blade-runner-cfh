@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken'),
   mongoose = require('mongoose'),
   dotenv = require('dotenv'),
+  bcrypt = require('bcryptjs'),
   User = mongoose.model('User');
 
 dotenv.config();
@@ -144,3 +145,41 @@ exports.checkUsername = (req, res, next) => (
     next();
   })
 );
+
+/**
+* @description validate user signin input
+* @param {object} req
+* @param {object} res
+* @param {*} next
+* @return {object} error message
+*/
+const validateUserSignIn = (req, res, next) => {
+  if (!req.body.email) {
+    return res.status(400).send({
+      message: 'Email field cannot be empty'
+    });
+  }
+  if (!req.body.password) {
+    return res.status(400).send({
+      message: 'Password field cannot be empty'
+    });
+  }
+  return User.findOne({
+    email: req.body.email
+  }).then((user) => {
+    if (!user) {
+      return res.status(400).send({
+        message: 'Incorrect Login details'
+      });
+    }
+    if (bcrypt.compareSync(req.body.password, user.hashed_password)) {
+      next();
+    } else {
+      res.status(400).send({
+        message: 'Incorrect Login details'
+      });
+    }
+  });
+};
+
+export default validateUserSignIn;
