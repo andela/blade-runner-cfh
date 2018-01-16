@@ -158,7 +158,6 @@ angular.module('mean.system')
         }
       }
     } else if (data.state === 'waiting for czar to decide') {
-      $('#background-image').css('height', '100vh')
       if (game.czar === game.playerIndex) {
         addToNotificationQueue("Everyone's done. Choose the winner!");
       } else {
