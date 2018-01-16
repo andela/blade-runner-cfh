@@ -11,6 +11,8 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet"
     href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css">
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans" rel="stylesheet">
   </head>
   <body>
     <div class="body-wrapper" ng-controller="IndexController">
@@ -59,12 +61,22 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#!/signup">Sign Up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#!/signin">Sign In</a>
-              </li>
+              <span ng-show="showOptions">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#!/signup">Sign Up</a>
+                  </li>
+              </span>
+              <span ng-show="showOptions">
+                  <li class="nav-item">
+                      <a class="nav-link" href="#!/signin">Sign In</a>
+                  </li>
+              </span>
+              <span ng-hide="showOptions">
+                  <li class="nav-item">
+                    <a ng-click="signOut()" class="nav-link" href="/signout">Sign Out
+                    </a>
+                  </li>
+              </span>
             </ul>
           </div>
         </div>
@@ -82,11 +94,18 @@
               <h5 class="text-center hero-text animated fadeInLeft">A game for horrible people desperately trying to do good</h5>
                 </div>
           </div>
-            
-            <div class="row d-flex justify-content-between px-4">
-              <div class="col-md-6 mr-auto"> <a href="/#!/signup" class="btn btn-sm animated-button victoria-one hvr-sweep-to-left">Sign up</a> </div>
-              <div class="col-md-6"> <a href="/play" class="btn btn-sm animated-button victoria-two hvr-sweep-to-right">Play As Guest</a> </div>
-            </div>
+            <span ng-show="showOptions"> 
+                <div class="row d-flex justify-content-between px-4">
+                    <div class="col-md-6 mr-auto"> <a href="/#!/signup" class="btn btn-sm animated-button victoria-one hvr-sweep-to-left">Sign up</a> </div>
+                    <div class="col-md-6"> <a href="/play" class="btn btn-sm animated-button victoria-two hvr-sweep-to-right">Play As Guest</a> </div>
+                  </div>
+            </span>
+            <span ng-hide="showOptions">
+                <div class="row d-flex justify-content-between px-4">
+                    <div class="col-md-6 mr-auto"> <a href="/play" class="btn btn-sm animated-button victoria-one hvr-sweep-to-left">Play as Guest</a> </div>
+                    <div class="col-md-6"> <a href="/play?custom" class="btn btn-sm animated-button victoria-two hvr-sweep-to-right">Play with friends</a> </div>
+                </div>
+            </span>
         </div>
       </div>
     </div>
@@ -239,7 +258,7 @@
   crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
-<script src="js/main.js"></script>
+<script src="../js/main.js"></script>
 <script>
   $(document).ready(() => {
     AOS.init({
@@ -255,3 +274,5 @@
 </div>
 </body>
 </html>
+  
+  

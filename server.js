@@ -21,6 +21,8 @@ const config = require('./config/config'),
   auth = require('./config/middlewares/authorization'),
   mongoose = require('mongoose');
 
+mongoose.Promise = global.Promise;
+
 //  Bootstrap db connection
 mongoose.connect(config.db, {
   useMongoClient: true
