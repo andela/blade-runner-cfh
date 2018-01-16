@@ -1,5 +1,12 @@
 <ul class="list-group users-wrapper">
-    <li class="list-group-item list-group-item-success users" ng-repeat="player in game.players">
-      <img ng-src="{{ player.avatar }}" class="users-image mr-2">{{ player.username | upperFirstLetter }}
+    <li class="list-group-item users" ng-class="" ng-repeat="player in game.players" style="background-color: {{ colors[player.color] }}">
+      <img ng-src="{{ player.avatar }}" class="users-image mr-2">
+      {{ player.username | upperFirstLetter }} 
+      <span class="font-weight-bold">{{ player.points}} / {{ game.pointLimit }}</span>
+      <img src="../img/currentUser.png" style="width: 30px; height: 30px;" class="img float-right" ng-show="isPlayer($index)">
+      <br>
+      <span ng-show="currentCzar($index)" class="font-weight-bold" style="color: white;">
+        CZAR
+      </span>
     </li>
 </ul>

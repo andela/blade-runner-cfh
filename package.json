@@ -39,6 +39,7 @@
     "express-validator": "^4.3.0",
     "forever": "latest",
     "gulp-babel": "^7.0.0",
+    "gulp-livereload": "^3.8.1",
     "jade": "~0.35.0",
     "jsonwebtoken": "^8.1.0",
     "mean-logger": "~0.0.1",

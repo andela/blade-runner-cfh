@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../css/game.css">
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Quattrocento+Sans" rel="stylesheet">
   </head>
   <body>
     <div class="body-wrapper" ng-controller="GameController">
@@ -46,15 +48,18 @@
               <div class="col-sm-12 col-md-9">
                 <div class="row">
                   <div class="container col-sm-12 col-md-3 col-lg-3" style="margin-bottom: 20px;">
-                    <div class="timer text-center" style="background-color: white;" ng-bind="game.time">
+                    <div class="timer text-center mb-3" style="background-color: white;" ng-bind="game.time">
                   
                     </div>
+                    <div id="timer-status-round" class="timer-title" ng-hide="game.state === 'winner has been chosen' || game.state === 'waiting for czar to decide'"> Time Remaining</div>
+                    <div id="timer-status-czar-choosing" class="timer-title" ng-show="game.state === 'winner has been chosen'"> Next Round In</div>
+                    <div id="timer-status-czar-choosing" class="timer-title" ng-show="game.state === 'waiting for czar to decide'"> Czar Choosing</div>
                   </div>
                   <div class="container col-sm-12 col-md-9 col-lg-9">
                     <question></question>
                   </div>
                 </div>
-                <div class="container row">
+                <div class="container row" style="margin-top: 5vh;">
                   <div class="col-md-9 offset-md-3 col-lg-9 offset-lg-3">
                     <answers></answers>
                   </div>

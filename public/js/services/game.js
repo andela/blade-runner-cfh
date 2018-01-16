@@ -137,8 +137,6 @@ angular.module('mean.system')
       game.players = data.players;
     }
 
-    console.log('the data and game are: ', data, game);
-
     if (newState || game.curQuestion !== data.curQuestion) {
       game.state = data.state;
     }
@@ -160,6 +158,7 @@ angular.module('mean.system')
         }
       }
     } else if (data.state === 'waiting for czar to decide') {
+      $('#background-image').css('height', '100vh')
       if (game.czar === game.playerIndex) {
         addToNotificationQueue("Everyone's done. Choose the winner!");
       } else {

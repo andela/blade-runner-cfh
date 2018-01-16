@@ -45,6 +45,7 @@ angular.module('mean.system')
 
       $scope.pointerCursorStyle = () => {
         if ($scope.isCzar() && $scope.game.state === 'waiting for czar to decide') {
+          $('#background-image').css('height', '100vh');
           return { cursor: 'pointer' };
         }
         return {};
@@ -146,6 +147,7 @@ angular.module('mean.system')
       // In case player doesn't pick a card in time, show the table
       $scope.$watch('game.state', () => {
         if (game.state === 'waiting for czar to decide' && $scope.showTable === false) {
+          $('#background-image').css('height', '100vh');
           $scope.showTable = true;
         }
       });
