@@ -7,6 +7,7 @@ const avatars = require('../app/controllers/avatars');
 const answers = require('../app/controllers/answers');
 const questions = require('../app/controllers/questions');
 const authenticate = require('../config/middlewares/authentication');
+const game = require('../app/controllers/game');
 
 module.exports = (app, passport) => {
 // User Routes
@@ -96,4 +97,8 @@ module.exports = (app, passport) => {
   // Home route
   app.get('/play', index.play);
   app.get('/', index.render);
+
+  // Save and update game data route
+  app.post('/api/games/:id/start', authenticate.verifyUser, game.createGame);
+  app.put('/api/games/:id/start', authenticate.verifyUser, game.updateGame);
 };
