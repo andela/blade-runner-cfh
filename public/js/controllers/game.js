@@ -28,6 +28,9 @@ angular.module('mean.system')
         $('#maxPlayersReached').modal();
       });
 
+      $scope.percentageOfPlayersFound = () =>
+        `${Math.floor(($scope.game.players.length / $scope.game.playerMaxLimit) * 100)}%`;
+
       $scope.pickCard = (card) => {
         if (!$scope.hasPickedCards) {
           if ($scope.pickedCards.indexOf(card.id) < 0) {
@@ -48,6 +51,7 @@ angular.module('mean.system')
 
       $scope.pointerCursorStyle = () => {
         if ($scope.isCzar() && $scope.game.state === 'waiting for czar to decide') {
+          $('#background-image').css('height', '100vh');
           return { cursor: 'pointer' };
         }
         return {};
@@ -177,6 +181,7 @@ angular.module('mean.system')
           }
         }
         if (game.state === 'waiting for czar to decide' && $scope.showTable === false) {
+          $('#background-image').css('height', '100vh');
           $scope.showTable = true;
         }
       });
