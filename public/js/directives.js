@@ -59,6 +59,13 @@ angular.module('mean.directives', [])
       link: function(scope, elem, attr) {}
     };
   })
+  .directive('chat', function() {
+    return {
+      restrict: 'EA',
+      templateUrl: '/views/chat.html',
+      link: function(scope, elem, attr) {}
+    };
+  })
   .directive('timer', function(){
     return{
       restrict: 'EA',
