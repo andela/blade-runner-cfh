@@ -48,9 +48,10 @@ module.exports = function(io) {
       joinGame(socket,data);
     });
 
-    socket.on('startGame', function() {
+    socket.on('startGame', (data) => {
       if (allGames[socket.gameID]) {
-        var thisGame = allGames[socket.gameID];
+        const thisGame = allGames[socket.gameID];
+        thisGame.regionId = data.regionId || '59b90186ad7d37a9fb7d3630';
         console.log('comparing',thisGame.players[0].socket.id,'with',socket.id);
         if (thisGame.players.length >= thisGame.playerMinLimit) {
           // Remove this game from gamesNeedingPlayers so new players can't join it.

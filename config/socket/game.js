@@ -34,6 +34,7 @@ function Game(gameID, io) {
   this.questions = null;
   this.answers = null;
   this.curQuestion = null;
+  this.regionId = '59b90186ad7d37a9fb7d3630';
   this.timeLimits = {
     stateChoosing: 21,
     stateJudging: 16,
@@ -125,7 +126,7 @@ Game.prototype.prepareGame = function() {
       if (err) {
         console.log(err);
       }
-      self.questions = results[0];
+      self.questions = results[0].filter(question => question.regionId === self.regionId);
       self.answers = results[1];
 
       self.startGame();

@@ -188,9 +188,11 @@ angular.module('mean.system')
     socket.emit(mode,{userID: userID, room: room, createPrivate: createPrivate});
   };
 
-  game.startGame = function() {
-    socket.emit('startGame');
-  };
+    game.startGame = () => {
+      socket.emit('startGame', {
+        regionId: localStorage.getItem('token')
+      });
+    };
 
   game.leaveGame = function() {
     game.players = [];
