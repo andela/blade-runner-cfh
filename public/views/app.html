@@ -79,6 +79,22 @@
         </div>
       </div>
     </main>
+      <!-- Confirm Start Game Modal -->
+  <div class="modal fade" id="confirmStartGame" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h5 class="text-center">
+            <p class="text-center">Are you sure you want to start the game?</p>
+            <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-danger" data-dismiss="modal" ng-click="confirmStartGame()">Start</button>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Confirm Start Game Modal End -->
+
   </div>
   <div class="modal fade" id="inviteNewPlayers" tabindex="-1" role="dialog" aria-labelledby="maxPlayersReached">
     <div class="modal-dialog" role="document">
@@ -118,6 +134,8 @@
     </div>
   </div>
   <!-- Max Players Reached Notification modal End -->
+
+
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>

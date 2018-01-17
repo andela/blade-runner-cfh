@@ -10,7 +10,6 @@ angular.module('mean.system')
           'x-access-token': token
         },
         data: {
-          owner: game.players[0].id,
           players: game.players,
           winner: '',
           rounds: game.round,
@@ -24,9 +23,8 @@ angular.module('mean.system')
           'x-access-token': token
         },
         data: {
-          owner: game.players[0].id,
           players: game.players,
-          winner: game.gameWinner,
+          winner: game.players[game.gameWinner],
           rounds: game.round,
           completed: true
         }

@@ -49,21 +49,23 @@ describe('Testing user signin API', () => {
         expect(res.body.message).equal('Incorrect Login details');
       });
   });
-  it('should not sign in with incorrect password', () => {
+  it('should not sign in with incorrect password', (done) => {
     chai.request(server)
       .post('/api/users/signin')
       .send(invalidSigninPassword)
       .end((err, res) => {
         expect(res.body.message).equal('Incorrect Login details');
+        done();
       });
   });
-  it('should sign in a valid user', () => {
+  it('should sign in a valid user', (done) => {
     User.create(validUser, () => {
       chai.request(server)
         .post('/api/users/signin')
         .send(validSignin)
         .end((err, res) => {
-          expect(res.body.message).equal('User created');
+          expect(res.body.message).equal('SignIn successful');
+          done();
         });
     });
   });

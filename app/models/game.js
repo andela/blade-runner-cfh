@@ -4,10 +4,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const Game = new Schema({
-  gameId: Number,
+  gameId: String,
   owner: String,
   players: [],
-  winner: String,
+  winner: {},
   rounds: Number,
   completed: Boolean
 }, { timestamps: true });
