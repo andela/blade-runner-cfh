@@ -11,7 +11,8 @@ const Game = mongoose.model('Game');
 export function createGame(req, res) {
   Game.create({
     gameId: req.params.id,
-    owner: req.decoded.id,
+    ownerId: req.decoded.id,
+    ownerUsername: req.body.ownerUsername,
     players: req.body.players,
     winner: '',
     rounds: req.body.rounds,
@@ -40,7 +41,7 @@ export function updateGame(req, res) {
 
     game.set({
       gameId: req.params.id,
-      owner: req.body.owner,
+      ownerUsername: req.body.ownerUsername,
       players: req.body.players,
       winner: req.body.winner,
       rounds: req.body.rounds,

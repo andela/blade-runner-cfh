@@ -173,6 +173,12 @@ a.animated-button.victoria-two {
   padding-top: 5vh;
   color: #E35F53; }
 
+.dashboard-headers {
+  font-family: 'Berkshire Swash', cursive;
+  margin-bottom: 20px;
+  padding-top: 2vh;
+  color: #E35F53; }
+  
 .hero-title {
   font-family: 'Berkshire Swash', cursive;
   font-size: 4rem; }
@@ -356,6 +362,16 @@ a.animated-button.victoria-two {
   stroke-width: 0;
   stroke: currentColor;
   fill: currentColor; }
+
+.games-section {
+  margin-bottom: 40px;
+  margin-top: 80px;
+}
+
+.leaderboard-section {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
 
 footer {
   margin-top: 50px;

@@ -5,7 +5,8 @@ const { Schema } = mongoose;
 
 const Game = new Schema({
   gameId: String,
-  owner: String,
+  ownerId: String,
+  ownerUsername: String,
   players: [],
   winner: {},
   rounds: Number,

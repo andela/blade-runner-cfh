@@ -9,10 +9,11 @@ const Game = mongoose.model('Game');
  * @returns {object} response
  */
 export function getGames(req, res) {
-  Game.find({ owner: req.decoded.id }, (error, result) => {
+  Game.find({ ownerId: req.decoded.id }, (error, result) => {
     if (error) {
       return res.status(400).send({ error });
     }
+    console.log(result);
     return res.status(200).send({ result });
   });
 }
@@ -24,7 +25,12 @@ export function getGames(req, res) {
  * @returns {object} response
  */
 export function getLeaderboard(req, res) {
-
+  Game.aggregate([
+    { $group: { _id: '$winner.username', count: { $sum: 1 } } },
+    { $sort: { count: -1 } }
+  ]).then((result) => {
+    res.status(200).send({ result });
+  });
 }
 
 /**

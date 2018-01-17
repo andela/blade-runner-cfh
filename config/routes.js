@@ -107,8 +107,8 @@ module.exports = (app, passport) => {
   app.get('/api/games/history', authenticate.verifyUser, dashboard.getGames);
 
   // Get leaderboard route
-  app.get('/api/leaderboard', authenticate.verifyUser);
+  app.get('/api/leaderboard', authenticate.verifyUser, dashboard.getLeaderboard);
 
   // Get donations route
-  app.get('/api/donations', authenticate.verifyUser);
+  app.get('/api/donations', authenticate.verifyUser, dashboard.getDonations);
 };
