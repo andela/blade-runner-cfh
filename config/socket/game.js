@@ -126,7 +126,7 @@ Game.prototype.prepareGame = function() {
       if (err) {
         console.log(err);
       }
-      self.questions = results[0].filter(question => question.regionId === self.regionId);
+    self.questions = results[0].filter(question => question.regionId === self.regionId);
       self.answers = results[1];
 
       self.startGame();
