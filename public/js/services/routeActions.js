@@ -28,6 +28,13 @@ angular.module('mean.system')
           rounds: game.round,
           completed: true
         }
+      }),
+      getGames: (route, token) => $http({
+        method: 'GET',
+        url: route,
+        headers: {
+          'x-access-token': token
+        }
       })
     };
   }]);
