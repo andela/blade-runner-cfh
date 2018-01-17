@@ -18,6 +18,11 @@ module.exports = (app, passport) => {
 
   app.get('/api/search/users', users.search);
 
+  app.post('api/users/addfriend', authenticate.verifyUser, users.addFriends);
+  app.post('/api/users/invite', authenticate.verifyUser, users.inviteUser);
+  app.get('/api/users/notification', authenticate.verifyUser, users.getInvites);
+  app.put('/api/users/notifications/read', authenticate.verifyUser, users.readNotifications);
+
   // Setting up the users api
   app.post('/api/users', authenticate.validateInput, authenticate.checkEmail, authenticate.checkUsername, users.create);
   app.post('/api/users/signin', validateUserSignIn, signIn);

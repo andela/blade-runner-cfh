@@ -6,7 +6,9 @@ angular.module('mean.system')
     '$timeout',
     '$location',
     'MakeAWishFactsService',
-    ($rootScope, $scope, game, $timeout, $location, MakeAWishFactsService) => {
+    '$http',
+    '$window',
+    ($rootScope, $scope, game, $timeout, $location, MakeAWishFactsService, $http, $window) => {
       $scope.hasPickedCards = false;
       $scope.winningCardPicked = false;
       $scope.showTable = false;
@@ -21,6 +23,35 @@ angular.module('mean.system')
       $rootScope.$on('maxPlayersReached', () => {
         $('#maxPlayersReached').modal();
       });
+
+      $scope.username = '';
+
+      $scope.$watch('username', () => {
+        $scope.searchUser();
+      });
+
+      $scope.foundUsers = [];
+
+      $scope.searchUser = () => {
+        const { username } = $scope;
+
+        if (username) {
+          $http.get(`api/search/users?user=${username}`)
+            .then((response) => {
+              $scope.foundUsers = response.data.users;
+            });
+        }
+      };
+
+      $scope.inviteUser = (recipientId) => {
+        $http.post('api/users/invite', { recipientId, link: $window.location.href }, {
+          headers: {
+            token: localStorage.getItem('token')
+          }
+        }).then((response) => {
+          console.log('######################', response);
+        });
+      };
 
       $scope.pickCard = (card) => {
         if (!$scope.hasPickedCards) {

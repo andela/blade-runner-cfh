@@ -61,6 +61,14 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
               </li>
+
+              <li class="nav-item" ng-hide="showOptions">
+                <a class="nav-link" href="#" data-toggle='modal' data-target="#userNotifications">
+                  <span class="badge badge-danger">{{ notifications.length }}</span>
+                  Notifications
+                </a>
+              </li>
+        
               <span ng-show="showOptions">
                   <li class="nav-item">
                     <a class="nav-link" href="#!/signup">Sign Up</a>
@@ -82,6 +90,30 @@
         </div>
       </nav>
     </header>
+
+    <div class="modal fade" id="userNotifications" tabindex="-1" role="dialog" aria-labelledby="userNotifications" aria-hidden="true" ng-hide="showOptions">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">User Notifications here.</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p class="text-center" ng-if="notifications.length < 1">No notifications.</p>
+              <ul ng-if="notifications.length > 0">
+                  <li ng-repeat="notification in notifications">
+                      <a ng-href="{{ notification.link }}" target="_blank">{{ notification.message }}</a>
+                    </li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" ng-click="readNotifications()" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
   <main>
 

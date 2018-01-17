@@ -1,10 +1,27 @@
 angular.module('mean.system')
-  .controller('IndexController', ['$scope', '$window', 'Global', '$http', '$location', 'socket', 'game', 'AvatarService',
-    ($scope, $window, Global, $http, $location, socket, game, AvatarService) => {
+  .controller('IndexController', ['$scope', '$window', 'Global', '$http', '$location', 'socket', 'game', 'AvatarService', 'NotificationService', '$rootScope',
+    ($scope, $window, Global, $http, $location, socket, game, AvatarService, NotificationService, $rootScope) => {
       $scope.global = Global;
       $scope.data = {};
       $scope.serverErrors = {};
       $scope.showOptions = true;
+
+      NotificationService.getNotifications();
+
+      $rootScope.$watch('notifications', () => {
+        console.log('The user notifications are :', $rootScope.notifications);
+      });
+
+      $scope.readNotifications = () => {
+        $http.put('/api/users/notifications/read', {}, {
+          headers: {
+            token: localStorage.getItem('token')
+          }
+        })
+          .then(() => {
+            $rootScope.notifications = [];
+          });
+      };
 
       $scope.showOptions = () => {
         if (window.localStorage.token) {

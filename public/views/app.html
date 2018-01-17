@@ -1,5 +1,16 @@
 </script>
+
 <div id="app-container" ng-controller="GameController" ng-init="takeTour()">
+    <div id="input" style="margin: 40px;">
+        <input type="text" style="height: 30px;" ng-model="username">
+        <ul>
+          <li ng-repeat="user in foundUsers">
+            {{ user.name }}
+            <button ng-click="inviteUser(user.id)" class="btn btn-danger">Invite user</button>
+            <button class="btn btn-info">Add user as friend</button>
+          </li>
+        </ul>
+      </div>
   <div id="menu-container">
     <div id="logo">
       <span id="first-word">Cards</span>
@@ -74,5 +85,6 @@
     </div>
   </div>
 </div>
+
 <!-- Invite new players Notification modal End -->
 </div>
