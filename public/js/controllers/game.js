@@ -8,16 +8,10 @@ angular.module('mean.system')
     '$location',
     '$window',
     'MakeAWishFactsService',
-<<<<<<< HEAD
-    '$http',
-    '$window',
-    ($rootScope, $scope, game, $timeout, $location, MakeAWishFactsService, $http, $window) => {
-=======
     (
       $rootScope, $scope, game, routeActions, $timeout,
       $location, $window, MakeAWishFactsService
     ) => {
->>>>>>> 26b81bea5e87d6caf4459f6c778bfb7d3d8e2a0b
       $scope.hasPickedCards = false;
       $scope.winningCardPicked = false;
       $scope.showTable = false;
