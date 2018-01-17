@@ -8,35 +8,89 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
     crossorigin="anonymous">
   <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
   <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Quattrocento+Sans" rel="stylesheet">
 </head>
 
 <body>
-  <div class="container" ng-controller="DashboardController" ng-init="getGames()">
-    <table class="table table-striped">
-      <thead>
-          <tr>
-            <th scope="col">Owner</th>
-            <th scope="col">Players</th>
-            <th scope="col">Winner</th>
-            <th scope="col">Completed</th>
-          </tr>
-        </thead>
-        <tbody ng-repeat="game in games">
-          <tr>
-            <td>{{ game.owner }}</td>
-            <td>
-              <ul ng-repeat="player in game.players">
-                <li>{{ player.username }}</li>
-              </ul>
-            </td>
-            <td>{{ game.winner }}</td>
-            <td>{{ game.completed }}</td>
-          </tr>
-        </tbody>
-    </table>
+  <div class="bg-gray">
+    <header class="header">
+        <nav class="navbar navbar-dark navbar-expand-sm fixed-top scrolled bg-blue">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">Cards For Humanity</span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-links">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="/play?custom">Play Game With Friends</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/play">Play Game With Strangers</a>
+                </li>      
+            </ul>
+            </div>
+        </div>
+        </nav>
+    </header>
+            
+    <div class="container" ng-controller="DashboardController" ng-init="getData()">
+        <div class="card games-section">
+            <h2 class="dashboard-headers text-center">Games Played</h2>
+            <table class="table table-hover">
+            <thead>
+                <tr class="text-white bg-black">
+                <th scope="col">#</th>
+                <th scope="col">Owner</th>
+                <th scope="col">Players</th>
+                <th scope="col">Winner</th>
+                <th scope="col">Completed</th>
+                <th scope="col">Rounds</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="game in games">
+                <tr>
+                <th scope="row">{{ $index + 1 }}</th>
+                <td>{{ game.ownerUsername }}</td>
+                <td>
+                    <ul ng-repeat="player in game.players">
+                    <li>{{ player.username }}</li>
+                    </ul>
+                </td>
+                <td>{{ game.winner || 'No Winner' }}</td>
+                <td>{{ game.completed }}</td>
+                <td>{{ game.rounds }}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
+        <div class="card leaderboard-section">
+            <h2 class="dashboard-headers text-center">Leaderboard</h2>
+            <table class="table table-hover">
+            <thead>
+                <tr class="text-white bg-black">
+                <th scope="col">Player</th>
+                <th scope="col">Number of Wins</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="record in leaderboard">
+                <tr ng-if="record._id !== null">
+                <td>{{ record._id }}</td>
+                <td>{{ record.count }}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
+        <div class="card donation-section">
+                <h2 class="dashboard-headers text-center">Donations</h2>
+                <table class="table table-hover">
+                <p class="ml-2" ng-if="donations.length === 0">Looks like you have no donations. What a shame.</p>
+                </table>
+        </div>
+    </div>
   </div>
 </body>
 

@@ -3,6 +3,7 @@ angular.module('mean.system')
     $scope.routeActions = routeActions;
     $scope.games = [];
     $scope.leaderboard = [];
+    $scope.donations = [];
 
     $scope.getGames = () => {
       const token = $window.localStorage.getItem('token');

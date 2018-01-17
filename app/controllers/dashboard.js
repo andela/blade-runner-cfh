@@ -13,7 +13,6 @@ export function getGames(req, res) {
     if (error) {
       return res.status(400).send({ error });
     }
-    console.log(result);
     return res.status(200).send({ result });
   });
 }
