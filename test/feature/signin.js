@@ -63,7 +63,7 @@ describe('Testing user signin API', () => {
         .post('/api/users/signin')
         .send(validSignin)
         .end((err, res) => {
-          expect(res.body.message).equal('User created');
+          expect(res.body.message).equal('SignIn successful');
         });
     });
   });
