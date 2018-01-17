@@ -190,7 +190,7 @@ angular.module('mean.system')
 
     game.startGame = () => {
       socket.emit('startGame', {
-        regionId: localStorage.getItem('token')
+        regionId: localStorage.getItem('regionId')
       });
     };
 

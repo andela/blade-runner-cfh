@@ -4,6 +4,8 @@ require("console-stamp")(console, "m/dd HH:MM:ss");
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
+const DEFAULT_REGION = '1';
+
 var avatars = require(__dirname + '/../../app/controllers/avatars.js').all();
 // Valid characters to use to generate random private game IDs
 var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
@@ -51,7 +53,7 @@ module.exports = function(io) {
     socket.on('startGame', (data) => {
       if (allGames[socket.gameID]) {
         const thisGame = allGames[socket.gameID];
-        thisGame.regionId = data.regionId || '59b90186ad7d37a9fb7d3630';
+        thisGame.regionId = data.regionId || DEFAULT_REGION;
         console.log('comparing',thisGame.players[0].socket.id,'with',socket.id);
         if (thisGame.players.length >= thisGame.playerMinLimit) {
           // Remove this game from gamesNeedingPlayers so new players can't join it.

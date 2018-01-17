@@ -2,6 +2,10 @@ var async = require('async');
 var _ = require('underscore');
 var questions = require(__dirname + '/../../app/controllers/questions.js');
 var answers = require(__dirname + '/../../app/controllers/answers.js');
+const DEFAULT_REGION_ID = '1';
+const STATE_CHOOSING_TIME_LIMITS = 21;
+const STATE_JUDGING_TIME_LIMITS = 16;
+const STATE_RESULT_TIME_LIMIT = 6;
 var guestNames = [
   "Disco Potato",
   "Silver Blister",
@@ -34,11 +38,11 @@ function Game(gameID, io) {
   this.questions = null;
   this.answers = null;
   this.curQuestion = null;
-  this.regionId = '1';
+  this.regionId = DEFAULT_REGION_ID;
   this.timeLimits = {
-    stateChoosing: 21,
-    stateJudging: 16,
-    stateResults: 6
+    stateChoosing: STATE_CHOOSING_TIME_LIMITS,
+    stateJudging: STATE_JUDGING_TIME_LIMITS,
+    stateResults: STATE_RESULT_TIME_LIMIT
   };
   // setTimeout ID that triggers the czar judging state
   // Used to automatically run czar judging if players don't pick before time limit
@@ -126,7 +130,7 @@ Game.prototype.prepareGame = function() {
       if (err) {
         console.log(err);
       }
-      self.questions = results[0].filter(question => question.regionId === self.regionId);
+    self.questions = results[0].filter(question => question.regionId === self.regionId);
       self.answers = results[1];
 
       self.startGame();
