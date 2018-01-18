@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const Game = mongoose.model('Game');
+const User = mongoose.model('User');
 
 /**
  * Get all saved games
@@ -39,5 +40,10 @@ export function getLeaderboard(req, res) {
  * @returns {object} response
  */
 export function getDonations(req, res) {
-
+  User.findOne({ _id: req.decoded.id }, (error, result) => {
+    if (error) {
+      return res.status(400).send({ error });
+    }
+    return res.status(200).send({ donations: result.donations });
+  });
 }

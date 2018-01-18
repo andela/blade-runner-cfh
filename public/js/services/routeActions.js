@@ -46,6 +46,14 @@ angular.module('mean.system')
           'x-access-token': token,
           'Cache-Control': 'no-cache'
         }
+      }),
+      getDonations: (route, token) => $http({
+        method: 'GET',
+        url: route,
+        headers: {
+          'x-access-token': token,
+          'Cache-Control': 'no-cache'
+        }
       })
     };
   }]);

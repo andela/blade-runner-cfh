@@ -30,9 +30,22 @@ angular.module('mean.system')
         }
       };
 
+      $scope.getDonations = () => {
+        const token = $window.localStorage.getItem('token');
+        if (token) {
+          routeActions.getDonations('/api/donations', token)
+            .then((response) => {
+              $scope.donations = response.data.donations;
+            }, (error) => {
+              $scope.error = error;
+            });
+        }
+      };
+
       $scope.getData = () => {
         $scope.getGames();
         $scope.getLeaderboard();
+        $scope.getDonations();
       };
 
       $scope.signOut = () => {
