@@ -8,8 +8,8 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="../css/chat.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
-    <main>
+  <body >
+    <main ng-controller="chatController">
       <div class="chat-window collapse" id="chat-window">
         <div class="chat-head">
           <div>
@@ -22,27 +22,19 @@
         </div>   
         <div class="chat-body" id="chat-body">
           <div class="chat-content">
-            <div class="row">
+            <div ng-repeat="data in chatMessages" class="row">
               <div class="col-sm-9 col-md-9 bg-info chat-text">
-                <img src="http://i.pravatar.cc/300" class="chat-img">
-                <div class="chat-messages">fghnjmk,fghnjmk,fghnjmk,fghnjmk,fghnjmk,fghnjmk,</div>
-              </div>
-              <div class="col-sm-9 col-md-9 bg-info chat-text">
-                <img src="http://i.pravatar.cc/300" class="chat-img">
-                <div class="chat-messages">fghnjmk,fghnjmk,fghnjmk,fghnjmk,fghnjmk,fghnjmkmjeiocjoidwcdwjcwcjkcjdcjscjksjcjsdjsjkcjkjjcddcjcjcjcjcjsjcsdcsdcdnncnsjnaxcnjsnacxnsjkncknskncdnsncsndncdscjsdjncjdsjcjdjcnsdcnsdj,</div>
-              </div>
-              <div class="col-sm-9 col-md-9 bg-info chat-text">
-                <img src="http://i.pravatar.cc/300" class="chat-img">
-                <div class="chat-messages">fghnjmk,fghnjmk,fghnjmk,fghnjmk,fghnjmk,fghnjmk,</div>
-              </div>
-              <div class="col-sm-9 col-md-9 bg-info chat-text">
-                <img src="http://i.pravatar.cc/300" class="chat-img">
-                <div class="chat-messages">fghnjmk,fghnjmk,fghnjmk,fghnjmk,fghnjmk,fghnjmk,</div>
+                <div class="user-username">
+                    <img ng-src={{data.avatar}} class="chat-img">
+                    {{data.username}}
+                </div>
+                <div class="chat-messages">{{data.message}}</div>
+               <small>{{  data.timestamp }}</small>
               </div>
             </div>
           </div>
         </div>
-        <input type="text" class="form-control chat-form" placeholder="Type Here">
+        <input type="text" class="form-control chat-form" placeholder="Type Here" ng-model="message" ng-keypress="addMessage($event)" />
       </div>
       <i class="fa fa-comment" aria-hidden="true" data-target="#chat-window" data-toggle="collapse"></i>
     </main>

@@ -1,4 +1,4 @@
-angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.directives'])
+angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.directives', 'firebase'])
   .config(['$routeProvider',
       function($routeProvider) {
           $routeProvider.
@@ -29,7 +29,7 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
       }
   ]).config(['$locationProvider',
     function($locationProvider) {
-        $locationProvider.hashPrefix("!");
+        $locationProvider.hashPrefix('!');
     }
   ]).run(['$rootScope', function($rootScope) {
   $rootScope.safeApply = function(fn) {
@@ -42,7 +42,8 @@ angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', '
         this.$apply(fn);
       }
     };
-  }]).run(['DonationService', function (DonationService) {
+  }])
+  .run(['DonationService', function (DonationService) {
     window.userDonationCb = function (donationObject) {
       DonationService.userDonated(donationObject);
     };
