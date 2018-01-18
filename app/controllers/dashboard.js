@@ -10,7 +10,12 @@ const User = mongoose.model('User');
  * @returns {object} response
  */
 export function getGames(req, res) {
-  Game.find({ ownerId: req.decoded.id }, (error, result) => {
+  Game.find({
+    $or: [
+      { ownerId: req.decoded.id },
+      { players: req.decoded.id }
+    ]
+  }, (error, result) => {
     if (error) {
       return res.status(400).send({ error });
     }
@@ -44,6 +49,8 @@ export function getDonations(req, res) {
     if (error) {
       return res.status(400).send({ error });
     }
-    return res.status(200).send({ donations: result.donations });
+    if (result) {
+      return res.status(200).send({ donations: result.donations });
+    }
   });
 }
