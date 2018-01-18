@@ -1,6 +1,12 @@
 angular.module('mean.system')
-  .controller('IndexController', ['$scope', '$window', 'Global', '$http', '$location', 'socket', 'game', 'AvatarService', 'NotificationService', '$rootScope',
-    ($scope, $window, Global, $http, $location, socket, game, AvatarService, NotificationService, $rootScope) => {
+  .controller('IndexController', [
+    '$scope', '$window', 'Global', '$http',
+    '$location', 'socket', 'game', 'AvatarService',
+    'NotificationService', '$rootScope',
+    (
+      $scope, $window, Global, $http, $location, socket, game,
+      AvatarService, NotificationService, $rootScope
+    ) => {
       $scope.global = Global;
       $scope.data = {};
       $scope.serverErrors = {};
@@ -9,7 +15,7 @@ angular.module('mean.system')
       NotificationService.getNotifications();
 
       $rootScope.$watch('notifications', () => {
-        console.log('The user notifications are :', $rootScope.notifications);
+        $rootScope.notifications;
       });
 
       $scope.readNotifications = () => {
@@ -62,7 +68,8 @@ angular.module('mean.system')
             $scope.serverErrors[errorObject.field] = errorObject.message;
           });
         };
-        $http.post('/api/users', $scope.data).then(successCallback, errorCallBack);
+        $http.post('/api/users', $scope.data)
+          .then(successCallback, errorCallBack);
       };
 
       $scope.errorExist = () => $scope.serverErrors.message !== undefined;
@@ -87,7 +94,8 @@ angular.module('mean.system')
           const errorsFromServer = err.data.message;
           $scope.serverErrors.message = errorsFromServer;
         };
-        $http.post('/api/users/signin', $scope.data).then(successCallback, errorCallBack);
+        $http.post('/api/users/signin', $scope.data)
+          .then(successCallback, errorCallBack);
       };
 
       $scope.avatars = [];

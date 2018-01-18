@@ -1,11 +1,11 @@
+/* eslint-disable func-names, camelcase */
 /**
  * Module dependencies.
  */
-let mongoose = require('mongoose'),
-  Schema = mongoose.Schema,
-  bcrypt = require('bcryptjs'),
-  _ = require('underscore'),
-  authTypes = ['github', 'twitter', 'facebook', 'google'];
+import mongoose, { Schema } from 'mongoose';
+import bcrypt from 'bcryptjs';
+
+const authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 
 /**
@@ -39,6 +39,8 @@ UserSchema.virtual('password').set(function (password) {
 
 /**
  * Validations
+ * @param {str} value
+ * @returns {bool} boolean
  */
 const validatePresenceOf = function (value) {
   return value && value.length;
@@ -84,12 +86,12 @@ UserSchema.pre('save', function (next) {
  */
 UserSchema.methods = {
   /**
-     * Authenticate - check if the passwords are the same
-     *
-     * @param {String} plainText
-     * @return {Boolean}
-     * @api public
-     */
+   * Authenticate - check if the passwords are the same
+   *
+   * @param {String} plainText
+   * @return {Boolean} authenticate check
+   * @api public
+   */
   authenticate(plainText) {
     if (!plainText || !this.hashed_password) {
       return false;
@@ -98,12 +100,12 @@ UserSchema.methods = {
   },
 
   /**
-     * Encrypt password
-     *
-     * @param {String} password
-     * @return {String}
-     * @api public
-     */
+   * Encrypt password
+   *
+   * @param {String} password
+   * @return {String} encrypted password
+   * @api public
+   */
   encryptPassword(password) {
     if (!password) return '';
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));

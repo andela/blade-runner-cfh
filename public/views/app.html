@@ -84,14 +84,24 @@
           <div class="modal-content">
             <div class="modal-body">
               <h5 class="text-center">
-                <p class="text-center margin-btm-30">
+                <h6 class="text-center alert-success p-2" ng-show="sentNotification">{{ sentNotification }}</h6>
+
+                <h6 class="text-center mb-1" style="font-size: 16px;">
                   You need atleast 3 players to be able to start the game.
-                </p>
+                </h6>
     
-                <p class="text-center margin-btm-30">
-                  Please be patient enough for other guests to join.
-                </p>
-                <button class="btn btn-danger" data-dismiss="modal">Keep waiting.</button>
+                <h6 class="text-center" style="font-size: 16px;">
+                  Invite users to join you.
+                </h6>
+                <input type="text" ng-model="username" class="form-control mb-2">
+                <h6 class="p-2" ng-show="noUsersFoundNotification">{{ noUsersFoundNotification }}</h6>
+                <ul class="list-group mb-2">
+                  <li class="list-group-item" ng-repeat="user in foundUsers">
+                    <span class="float-left">{{ user.name }}</span>
+                    <button ng-click="inviteUser(user.id)" class="btn btn-game float-right btn-xs">Invite user</button>
+                  </li>
+                </ul>
+                <button class="btn btn-game float-right" data-dismiss="modal">Keep waiting.</button>
               </h5>
             </div>
           </div>

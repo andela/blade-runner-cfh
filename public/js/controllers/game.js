@@ -7,10 +7,11 @@ angular.module('mean.system')
     '$timeout',
     '$location',
     '$window',
+    '$http',
     'MakeAWishFactsService',
     (
       $rootScope, $scope, game, routeActions, $timeout,
-      $location, $window, MakeAWishFactsService
+      $location, $window, $http, MakeAWishFactsService
     ) => {
       $scope.hasPickedCards = false;
       $scope.winningCardPicked = false;
@@ -34,6 +35,8 @@ angular.module('mean.system')
         $scope.searchUser();
       });
 
+      $scope.sentNotification = null;
+
       $scope.foundUsers = [];
 
       $scope.searchUser = () => {
@@ -43,6 +46,11 @@ angular.module('mean.system')
           $http.get(`api/search/users?user=${username}`)
             .then((response) => {
               $scope.foundUsers = response.data.users;
+              if ($scope.foundUsers.length < 1) {
+                $scope.noUsersFoundNotification = 'No user was found.';
+              } else {
+                $scope.noUsersFoundNotification = null;
+              }
             });
         }
       };
@@ -52,8 +60,12 @@ angular.module('mean.system')
           headers: {
             token: localStorage.getItem('token')
           }
-        }).then((response) => {
-          console.log('######################', response);
+        }).then(() => {
+          $scope.sentNotification = 'User invited successfully.';
+
+          setTimeout(() => {
+            $scope.sentNotification = null;
+          }, 2000);
         });
       };
       $scope.percentageOfPlayersFound = () =>
