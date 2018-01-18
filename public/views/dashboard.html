@@ -12,30 +12,33 @@
 </head>
 
 <body>
-  <div class="bg-gray">
+  <div class="bg-gray" ng-controller="DashboardController">
     <header class="header">
-        <nav class="navbar navbar-dark navbar-expand-sm fixed-top scrolled bg-blue">
+      <nav class="navbar navbar-dark navbar-expand-sm scrolled fixed-top bg-blue">
         <div class="container">
-            <span class="navbar-brand mb-0 h1">Cards For Humanity</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links"
+          <span class="navbar-brand mb-0 h1">Cards For Humanity</span>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar-links">
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-links">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link" href="/play?custom">Play Game With Friends</a>
-                </li>
-                <li class="nav-item">
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="/play">Play Game With Strangers</a>
-                </li>      
+              </li> 
+              <li class="nav-item">
+                <a ng-click="signOut()" class="nav-link" href="/signout">Sign Out</a>
+              </li>              
             </ul>
-            </div>
+          </div>
         </div>
-        </nav>
+      </nav>
     </header>
             
-    <div class="container" ng-controller="DashboardController" ng-init="getData()">
+    <div class="container" ng-init="getData()">
         <div class="card games-section">
             <h2 class="dashboard-headers text-center">Games Played</h2>
             <table class="table table-hover">
