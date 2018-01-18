@@ -10,7 +10,7 @@ angular.module('mean.system')
           'x-access-token': token
         },
         data: {
-          owner: game.players[0].id,
+          ownerUsername: game.players[0].username,
           players: game.players,
           winner: '',
           rounds: game.round,
@@ -24,11 +24,35 @@ angular.module('mean.system')
           'x-access-token': token
         },
         data: {
-          owner: game.players[0].id,
+          ownerUsername: game.players[0].username,
           players: game.players,
-          winner: game.gameWinner,
+          winner: game.players[game.gameWinner],
           rounds: game.round,
           completed: true
+        }
+      }),
+      getGames: (route, token) => $http({
+        method: 'GET',
+        url: route,
+        headers: {
+          'x-access-token': token,
+          'Cache-Control': 'no-cache'
+        }
+      }),
+      getLeaderboard: (route, token) => $http({
+        method: 'GET',
+        url: route,
+        headers: {
+          'x-access-token': token,
+          'Cache-Control': 'no-cache'
+        }
+      }),
+      getDonations: (route, token) => $http({
+        method: 'GET',
+        url: route,
+        headers: {
+          'x-access-token': token,
+          'Cache-Control': 'no-cache'
         }
       })
     };

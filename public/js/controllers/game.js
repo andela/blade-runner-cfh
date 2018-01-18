@@ -177,14 +177,16 @@ angular.module('mean.system')
       // start game and save it
       $scope.confirmStartGame = () => {
         game.startGame();
-        const token = $window.localStorage.getItem('token');
-        if (token) {
-          routeActions.saveGame(`/api/games/${game.gameID}/start`, game, token)
-            .then(() => {
-              $scope.message = 'Game saved successfully';
-            }, () => {
-              $scope.message = 'Game not saved';
-            });
+        if (!(/^\d+$/).test(game.gameID)) {
+          const token = $window.localStorage.getItem('token');
+          if (token) {
+            routeActions.saveGame(`/api/games/${game.gameID}/start`, game, token)
+              .then(() => {
+                $scope.message = 'Game saved successfully';
+              }, () => {
+                $scope.message = 'Game not saved';
+              });
+          }
         }
       };
 
@@ -209,7 +211,7 @@ angular.module('mean.system')
       // In case player doesn't pick a card in time, show the table
       $scope.$watch('game.state', () => {
         // if game has ended, update game data
-        if (game.state === 'game ended') {
+        if (game.state === 'game ended' && !(/^\d+$/).test(game.gameID)) {
           const token = $window.localStorage.getItem('token');
           if (token) {
             routeActions.updateGame(`/api/games/${game.gameID}/start`, game, token)

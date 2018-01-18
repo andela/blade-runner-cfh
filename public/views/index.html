@@ -76,14 +76,17 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
               </li>
-
               <li class="nav-item" ng-hide="showOptions">
                 <a class="nav-link" href="#" data-toggle='modal' data-target="#userNotifications">
                   <span class="badge badge-danger">{{ notifications.length }}</span>
                   Notifications
                 </a>
               </li>
-        
+              <span ng-hide="showOptions">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#!/dashboard">Dashboard</a>
+                  </li>
+              </span>
               <span ng-show="showOptions">
                 <li class="nav-item">
                   <a class="nav-link" href="#!/signup">Sign Up</a>
