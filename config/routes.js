@@ -8,6 +8,7 @@ const answers = require('../app/controllers/answers');
 const questions = require('../app/controllers/questions');
 const authenticate = require('../config/middlewares/authentication');
 const game = require('../app/controllers/game');
+const dashboard = require('../app/controllers/dashboard');
 
 module.exports = (app, passport) => {
 // User Routes
@@ -101,4 +102,13 @@ module.exports = (app, passport) => {
   // Save and update game data route
   app.post('/api/games/:id/start', authenticate.verifyUser, game.createGame);
   app.put('/api/games/:id/start', authenticate.verifyUser, game.updateGame);
+
+  // Get game history route
+  app.get('/api/games/history', authenticate.verifyUser, dashboard.getGames);
+
+  // Get leaderboard route
+  app.get('/api/leaderboard', authenticate.verifyUser, dashboard.getLeaderboard);
+
+  // Get donations route
+  app.get('/api/donations', authenticate.verifyUser, dashboard.getDonations);
 };
