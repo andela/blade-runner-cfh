@@ -1,4 +1,4 @@
-import validateUserSignIn, { verifyUser } from '../config/middlewares/authentication';
+import validateUserSignIn from '../config/middlewares/authentication';
 import signIn from '../app/controllers/users';
 
 const index = require('../app/controllers/index');

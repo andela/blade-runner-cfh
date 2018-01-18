@@ -138,7 +138,6 @@ angular.module('mean.system')
       $scope.confirmStartGame = () => {
         game.startGame();
         if (!(/^\d+$/).test(game.gameID)) {
-          console.log(!(/^\d+$/).test(game.gameID));
           const token = $window.localStorage.getItem('token');
           if (token) {
             routeActions.saveGame(`/api/games/${game.gameID}/start`, game, token)
