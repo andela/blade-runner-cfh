@@ -44,26 +44,26 @@
             <table class="table table-hover">
             <thead>
                 <tr class="text-white bg-black">
-                <th scope="col">#</th>
-                <th scope="col">Owner</th>
-                <th scope="col">Players</th>
-                <th scope="col">Winner</th>
-                <th scope="col">Completed</th>
-                <th scope="col">Rounds</th>
+                  <th scope="col">#</th>
+                  <th scope="col">Owner</th>
+                  <th scope="col">Players</th>
+                  <th scope="col">Winner</th>
+                  <th scope="col">Completed</th>
+                  <th scope="col">Rounds</th>
                 </tr>
             </thead>
             <tbody ng-repeat="game in games">
                 <tr>
-                <th scope="row">{{ $index + 1 }}</th>
-                <td>{{ game.ownerUsername }}</td>
-                <td>
-                    <ul ng-repeat="player in game.players">
-                    <li>{{ player.username }}</li>
-                    </ul>
-                </td>
-                <td>{{ game.winner.username || 'No Winner' }}</td>
-                <td>{{ game.completed }}</td>
-                <td>{{ game.rounds }}</td>
+                  <th scope="row">{{ $index + 1 }}</th>
+                  <td>{{ game.ownerUsername }}</td>
+                  <td>
+                      <ul ng-repeat="player in game.players">
+                      <li>{{ player.username }}</li>
+                      </ul>
+                  </td>
+                  <td>{{ game.winner.username || 'No Winner' }}</td>
+                  <td>{{ game.completed }}</td>
+                  <td>{{ game.rounds }}</td>
                 </tr>
             </tbody>
             </table>
@@ -74,24 +74,24 @@
             <table class="table table-hover">
             <thead>
                 <tr class="text-white bg-black">
-                <th scope="col">Player</th>
-                <th scope="col">Number of Wins</th>
+                  <th scope="col">Player</th>
+                  <th scope="col">Number of Wins</th>
                 </tr>
             </thead>
             <tbody ng-repeat="record in leaderboard">
                 <tr ng-if="record._id !== null">
-                <td>{{ record._id }}</td>
-                <td>{{ record.count }}</td>
+                  <td>{{ record._id }}</td>
+                  <td>{{ record.count }}</td>
                 </tr>
             </tbody>
             </table>
         </div>
 
         <div class="card donation-section">
-                <h2 class="dashboard-headers text-center">Donations</h2>
-                <table class="table table-hover">
-                <p class="ml-2" ng-if="donations.length === 0">Looks like you have no donations. What a shame.</p>
-                </table>
+          <h2 class="dashboard-headers text-center">Donations</h2>
+          <table class="table table-hover">
+            <p class="ml-2" ng-if="donations.length === 0">Looks like you have no donations. What a shame.</p>
+          </table>
         </div>
     </div>
   </div>

@@ -1,7 +1,4 @@
-
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+import mongoose, { Schema } from 'mongoose';
 
 const Game = new Schema({
   gameId: String,
