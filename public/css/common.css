@@ -16,6 +16,10 @@ button {
   background-color: #E35F53;
   border-color: #1b1b1b; }
 
+ul {
+  padding-left: 15px;
+}
+
 /* Global Button Styles */
 a.animated-button:link, a.animated-button:visited {
   position: relative;
