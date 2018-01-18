@@ -27,6 +27,21 @@ angular.module('mean.system')
           .then(() => {
             $rootScope.notifications = [];
           });
+      $scope.playGameAsGuest = () => {
+        $scope.gameMode = 'guest';
+        $('#selectRegion').modal();
+      };
+
+      $scope.selectedRegion = '1';
+
+      $scope.startGameForRegion = () => {
+        localStorage.setItem('selectedRegion', $scope.selectedRegion);
+        window.location.href = `/play${$scope.gameMode === 'friends' ? '?custom' : ''}`;
+      };
+
+      $scope.playWithFriends = () => {
+        $scope.gameMode = 'friends';
+        $('#selectRegion').modal();
       };
 
       $scope.showOptions = () => {

@@ -72,7 +72,9 @@ describe("Game Server",function(){
       done();
     };
     var expectStartGame = function() {
-      client1.emit('startGame');
+      client1.emit('startGame', {
+        regionId: 1
+      });
       client1.on('gameUpdate', function(data) {
         data.state.should.equal("waiting for players to pick");
       });
@@ -111,7 +113,9 @@ describe("Game Server",function(){
       done();
     };
     var expectStartGame = function() {
-      client1.emit('startGame');
+      client1.emit('startGame', {
+        regionId: 1
+      });
       client1.on('gameUpdate', function(data) {
         data.state.should.equal("waiting for players to pick");
       });
