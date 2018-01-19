@@ -24,7 +24,6 @@ angular.module('mean.system')
 
   var notificationQueue = [];
   var timeout = false;
-  var self = this;
   var joinOverrideTimeout = 0;
 
   var addToNotificationQueue = function(msg) {
@@ -141,11 +140,11 @@ angular.module('mean.system')
       game.state = data.state;
     }
 
-    if (data.state === 'waiting for czar to draw a card') {
-      game.curQuestion = {};
-      game.czar = data.czar;
-      game.curQuestion.text = 'Waiting For Czar To Draw A Card';
-    }
+      if (data.state === 'waiting for czar to draw a card') {
+        game.curQuestion = {};
+        game.czar = data.czar;
+        game.curQuestion.text = 'Waiting For Czar To Draw A Card';
+      }
 
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
