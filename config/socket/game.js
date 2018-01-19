@@ -110,6 +110,7 @@ Game.prototype.assignGuestNames = function() {
   });
 };
 
+// eslint-disable-next-line func-names
 Game.prototype.prepareGame = function () {
   this.state = 'game in progress';
 
@@ -127,6 +128,7 @@ Game.prototype.prepareGame = function () {
   self.startGame();
 };
 
+// eslint-disable-next-line func-names
 Game.prototype.startGame = function () {
   this.setCzar(this);
 };
@@ -172,6 +174,7 @@ Game.prototype.sendUpdate = function() {
   this.io.sockets.in(this.gameID).emit('gameUpdate', this.payload());
 };
 
+// eslint-disable-next-line func-names
 Game.prototype.stateChoosing = function (self) {
   self.state = 'waiting for players to pick';
   // console.log(self.gameID,self.state);

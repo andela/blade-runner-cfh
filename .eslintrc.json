@@ -28,7 +28,6 @@
     "no-param-reassign": 0,
     "comma-dangle": 0,
     "no-undef": 0,
-    "func-names": 0,
     "no-unused-expressions": 0,
     "curly": ["error", "multi-line"],
     "import/no-unresolved": 0,
