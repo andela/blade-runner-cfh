@@ -141,6 +141,12 @@ angular.module('mean.system')
       game.state = data.state;
     }
 
+    if (data.state === 'waiting for czar to draw a card') {
+      game.curQuestion = {};
+      game.czar = data.czar;
+      game.curQuestion.text = 'Waiting For Czar To Draw A Card';
+    }
+
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
       game.curQuestion = data.curQuestion;
@@ -188,8 +194,13 @@ angular.module('mean.system')
     socket.emit(mode,{userID: userID, room: room, createPrivate: createPrivate});
   };
 
+
     game.startGame = () => {
-      socket.emit('startGame', {
+      socket.emit('startGame');
+    };
+
+    game.czarHasDrawnCard = () => {
+      socket.emit('czar has drawn card', {
         regionId: localStorage.getItem('regionId')
       });
     };

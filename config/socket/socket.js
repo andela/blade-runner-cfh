@@ -50,10 +50,10 @@ module.exports = function(io) {
       joinGame(socket,data);
     });
 
-    socket.on('startGame', (data) => {
+    socket.on('startGame', () => {
       if (allGames[socket.gameID]) {
         const thisGame = allGames[socket.gameID];
-        thisGame.regionId = data.regionId || DEFAULT_REGION;
+        // thisGame.regionId = data.regionId || DEFAULT_REGION;
         console.log('comparing',thisGame.players[0].socket.id,'with',socket.id);
         if (thisGame.players.length >= thisGame.playerMinLimit) {
           // Remove this game from gamesNeedingPlayers so new players can't join it.
@@ -65,6 +65,15 @@ module.exports = function(io) {
           thisGame.prepareGame();
           thisGame.sendNotification('The game has begun!');
         }
+      }
+    });
+
+    socket.on('czar has drawn card', (data) => {
+      if (allGames[socket.gameID]) {
+        const thisGame = allGames[socket.gameID];
+        thisGame.regionId = data.regionId || DEFAULT_REGION;
+        thisGame.czarHasDrawnCard();
+        thisGame.sendNotification('Players should select their answers!');
       }
     });
 
