@@ -61,6 +61,14 @@
   overflow-y: scroll;
 }
 
+.is-closed{
+  visibility: hidden;
+}
+
+.is-opened{
+  visibility: visible; 
+}
+
 @media only screen and (min-width: 768px) and (max-width: 769px) {
   .chat-window{
     width: 40vw;

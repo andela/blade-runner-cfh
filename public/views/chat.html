@@ -15,7 +15,7 @@
           <div>
             {{username}}
           </div>
-          <div data-id="chat_window_1" class="fa fa-times" data-target="#chat-window" data-toggle="collapse">
+          <div data-id="chat_window_1" class="fa fa-times" data-target="#chat-window" data-toggle="collapse" ng-click="toggleWindow()">
           </div>
         </div>   
         <div class="chat-body" id="chat-body">
@@ -34,7 +34,11 @@
         </div>
         <input type="text" class="form-control chat-form" placeholder="Type Here" ng-model="message" ng-keypress="addMessage($event)" />
       </div>
-      <i class="fa fa-comment" aria-hidden="true" data-target="#chat-window" data-toggle="collapse" id="chat-icon"></i>
+      <i class="fa fa-comment is-opened" aria-hidden="true" data-target="#chat-window" data-toggle="collapse" id="chat-icon" ng-click="toggleWindow($event)"></i>
     </main>
+
+    <script>
+
+    </script>
   </body>
 </html>

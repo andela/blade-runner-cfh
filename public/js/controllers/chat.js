@@ -8,7 +8,7 @@ angular.module('mean.system')
       const ref = new Firebase('https://blade-runner-cfh-ee939.firebaseio.com/');
       $scope.chatMessages = $firebaseArray(ref);
       $scope.username = game.players[game.playerIndex];
-      
+
       $scope.addMessage = (event) => {
         // on keypress 13 === enter
         if (event.which === 13 && $scope.message !== '') {
@@ -24,6 +24,15 @@ angular.module('mean.system')
         }
       };
 
-      console.log('////////////////', game.players);
+      $scope.toggleWindow = () => {
+        const chatIcon = $('#chat-icon');
+        if (chatIcon.hasClass('is-opened')) {
+          chatIcon.removeClass('is-opened');
+          chatIcon.addClass('is-closed');
+        } else {
+          chatIcon.removeClass('is-closed');
+          chatIcon.addClass('is-opened');
+        }
+      };
     }
   ]);
