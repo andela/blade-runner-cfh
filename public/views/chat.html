@@ -13,30 +13,28 @@
       <div class="chat-window collapse" id="chat-window">
         <div class="chat-head">
           <div>
-            Seun
-          </div>
-          <div  id="minim_chat_window" class="fa fa-minus" data-target="#chat-window" data-toggle="collapse">
+            {{username}}
           </div>
           <div data-id="chat_window_1" class="fa fa-times" data-target="#chat-window" data-toggle="collapse">
           </div>
         </div>   
         <div class="chat-body" id="chat-body">
           <div class="chat-content">
-            <div ng-repeat="data in chatMessages" class="row">
-              <div class="col-sm-9 col-md-9 bg-info chat-text">
+            <div ng-repeat="data in chatMessages" class="row" style="margin:auto;">
+              <div class="col-sm-9 col-md-9 chat-text">
                 <div class="user-username">
                     <img ng-src={{data.avatar}} class="chat-img">
                     {{data.username}}
+                    <small>{{  data.timestamp }}</small>
                 </div>
                 <div class="chat-messages">{{data.message}}</div>
-               <small>{{  data.timestamp }}</small>
               </div>
             </div>
           </div>
         </div>
         <input type="text" class="form-control chat-form" placeholder="Type Here" ng-model="message" ng-keypress="addMessage($event)" />
       </div>
-      <i class="fa fa-comment" aria-hidden="true" data-target="#chat-window" data-toggle="collapse"></i>
+      <i class="fa fa-comment" aria-hidden="true" data-target="#chat-window" data-toggle="collapse" id="chat-icon"></i>
     </main>
   </body>
 </html>

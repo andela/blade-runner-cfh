@@ -39,6 +39,10 @@
   .users-wrapper {
     margin-top: 1.5rem;
   }
+
+  .awaiting-players{
+    width: 70vw;
+  }
 }
 
 #background-image {
@@ -102,7 +106,6 @@
   font-size: 12px;
 }
 
-/* SEUN'S CSS ENDS HERE */
 
 .start-game-button {
   position: absolute;

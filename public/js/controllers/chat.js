@@ -7,7 +7,8 @@ angular.module('mean.system')
       $scope.message = '';
       const ref = new Firebase('https://blade-runner-cfh-ee939.firebaseio.com/');
       $scope.chatMessages = $firebaseArray(ref);
-
+      $scope.username = game.players[game.playerIndex];
+      
       $scope.addMessage = (event) => {
         // on keypress 13 === enter
         if (event.which === 13 && $scope.message !== '') {
@@ -22,5 +23,7 @@ angular.module('mean.system')
           $scope.message = '';
         }
       };
+
+      console.log('////////////////', game.players);
     }
   ]);
