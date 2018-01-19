@@ -12,7 +12,7 @@
   <!-- Selected answers -->
 </div>
 
-<div class="row" ng-hide="game.state === 'game ended' || game.state ==='game dissolved'" ng-repeat="answer in game.table">
+<div class="row" ng-hide="game.state === 'game ended' || game.state ==='game dissolved' || game.state === 'waiting for czar to draw a card'" ng-repeat="answer in game.table">
   <div class="col-xs-6 col-sm-6 cards-wrapper col-md-3 col-lg-3" ng-repeat="card in answer.card" ng-style="pointerCursorStyle()"
     ng-click="pickWinning(answer)" ng-show="showTable || isCzar()">
     <div class="cards text-center p-1"  style="font-size: 11px; background-color: {{winningColor($parent.$index)}}" ng-bind-html-unsafe="card.text">

@@ -27,6 +27,7 @@ angular.module('mean.system')
           .then(() => {
             $rootScope.notifications = [];
           });
+      };
       $scope.playGameAsGuest = () => {
         $scope.gameMode = 'guest';
         $('#selectRegion').modal();
@@ -74,7 +75,7 @@ angular.module('mean.system')
           if (token) {
             $window.localStorage.setItem('token', token);
           }
-          $location.path('/');
+          window.location.href = '/';
         };
         $scope.serverErrors = {};
         const errorCallBack = (error) => {
@@ -101,7 +102,7 @@ angular.module('mean.system')
           if (token) {
             $window.localStorage.setItem('token', token);
           }
-          $location.path('/');
+          window.location.href = '/';
         };
 
         const errorCallBack = (err) => {

@@ -241,11 +241,6 @@ angular.module('mean.system')
           $scope.showTable = true;
         }
 
-
-        if (game.state === 'waiting for czar to draw a card') {
-          $scope.showTable = true;
-        }
-
         if (game.state === 'waiting for players to pick') {
           $scope.showTable = false;
         }
@@ -299,7 +294,7 @@ angular.module('mean.system')
           intro: 'Game needs a minimum of 3 players to start. Wait for the minimum number of players then start the game. Also when the game starts, the questions are displayed here'
         },
         {
-          element: '#timer-container',
+          element: '#timer-status-round',
           intro: 'You have 20 seconds to submit an answer. After time out, the CZAR selects his favorite answer. Whoever submits CZAR\'s favorite answer wins the round'
         },
         {
@@ -318,7 +313,6 @@ angular.module('mean.system')
         ],
         showStepNumbers: true,
         disableInteraction: true,
-        overlayOpacity: 0.5,
         showBullets: false
       });
 

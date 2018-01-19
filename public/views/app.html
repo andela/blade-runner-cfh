@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <div class="body-wrapper" ng-controller="GameController">
+  <div class="body-wrapper" ng-controller="GameController" ng-init="takeTour()">
     <header class="header">
       <nav class="navbar navbar-dark navbar-expand-sm scrolled bg-blue">
         <div class="container">
@@ -28,15 +28,17 @@
           </button>
           <div class="collapse navbar-collapse" id="navbar-links">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Twitter</a>
-              </li>
 
-              <li class="nav-item" ng-click="abandonGame()">
+              <li id="abandon-game-button" class="nav-item" ng-click="abandonGame()">
                 <a class="nav-link" href="#">Abandon Game</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Take Tour</a>
+                <a class="nav-link" href="#" ng-click="retakeTour()">Take Tour</a>
+              </li>
+              <li id="tweet-container" class="nav-item" style="margin: 10px 0px 0px 10px;">
+                <a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw" class="nav-link twitter-hashtag-button" data-text="Come play with us !!! "
+                  data-url="https://blade-runner-cfh.herokuapp.com" data-related="@bahdcoder" data-show-count="false">Tweet #button</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
               </li>
             </ul>
           </div>
@@ -52,20 +54,20 @@
               <div class="col-sm-12 col-md-9">
                 <div class="row">
                   <div class="container col-sm-12 col-md-3 col-lg-3" style="margin-bottom: 20px;">
-                    <div class="timer text-center mb-3" style="background-color: white;" ng-bind="game.time">
+                    <div id="timer-status-round" class="timer text-center mb-3" style="background-color: white;" ng-bind="game.time">
 
                     </div>
-                    <div id="timer-status-round" class="timer-title" ng-hide="game.state === 'winner has been chosen' || game.state === 'waiting for czar to decide'">
+                    <div class="timer-title" ng-hide="game.state === 'winner has been chosen' || game.state === 'waiting for czar to decide'">
                       Time Remaining</div>
                     <div id="timer-status-czar-choosing" class="timer-title" ng-show="game.state === 'winner has been chosen'"> Next Round In</div>
                     <div id="timer-status-czar-choosing" class="timer-title" ng-show="game.state === 'waiting for czar to decide'"> Czar Choosing</div>
                   </div>
-                  <div class="container col-sm-12 col-md-9 col-lg-9">
+                  <div id="question-container-outer" class="container col-sm-12 col-md-9 col-lg-9">
                     <question></question>
                   </div>
                 </div>
                 <div class="container row" style="margin-top: 5vh;">
-                  <div class="col-md-9 offset-md-3 col-lg-9 offset-lg-3">
+                  <div id="answers-container" class="col-md-9 offset-md-3 col-lg-9 offset-lg-3">
                     <answers></answers>
                   </div>
                 </div>
@@ -80,80 +82,80 @@
       </div>
     </main>
 
-      <!-- Confirm Start Game Modal -->
-  <div class="modal fade" id="confirmStartGame" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <h5 class="text-center">
-            <p class="text-center">Are you sure you want to start the game?</p>
-            <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            <button class="btn btn-danger" data-dismiss="modal" ng-click="confirmStartGame()">Start</button>
-          </h5>
+    <!-- Confirm Start Game Modal -->
+    <div class="modal fade" id="confirmStartGame" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h5 class="text-center">
+              <p class="text-center">Are you sure you want to start the game?</p>
+              <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+              <button class="btn btn-danger" data-dismiss="modal" ng-click="confirmStartGame()">Start</button>
+            </h5>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Confirm Start Game Modal End -->
+    <!-- Confirm Start Game Modal End -->
 
     <div class="modal fade" id="inviteNewPlayers" tabindex="-1" role="dialog" aria-labelledby="maxPlayersReached">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-              <h5 class="text-center">
-                <h6 class="text-center alert-success p-2" ng-show="sentNotification">{{ sentNotification }}</h6>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h5 class="text-center">
+              <h6 class="text-center alert-success p-2" ng-show="sentNotification">{{ sentNotification }}</h6>
 
-                <h6 class="text-center mb-1" style="font-size: 16px;">
-                  You need atleast 3 players to be able to start the game.
-                </h6>
-    
-                <h6 class="text-center" style="font-size: 16px;">
-                  Invite users to join you.
-                </h6>
-                <input type="text" ng-model="username" class="form-control mb-2">
-                <h6 class="p-2" ng-show="noUsersFoundNotification">{{ noUsersFoundNotification }}</h6>
-                <ul class="list-group mb-2">
-                  <li class="list-group-item" ng-repeat="user in foundUsers">
-                    <span class="float-left">{{ user.name }}</span>
-                    <button ng-click="inviteUser(user.id)" class="btn btn-game float-right btn-xs">Invite user</button>
-                  </li>
-                </ul>
-                <button class="btn btn-game float-right" data-dismiss="modal">Keep waiting.</button>
-              </h5>
-            </div>
-          </div>
+              <h6 class="text-center mb-1" style="font-size: 16px;">
+                You need atleast 3 players to be able to start the game.
+              </h6>
 
-        </div>
-      </div>
-    
-      <!-- Max Players Reached Notification modal start -->
-      <div class="modal fade" id="maxPlayersReached" tabindex="-1" role="dialog" aria-labelledby="maxPlayersReached">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-              <h5 class="text-center">
-                HY !! ONLY 12 PEOPLE ARE ALLOWED PER GAME, AND THAT GAME ALREADY STARTED. WANNA START A NEW ONE ?
-              </h5>
-              <br>
-              <br>
-              <div class="text-center">
-                <a href="/#!" class="btn btn-default">Start A new Game</a>
-              </div>
-              <br>
-            </div>
+              <h6 class="text-center" style="font-size: 16px;">
+                Invite users to join you.
+              </h6>
+              <input type="text" ng-model="username" class="form-control mb-2">
+              <h6 class="p-2" ng-show="noUsersFoundNotification">{{ noUsersFoundNotification }}</h6>
+              <ul class="list-group mb-2">
+                <li class="list-group-item" ng-repeat="user in foundUsers">
+                  <span class="float-left">{{ user.name }}</span>
+                  <button ng-click="inviteUser(user.id)" class="btn btn-game float-right btn-xs">Invite user</button>
+                </li>
+              </ul>
+              <button class="btn btn-game float-right" data-dismiss="modal">Keep waiting.</button>
+            </h5>
           </div>
         </div>
+
       </div>
-      <!-- Max Players Reached Notification modal End -->
+    </div>
+
+    <!-- Max Players Reached Notification modal start -->
+    <div class="modal fade" id="maxPlayersReached" tabindex="-1" role="dialog" aria-labelledby="maxPlayersReached">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h5 class="text-center">
+              HY !! ONLY 12 PEOPLE ARE ALLOWED PER GAME, AND THAT GAME ALREADY STARTED. WANNA START A NEW ONE ?
+            </h5>
+            <br>
+            <br>
+            <div class="text-center">
+              <a href="/#!" class="btn btn-default">Start A new Game</a>
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Max Players Reached Notification modal End -->
 
   </div>
-</div>
-
-<!-- Invite new players Notification modal End -->
-</div>
-    
   </div>
-</div>
+
+  <!-- Invite new players Notification modal End -->
+  </div>
+
+  </div>
+  </div>
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 angular.module('mean.system')
-  .factory('Global', [() => {
+  // eslint-disable-next-line func-names
+  .factory('Global', [function () {
     const _this = this;
     _this._data = {
       user: window.user,
