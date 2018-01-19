@@ -26,7 +26,6 @@ describe('api endpoint to search for a user', () => {
           const { users } = res.body;
           users.length.should.equal(1);
           users[0].name.should.equal(user.name);
-          users[0].email.should.equal(user.email);
           done();
         });
     });
@@ -42,7 +41,6 @@ describe('api endpoint to search for a user', () => {
           const { users } = res.body;
           users.length.should.equal(1);
           users[0].name.should.equal(user.name);
-          users[0].email.should.equal(user.email);
           done();
         });
     });
@@ -67,7 +65,8 @@ describe('api endpoint to search for a user', () => {
       chai.request(app)
         .get('/api/search/users?user=john')
         .end((err, res) => {
-          res.should.have.status(404);
+          res.should.have.status(200);
+          res.body.users.length.should.equal(0);
           done();
         });
     });
@@ -79,8 +78,8 @@ describe('api endpoint to search for a user', () => {
       chai.request(app)
         .get('/api/search/users?user=john@test.com')
         .end((err, res) => {
-          res.should.have.status(404);
-          res.body.message.should.equal('A user with that email was not found.');
+          res.should.have.status(200);
+          res.body.users.length.should.equal(0);
           done();
         });
     });

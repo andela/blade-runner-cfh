@@ -1,11 +1,32 @@
 angular.module('mean.system')
-  .controller('IndexController', ['$scope', '$window', 'Global', '$http', '$location', 'socket', 'game', 'AvatarService',
-    ($scope, $window, Global, $http, $location, socket, game, AvatarService) => {
+  .controller('IndexController', [
+    '$scope', '$window', 'Global', '$http',
+    '$location', 'socket', 'game', 'AvatarService',
+    'NotificationService', '$rootScope',
+    (
+      $scope, $window, Global, $http, $location, socket, game,
+      AvatarService, NotificationService, $rootScope
+    ) => {
       $scope.global = Global;
       $scope.data = {};
       $scope.serverErrors = {};
       $scope.showOptions = true;
 
+      NotificationService.getNotifications();
+
+      $rootScope.$watch('notifications', () => {
+        $rootScope.notifications;
+      });
+
+      $scope.readNotifications = () => {
+        $http.put('/api/users/notifications/read', {}, {
+          headers: {
+            token: localStorage.getItem('token')
+          }
+        })
+          .then(() => {
+            $rootScope.notifications = [];
+          });
       $scope.playGameAsGuest = () => {
         $scope.gameMode = 'guest';
         $('#selectRegion').modal();
@@ -62,7 +83,8 @@ angular.module('mean.system')
             $scope.serverErrors[errorObject.field] = errorObject.message;
           });
         };
-        $http.post('/api/users', $scope.data).then(successCallback, errorCallBack);
+        $http.post('/api/users', $scope.data)
+          .then(successCallback, errorCallBack);
       };
 
       $scope.errorExist = () => $scope.serverErrors.message !== undefined;
@@ -87,7 +109,8 @@ angular.module('mean.system')
           const errorsFromServer = err.data.message;
           $scope.serverErrors.message = errorsFromServer;
         };
-        $http.post('/api/users/signin', $scope.data).then(successCallback, errorCallBack);
+        $http.post('/api/users/signin', $scope.data)
+          .then(successCallback, errorCallBack);
       };
 
       $scope.avatars = [];

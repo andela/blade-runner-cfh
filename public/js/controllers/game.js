@@ -7,10 +7,11 @@ angular.module('mean.system')
     '$timeout',
     '$location',
     '$window',
+    '$http',
     'MakeAWishFactsService',
     (
       $rootScope, $scope, game, routeActions, $timeout,
-      $location, $window, MakeAWishFactsService
+      $location, $window, $http, MakeAWishFactsService
     ) => {
       $scope.hasPickedCards = false;
       $scope.winningCardPicked = false;
@@ -28,6 +29,45 @@ angular.module('mean.system')
         $('#maxPlayersReached').modal();
       });
 
+      $scope.username = '';
+
+      $scope.$watch('username', () => {
+        $scope.searchUser();
+      });
+
+      $scope.sentNotification = null;
+
+      $scope.foundUsers = [];
+
+      $scope.searchUser = () => {
+        const { username } = $scope;
+
+        if (username) {
+          $http.get(`api/search/users?user=${username}`)
+            .then((response) => {
+              $scope.foundUsers = response.data.users;
+              if ($scope.foundUsers.length < 1) {
+                $scope.noUsersFoundNotification = 'No user was found.';
+              } else {
+                $scope.noUsersFoundNotification = null;
+              }
+            });
+        }
+      };
+
+      $scope.inviteUser = (recipientId) => {
+        $http.post('api/users/invite', { recipientId, link: $window.location.href }, {
+          headers: {
+            token: localStorage.getItem('token')
+          }
+        }).then(() => {
+          $scope.sentNotification = 'User invited successfully.';
+
+          setTimeout(() => {
+            $scope.sentNotification = null;
+          }, 2000);
+        });
+      };
       $scope.percentageOfPlayersFound = () =>
         `${Math.floor(($scope.game.players.length / $scope.game.playerMaxLimit) * 100)}%`;
 
