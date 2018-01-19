@@ -76,13 +76,13 @@ describe("Game Server",function(){
         regionId: 1
       });
       client1.on('gameUpdate', function(data) {
-        data.state.should.equal("waiting for players to pick");
+        data.state.should.equal('waiting for czar to draw a card');
       });
-      client2.on('gameUpdate', function(data) {
-        data.state.should.equal("waiting for players to pick");
+      client2.on('gameUpdate', (data) => {
+        data.state.should.equal('waiting for czar to draw a card');
       });
-      client3.on('gameUpdate', function(data) {
-        data.state.should.equal("waiting for players to pick");
+      client3.on('gameUpdate', (data) => {
+        data.state.should.equal('waiting for czar to draw a card');
       });
       setTimeout(disconnect,200);
     };
@@ -117,22 +117,22 @@ describe("Game Server",function(){
         regionId: 1
       });
       client1.on('gameUpdate', function(data) {
-        data.state.should.equal("waiting for players to pick");
+        data.state.should.equal('waiting for czar to draw a card');
       });
-      client2.on('gameUpdate', function(data) {
-        data.state.should.equal("waiting for players to pick");
+      client2.on('gameUpdate', (data) => {
+        data.state.should.equal('waiting for czar to draw a card');
       });
-      client3.on('gameUpdate', function(data) {
-        data.state.should.equal("waiting for players to pick");
+      client3.on('gameUpdate', (data) => {
+        data.state.should.equal('waiting for czar to draw a card');
       });
-      client4.on('gameUpdate', function(data) {
-        data.state.should.equal("waiting for players to pick");
+      client4.on('gameUpdate', (data) => {
+        data.state.should.equal('waiting for czar to draw a card');
       });
-      client5.on('gameUpdate', function(data) {
-        data.state.should.equal("waiting for players to pick");
+      client5.on('gameUpdate', (data) => {
+        data.state.should.equal('waiting for czar to draw a card');
       });
-      client6.on('gameUpdate', function(data) {
-        data.state.should.equal("waiting for players to pick");
+      client6.on('gameUpdate', (data) => {
+        data.state.should.equal('waiting for czar to draw a card');
       });
       setTimeout(disconnect,200);
     };
