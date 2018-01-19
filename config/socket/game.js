@@ -110,8 +110,9 @@ Game.prototype.assignGuestNames = function() {
   });
 };
 
-Game.prototype.prepareGame = function() {
-  this.state = "game in progress";
+// eslint-disable-next-line func-names
+Game.prototype.prepareGame = function () {
+  this.state = 'game in progress';
 
   this.io.sockets.in(this.gameID).emit('prepareGame',
     {
@@ -119,16 +120,19 @@ Game.prototype.prepareGame = function() {
       playerMaxLimit: this.playerMaxLimit,
       pointLimit: this.pointLimit,
       timeLimits: this.timeLimits
-    });
+    }
+  );
 
-    const self = this;
-    self.startGame();
+  const self = this;
+  self.startGame();
 };
 
+// eslint-disable-next-line func-names
 Game.prototype.startGame = function () {
   this.setCzar(this);
 };
 
+// eslint-disable-next-line func-names
 Game.prototype.setCzar = function (self) {
   self.state = 'waiting for czar to draw a card';
   if (self.czar === -1) {
@@ -142,6 +146,7 @@ Game.prototype.setCzar = function (self) {
   self.sendUpdate();
 };
 
+// eslint-disable-next-line func-names
 Game.prototype.czarHasDrawnCard = function () {
   const self = this;
   async.parallel(
@@ -168,6 +173,7 @@ Game.prototype.sendUpdate = function() {
   this.io.sockets.in(this.gameID).emit('gameUpdate', this.payload());
 };
 
+// eslint-disable-next-line func-names
 Game.prototype.stateChoosing = function(self) {
   self.state = "waiting for players to pick";
   // console.log(self.gameID,self.state);
@@ -391,7 +397,7 @@ Game.prototype.removePlayer = function(thisPlayer) {
       if (this.state === "waiting for players to pick") {
         clearTimeout(this.choosingTimeout);
         this.sendNotification('The Czar left the game! Starting a new round.');
-        return this.setCzar(this)
+        return this.setCzar(this);
       } else if (this.state === "waiting for czar to decide") {
         // If players are waiting on a czar to pick, auto pick.
         this.sendNotification('The Czar left the game! First answer submitted wins!');
