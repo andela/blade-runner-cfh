@@ -111,15 +111,17 @@ Game.prototype.assignGuestNames = function() {
 };
 
 Game.prototype.prepareGame = function() {
-  this.state = "game in progress";
+  this.state = 'game in progress';
 
-  this.io.sockets.in(this.gameID).emit('prepareGame',
+  this.io.sockets.in(this.gameID).emit(
+    'prepareGame',
     {
       playerMinLimit: this.playerMinLimit,
       playerMaxLimit: this.playerMaxLimit,
       pointLimit: this.pointLimit,
       timeLimits: this.timeLimits
-    });
+    }
+  );
 
   const self = this;
   self.startGame();
