@@ -129,6 +129,7 @@ Game.prototype.startGame = function () {
   this.setCzar(this);
 };
 
+// eslint-disable-next-line func-names
 Game.prototype.setCzar = function (self) {
   self.state = 'waiting for czar to draw a card';
   if (self.czar === -1) {
