@@ -132,6 +132,7 @@ Game.prototype.prepareGame = function () {
 // eslint-disable-next-line func-names
 Game.prototype.startGame = function () {
   this.setCzar(this);
+  // hey man
 };
 
 // eslint-disable-next-line func-names
