@@ -143,6 +143,7 @@ Game.prototype.setCzar = function (self) {
   self.sendUpdate();
 };
 
+// eslint-disable-next-line func-names
 Game.prototype.czarHasDrawnCard = function () {
   const self = this;
   async.parallel(
