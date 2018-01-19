@@ -1,6 +1,6 @@
 angular.module('mean.system')
-  .controller('IndexController', ['$scope', '$window', 'Global', '$http', '$location', 'socket', 'game', 'AvatarService',
-    ($scope, $window, Global, $http, $location, socket, game, AvatarService) => {
+  .controller('IndexController', ['$scope', '$window', 'Global', '$http', '$location', 'socket', 'game', 'AvatarService', '$firebaseObject',
+    ($scope, $window, Global, $http, $location, socket, game, AvatarService, $firebaseObject) => {
       $scope.global = Global;
       $scope.data = {};
       $scope.serverErrors = {};

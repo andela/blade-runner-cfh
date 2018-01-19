@@ -21,6 +21,10 @@
   right: 1rem;
 }
 
+.user-username{
+  font-size: 0.2rem;
+}
+
 
 .chat-img{
   width: 35px;
