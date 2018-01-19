@@ -110,7 +110,7 @@ Game.prototype.assignGuestNames = function() {
   });
 };
 
-Game.prototype.prepareGame = function() {
+Game.prototype.prepareGame = function () {
   this.state = 'game in progress';
 
   this.io.sockets.in(this.gameID).emit(
@@ -172,8 +172,8 @@ Game.prototype.sendUpdate = function() {
   this.io.sockets.in(this.gameID).emit('gameUpdate', this.payload());
 };
 
-Game.prototype.stateChoosing = function(self) {
-  self.state = "waiting for players to pick";
+Game.prototype.stateChoosing = function (self) {
+  self.state = 'waiting for players to pick';
   // console.log(self.gameID,self.state);
   self.table = [];
   self.winningCard = -1;
@@ -181,17 +181,17 @@ Game.prototype.stateChoosing = function(self) {
   self.winnerAutopicked = false;
   self.curQuestion = self.questions.pop();
   if (!self.questions.length) {
-    self.getQuestions(function(err, data) {
+    self.getQuestions((err, data) => {
       self.questions = data;
     });
   }
-  self.round++;
+  self.round += 1;
   self.dealAnswers();
   self.sendUpdate();
 
-  self.choosingTimeout = setTimeout(function() {
+  self.choosingTimeout = setTimeout(() => {
     self.stateJudging(self);
-  }, self.timeLimits.stateChoosing*1000);
+  }, self.timeLimits.stateChoosing * 1000);
 };
 
 Game.prototype.selectFirst = function() {
