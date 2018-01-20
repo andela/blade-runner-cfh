@@ -34,5 +34,20 @@ angular.module('mean.system')
           chatIcon.addClass('is-opened');
         }
       };
+      $(document).ready(() => {
+        const emoji = $('#emoji').emojioneArea({
+          emojiPlaceholder: ':smile_cat:',
+          placeholder: 'Type something here',
+          events: {
+            keyup: (editor, event) => {
+              if (event.which === 13) {
+                $scope.message = (emoji.data('emojioneArea').getText());
+                emoji.data('emojioneArea').setText('');
+                $scope.addMessage(event);
+              }
+            }
+          }
+        });
+      });
     }
   ]);

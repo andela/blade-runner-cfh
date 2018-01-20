@@ -89,8 +89,18 @@ gulp.task('intro.js', () => {
     .pipe(gulp.dest('./public/lib/intro.js'));
 });
 
+gulp.task('emojione', () => {
+  gulp.src('bower_components/emojione/**/*')
+    .pipe(gulp.dest('./public/lib/emojione'));
+});
 
-gulp.task('transfer-bower', ['angular', 'bootstrap', 'angularUtils', 'angular-bootstrap', 'intro.js']);
+gulp.task('emojionearea', () => {
+  gulp.src('bower_components/emojionearea/**/*')
+    .pipe(gulp.dest('./public/lib/emojionearea'));
+});
+
+
+gulp.task('transfer-bower', ['angular', 'bootstrap', 'angularUtils', 'angular-bootstrap', 'intro.js', 'emojione', 'emojionearea']);
 
 gulp.task('test', () => {
   gulp.src('./test/**/*.js')
