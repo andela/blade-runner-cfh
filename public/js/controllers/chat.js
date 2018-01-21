@@ -5,9 +5,33 @@ angular.module('mean.system')
     '$firebaseArray',
     ($scope, game, $firebaseArray) => {
       $scope.message = '';
-      const ref = new Firebase('https://blade-runner-cfh-ee939.firebaseio.com/');
+      const ref = new Firebase(`https://blade-runner-cfh-ee939.firebaseio.com/${game.gameID}`);
       $scope.chatMessages = $firebaseArray(ref);
       $scope.username = game.players[game.playerIndex];
+      $scope.unreadMessageCount = null;
+      $scope.icon = false;
+
+      let previousMessageCount = 0;
+      let newMessageCount = 0;
+      let unreadMessageCount = 0;
+      let toogleChatPanel = false;
+
+      $scope.$watch(() => {
+        if (!toogleChatPanel) {
+          newMessageCount = $scope.chatMessages.length;
+          unreadMessageCount = newMessageCount - previousMessageCount;
+          $scope.unreadMessageCount = unreadMessageCount <= 0 ? null : unreadMessageCount;
+        } else {
+          previousMessageCount = $scope.chatMessages.length;
+          $scope.unreadMessageCount = null;
+        }
+      });
+
+      $scope.scrollDownMessagePanel = () => {
+        $('.chat-content').stop().animate({
+          scrollTop: $('.chat-content')[0].scrollHeight
+        }, 2000);
+      };
 
       $scope.addMessage = (event) => {
         // on keypress 13 === enter
@@ -21,17 +45,22 @@ angular.module('mean.system')
           };
           $scope.chatMessages.$add(payload);
           $scope.message = '';
+          $scope.scrollDownMessagePanel();
         }
       };
 
       $scope.toggleWindow = () => {
-        const chatIcon = $('#chat-icon');
-        if (chatIcon.hasClass('is-opened')) {
-          chatIcon.removeClass('is-opened');
-          chatIcon.addClass('is-closed');
+        const chatWindow = $('#chat-window');
+        if (chatWindow.hasClass('is-closed')) {
+          chatWindow.removeClass('is-closed');
+          chatWindow.addClass('is-opened');
+          $scope.icon = true;
+          toogleChatPanel = true;
         } else {
-          chatIcon.removeClass('is-closed');
-          chatIcon.addClass('is-opened');
+          chatWindow.removeClass('is-opened');
+          chatWindow.addClass('is-closed');
+          $scope.icon = false;
+          toogleChatPanel = false;
         }
       };
     }

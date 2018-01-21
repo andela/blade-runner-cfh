@@ -16,6 +16,7 @@ angular.module('mean.system')
       $scope.winningCardPicked = false;
       $scope.showTable = false;
       $scope.modalShown = false;
+      $scope.gameViewLoaded = true;
       $scope.game = game;
       $scope.routeActions = routeActions;
       $scope.pickedCards = [];

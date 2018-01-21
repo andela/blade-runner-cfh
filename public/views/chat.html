@@ -10,10 +10,10 @@
   </head>
   <body >
     <main ng-controller="chatController">
-      <div class="chat-window collapse" id="chat-window">
+      <div class="chat-window collapse is-closed" id="chat-window">
         <div class="chat-head">
           <div>
-            {{username}}
+            Chat
           </div>
           <div data-id="chat_window_1" class="fa fa-times" data-target="#chat-window" data-toggle="collapse" ng-click="toggleWindow()">
           </div>
@@ -34,7 +34,13 @@
         </div>
         <input type="text" class="form-control chat-form" placeholder="Type Here" ng-model="message" ng-keypress="addMessage($event)" />
       </div>
-      <i class="fa fa-comment is-opened" aria-hidden="true" data-target="#chat-window" data-toggle="collapse" id="chat-icon" ng-click="toggleWindow($event)"></i>
+      <div>
+          <span class="fa fa-comment" aria-hidden="true" data-target="#chat-window" data-toggle="collapse" id="chat-icon" ng-hide="icon" ng-click="toggleWindow($event)">
+            <sup class="pop-icon">
+                <span class="badge badge-light badge-icon"><b><p>{{unreadMessageCount}}</p></b></span>
+            </sup>
+          </span>
+      </div>
     </main>
 
     <script>

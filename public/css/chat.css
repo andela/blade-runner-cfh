@@ -59,10 +59,26 @@
 .chat-content{
   height: 32vh;
   overflow-y: scroll;
+  padding-bottom: 25%;
 }
 
 .is-closed{
   visibility: hidden;
+}
+
+.badge-icon {
+  background-color: transparent;
+  color: #fff;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  font-size: 15px;
+}
+
+.pop-icon{
+  position: absolute;
+  top: 0.3em;
+  right: 0.35em;
 }
 
 .is-opened{
