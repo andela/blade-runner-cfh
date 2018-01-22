@@ -83,24 +83,39 @@
       </div>
     </main>
 
-    <div class="modal fade" id="inviteNewPlayers" tabindex="-1" role="dialog" aria-labelledby="maxPlayersReached">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-              <h5 class="text-center">
-                <p class="text-center margin-btm-30">
-                  You need atleast 3 players to be able to start the game.
-                </p>
-    
-                <p class="text-center margin-btm-30">
-                  Please be patient enough for other guests to join.
-                </p>
-                <button class="btn btn-danger" data-dismiss="modal">Keep waiting.</button>
-              </h5>
+    <div class="modal fade" id="inviteNewPlayers" aria-labelledby="maxPlayersReached">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h6 class="modal-title">
+              You need atleast
+              <strong>3 Players</strong> to start the game
+              <br> Invite users to join you
+            </h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h6 class="text-center alert-success p-2" ng-show="sentNotification">{{ sentNotification }}</h6>
+            <div class="form-group wrapper">
+              <i class="fa fa-search"></i>
+              <input type="text" ng-model="username" class="form-control" placeholder="Find users by name">
             </div>
+            <h6 class="p-2" ng-show="noUsersFoundNotification">{{ noUsersFoundNotification }}</h6>
+            <ul class="list-group mb-2">
+              <li class="list-group-item" ng-repeat="user in foundUsers">
+                <span class="float-left">{{ user.name }}</span>
+                <button ng-click="inviteUser(user.id)" class="btn btn-outline-success btn-sm float-right">Invite</button>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
+    </div>
 
     <!-- Confirm Start Game Modal -->
     <div class="modal fade" id="confirmStartGame" tabindex="-1" role="dialog">
@@ -123,16 +138,16 @@
         <div class="modal-content">
           <div class="modal-header">
             <h6 class="modal-title">
-              You need atleast <strong>3 Players</strong> to start the game 
-              <br>
-              Invite users to join you
+              You need atleast
+              <strong>3 Players</strong> to start the game
+              <br> Invite users to join you
             </h6>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-              <h6 class="text-center alert-success p-2" ng-show="sentNotification">{{ sentNotification }}</h6>
+            <h6 class="text-center alert-success p-2" ng-show="sentNotification">{{ sentNotification }}</h6>
             <div class="form-group wrapper">
               <i class="fa fa-search"></i>
               <input type="text" ng-model="username" class="form-control" placeholder="Find users by name">
