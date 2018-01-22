@@ -121,7 +121,9 @@
   border: 1px solid #e35f53;
   transition: all 0.5s;
 }
-
+.introjs-helperLayer {
+  opacity: 0.4 !important;
+}
 .btn-game:hover {
   background-color: #df473a;
   border: 1px solid #df473a;

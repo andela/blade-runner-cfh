@@ -16,6 +16,10 @@ button {
   background-color: #E35F53;
   border-color: #1b1b1b; }
 
+ul {
+  padding-left: 15px;
+}
+
 /* Global Button Styles */
 a.animated-button:link, a.animated-button:visited {
   position: relative;
@@ -173,6 +177,13 @@ a.animated-button.victoria-two {
   padding-top: 5vh;
   color: #E35F53; }
 
+.dashboard-headers {
+  font-family: 'Berkshire Swash', cursive;
+  margin-bottom: 20px;
+  padding-top: 2vh;
+  color: #E35F53; 
+}
+  
 .hero-title {
   font-family: 'Berkshire Swash', cursive;
   font-size: 4rem; }
@@ -269,6 +280,7 @@ a.animated-button.victoria-two {
   background-repeat: no-repeat;
   width: 100vw;
   position: relative; }
+
 .overlay {
   position: absolute;
   width: 100vw;
@@ -356,6 +368,29 @@ a.animated-button.victoria-two {
   stroke-width: 0;
   stroke: currentColor;
   fill: currentColor; }
+
+.games-section {
+  margin-bottom: 40px;
+  margin-top: 80px;
+}
+
+.leaderboard-section {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.donation-section {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.bg-black {
+  background-color: #1b1b1b;
+}
+
+.bg-gray {
+  background-color: #FAFAFA;
+}
 
 footer {
   margin-top: 50px;

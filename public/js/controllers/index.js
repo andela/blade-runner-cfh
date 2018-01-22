@@ -6,6 +6,39 @@ angular.module('mean.system')
       $scope.serverErrors = {};
       $scope.showOptions = true;
 
+      NotificationService.getNotifications();
+
+      $rootScope.$watch('notifications', () => {
+        $rootScope.notifications;
+      });
+
+      $scope.readNotifications = () => {
+        $http.put('/api/users/notifications/read', {}, {
+          headers: {
+            token: localStorage.getItem('token')
+          }
+        })
+          .then(() => {
+            $rootScope.notifications = [];
+          });
+      };
+      $scope.playGameAsGuest = () => {
+        $scope.gameMode = 'guest';
+        $('#selectRegion').modal();
+      };
+
+      $scope.selectedRegion = '1';
+
+      $scope.startGameForRegion = () => {
+        localStorage.setItem('selectedRegion', $scope.selectedRegion);
+        window.location.href = `/play${$scope.gameMode === 'friends' ? '?custom' : ''}`;
+      };
+
+      $scope.playWithFriends = () => {
+        $scope.gameMode = 'friends';
+        $('#selectRegion').modal();
+      };
+
       $scope.showOptions = () => {
         if (window.localStorage.token) {
           $scope.showOptions = false;
@@ -36,7 +69,7 @@ angular.module('mean.system')
           if (token) {
             $window.localStorage.setItem('token', token);
           }
-          $location.path('/');
+          window.location.href = '/';
         };
         $scope.serverErrors = {};
         const errorCallBack = (error) => {
@@ -45,7 +78,8 @@ angular.module('mean.system')
             $scope.serverErrors[errorObject.field] = errorObject.message;
           });
         };
-        $http.post('/api/users', $scope.data).then(successCallback, errorCallBack);
+        $http.post('/api/users', $scope.data)
+          .then(successCallback, errorCallBack);
       };
 
       $scope.errorExist = () => $scope.serverErrors.message !== undefined;
@@ -62,7 +96,7 @@ angular.module('mean.system')
           if (token) {
             $window.localStorage.setItem('token', token);
           }
-          $location.path('/');
+          window.location.href = '/';
         };
 
         const errorCallBack = (err) => {
@@ -70,7 +104,8 @@ angular.module('mean.system')
           const errorsFromServer = err.data.message;
           $scope.serverErrors.message = errorsFromServer;
         };
-        $http.post('/api/users/signin', $scope.data).then(successCallback, errorCallBack);
+        $http.post('/api/users/signin', $scope.data)
+          .then(successCallback, errorCallBack);
       };
 
       $scope.avatars = [];
