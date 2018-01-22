@@ -67,18 +67,18 @@
                 <a class="nav-link" href="#" id="home-link" ng-click="animateHomeLink">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">How To Play</a>
+                <a class="nav-link" href="#how-to-play">How To Play</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Charity</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="#home">About Us</a>
               </li>
               <li class="nav-item" ng-hide="showOptions">
                 <a class="nav-link" href="#" data-toggle='modal' data-target="#userNotifications">
-                  <span class="badge badge-danger">{{ notifications.length }}</span>
                   Notifications
+                  <span class="badge badge-danger">{{ notifications.length }}</span>
                 </a>
               </li>
               <span ng-hide="showOptions">
@@ -112,21 +112,25 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">User Notifications here.</h5>
+              <h6 id="exampleModalLabel">NOTIFICATIONS</h6>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <p class="text-center" ng-if="notifications.length < 1">No notifications.</p>
-              <ul ng-if="notifications.length > 0">
-                  <li ng-repeat="notification in notifications">
-                      <a ng-href="{{ notification.link }}" target="_blank">{{ notification.message }}</a>
-                    </li>
+              <p class="text-center" ng-if="notifications.length < 1">Nothing here</p>
+              <ul class="ul-style" ng-if="notifications.length > 0">
+                  <li ng-repeat="notification in notifications"> 
+                    <p class="invite-header">CFH-Game-Invite</p>
+                    <a class="link-style" ng-href="{{ notification.link }}" target="_blank">
+                      {{ notification.message }}
+                    </a>
+                    <hr>
+                  </li>
               </ul>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" ng-click="readNotifications()" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-light" ng-click="readNotifications()" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
@@ -158,7 +162,7 @@
           <div class="overlay_content">
             <div>
               <div class="container">
-                <h1 class="text-center hero-title animated fadeInDown">Cards For Humanity</h1>
+                <h1 class="text-center hero-title wow bounceInUp">Cards For Humanity</h1>
                 <h5 class="text-center hero-text animated fadeInLeft">A game for horrible people desperately trying to do good</h5>
               </div>
             </div>
@@ -189,7 +193,7 @@
       <div class="info-section" id="home">
         <div class="container">
           <div class="px-4">
-            <h1 class="text-center headers text-white">What is Cards For Humanity?</h1>
+            <h1 class="text-center headers wow bounceInUp text-white">What is Cards For Humanity?</h1>
             <p class="info-text">Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives
               you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally
               are.
@@ -205,7 +209,7 @@
         <div class="container">
           <div class="row">
             <div class="align-self-center">
-              <div class="text-center headers" data-aos="fade-up" id="how-to-play_header">
+              <div class="text-center headers"0 id="how-to-play_header">
                 <h1>HOW TO PLAY</h1>
               </div>
               <div class="container card-container mt-5">
@@ -218,7 +222,7 @@
                       </svg>
                     </div>
                     <div class="mt-4 px-4">
-                      <p data-aos="fade-up">Each player begins with, and will always have, 10 white answer cards</p>
+                      <p>Each player begins with, and will always have, 10 white answer cards</p>
                     </div>
                   </div>
 
@@ -229,7 +233,7 @@
                       </svg>
                     </div>
                     <div class="mt-4 px-4">
-                      <p data-aos="fade-up">For each round, one player is randomly chosen as the Card Czar</p>
+                      <p>For each round, one player is randomly chosen as the Card Czar</p>
                     </div>
                   </div>
 
@@ -240,7 +244,7 @@
                       </svg>
                     </div>
                     <div class="mt-4 px-4">
-                      <p data-aos="fade-up">Everyone else answers the black question card by clicking on the answer card they want to use</p>
+                      <p>Everyone else answers the black question card by clicking on the answer card they want to use</p>
                     </div>
                   </div>
 
@@ -251,7 +255,7 @@
                       </svg>
                     </div>
                     <div class="mt-4 px-4">
-                      <p data-aos="fade-up">The Card Czar then picks a favorite answer, and whoever played that answer wins the round</p>
+                      <p>The Card Czar then picks a favorite answer, and whoever played that answer wins the round</p>
                     </div>
                   </div>
 
@@ -270,7 +274,7 @@
             </h1>
             <div class="charity_content">
               <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6" data-aos="fade-right">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                   <iframe width="100%" height="320" src="https://www.youtube.com/embed/6--fxBe1Ecg" frameborder="0" gesture="media" allow="encrypted-media"
                     allowfullscreen></iframe>
 
@@ -299,46 +303,46 @@
 
             <div class="col-sm-12 col-md-1"></div>
 
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-right">
+            <div class="col-sm-12 col-md-2 col-lg-2">
               <div class="member-content-wrapper">
                 <div class="member-content">
-                  <img class="team_image" src="../img/seunagbeye-headshot.jpg">
+                  <img class="team_image wow rubberBand" src="../img/seunagbeye-headshot.jpg">
                   <p class="text-center team_names">Seun Agbeye</p>
                 </div>
               </div>
             </div>
 
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-right">
+            <div class="col-sm-12 col-md-2 col-lg-2">
               <div class="member-content-wrapper">
                 <div class="member-content">
-                  <img class="team_image" src="../img/kati.jpg">
+                  <img class="team_image wow rubberBand" src="../img/kati.jpg">
                   <div class="text-center team_names">Kati Frantz</div>
                 </div>
               </div>
             </div>
 
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-up">
+            <div class="col-sm-12 col-md-2 col-lg-2">
               <div class="member-content-wrapper">
                 <div class="member-content">
-                  <img class="team_image" src="../img/nkoyo.jpg">
+                  <img class="team_image wow rubberBand" src="../img/nkoyo.jpg">
                   <div class="text-center team_names">Nkoyo Ating</div>
                 </div>
               </div>
             </div>
 
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-left">
+            <div class="col-sm-12 col-md-2 col-lg-2">
               <div class="member-content-wrapper">
                 <div class="member-content">
-                  <img class="team_image" src="../img/kenny.jpg">
+                  <img class="team_image wow rubberBand" src="../img/kenny.jpg">
                   <div class="text-center team_names">Kehinde Sanni</div>
                 </div>
               </div>
             </div>
 
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-left">
+            <div class="col-sm-12 col-md-2 col-lg-2">
               <div class="member-content-wrapper justify-content-center">
                 <div class="member-content">
-                  <img class="team_image" src="../img/gbenga.jpg">
+                  <img class="team_image wow rubberBand" src="../img/gbenga.jpg">
                   <div class="text-center team_names">Gbenga Oshinaga</div>
                 </div>
               </div>
@@ -357,19 +361,9 @@
           all proceeds from donations go directly to charity</p>
       </div>
     </footer>
-    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script src="../js/main.js"></script>
     <script>
-      $(document).ready(() => {
-        AOS.init({
-          offset: 200,
-          duration: 600,
-          easing: 'ease-in-sine',
-          delay: 100,
-        });
-
-        AOS.refresh();
-      });
+      new WOW().init();
     </script>
   </div>
 </body>
