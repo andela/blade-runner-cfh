@@ -1,4 +1,3 @@
-/* SEUNS'S CSS */
 
 .game-container {
   padding: 30px;
@@ -22,6 +21,7 @@
   }
   .users-wrapper {
     margin-left: 1rem;
+    overflow-y: auto;
   }
 }
 
@@ -38,6 +38,10 @@
   }
   .users-wrapper {
     margin-top: 1.5rem;
+  }
+
+  .awaiting-players{
+    width: 70vw;
   }
 }
 
@@ -102,7 +106,6 @@
   font-size: 12px;
 }
 
-/* SEUN'S CSS ENDS HERE */
 
 .start-game-button {
   position: absolute;

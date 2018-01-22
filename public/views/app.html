@@ -83,6 +83,25 @@
       </div>
     </main>
 
+    <div class="modal fade" id="inviteNewPlayers" tabindex="-1" role="dialog" aria-labelledby="maxPlayersReached">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h5 class="text-center">
+                <p class="text-center margin-btm-30">
+                  You need atleast 3 players to be able to start the game.
+                </p>
+    
+                <p class="text-center margin-btm-30">
+                  Please be patient enough for other guests to join.
+                </p>
+                <button class="btn btn-danger" data-dismiss="modal">Keep waiting.</button>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <!-- Confirm Start Game Modal -->
     <div class="modal fade" id="confirmStartGame" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
@@ -132,19 +151,21 @@
         </div>
       </div>
     </div>
+    <!-- Confirm Start Game Modal End -->
+    <chat></chat>
 
     <!-- Max Players Reached Notification modal start -->
     <div class="modal fade" id="maxPlayersReached" tabindex="-1" role="dialog" aria-labelledby="maxPlayersReached">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
-            <h5 class="text-center">
+            <h6 class="text-center p-4">
               HY !! ONLY 12 PEOPLE ARE ALLOWED PER GAME, AND THAT GAME ALREADY STARTED. WANNA START A NEW ONE ?
-            </h5>
+            </h6>
             <br>
             <br>
             <div class="text-center">
-              <a href="/#!" class="btn btn-default">Start A new Game</a>
+              <a href="/#!" class="btn btn-default btn-game">Go back to Arena</a>
             </div>
             <br>
           </div>
@@ -152,14 +173,6 @@
       </div>
     </div>
     <!-- Max Players Reached Notification modal End -->
-
-  </div>
-  </div>
-
-  <!-- Invite new players Notification modal End -->
-  </div>
-
-  </div>
   </div>
 </body>
 

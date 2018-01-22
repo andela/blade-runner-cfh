@@ -19,7 +19,8 @@ angular.module('mean.system')
       curQuestion: null,
       notification: null,
       timeLimits: {},
-      joinOverride: false
+      joinOverride: false,
+      gameStarted: false,
     };
 
   var notificationQueue = [];

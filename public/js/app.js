@@ -1,6 +1,4 @@
-/* eslint func-names: ["error", "never"] */
-
-angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.directives'])
+angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.directives', 'firebase'])
   .config(['$routeProvider',
     function ($routeProvider) {
       $routeProvider
