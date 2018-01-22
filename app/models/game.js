@@ -1,13 +1,11 @@
-
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+import mongoose, { Schema } from 'mongoose';
 
 const Game = new Schema({
-  gameId: Number,
-  owner: String,
+  gameId: String,
+  ownerId: String,
+  ownerUsername: String,
   players: [],
-  winner: String,
+  winner: {},
   rounds: Number,
   completed: Boolean
 }, { timestamps: true });

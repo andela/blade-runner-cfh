@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>CFH</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Bree+Serif|Montserrat">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet"
-    href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css">
-    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans" rel="stylesheet">
-  </head>
-  <body>
-    <div class="body-wrapper" ng-controller="IndexController">
-      <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
+
+<head>
+  <meta charset="utf-8">
+  <title>CFH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Bree+Serif|Montserrat">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css">
+  <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans" rel="stylesheet">
+  <style>
+    .btn-game {
+      background-color: #e35f53;
+      color: white !important;
+      text-decoration: none;
+      border: 1px solid #e35f53;
+      transition: all 0.5s;
+    }
+
+    .btn-game:hover {
+      background-color: #df473a;
+      border: 1px solid #df473a;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="body-wrapper" ng-controller="IndexController">
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
         <symbol id="icon-flag" viewBox="0 0 32 32">
           <title>flag</title>
           <path d="M0 0h4v32h-4v-32z"></path>
@@ -36,46 +51,56 @@
           <title>trophy</title>
           <path d="M26 6v-4h-20v4h-6v4c0 3.314 2.686 6 6 6 0.627 0 1.232-0.096 1.801-0.275 1.443 2.063 3.644 3.556 6.199 4.075v6.2h-2c-2.209 0-4 1.791-4 4h16c0-2.209-1.791-4-4-4h-2v-6.2c2.555-0.519 4.756-2.012 6.199-4.075 0.568 0.179 1.173 0.275 1.801 0.275 3.314 0 6-2.686 6-6v-4h-6zM6 13.625c-1.999 0-3.625-1.626-3.625-3.625v-2h3.625v2c0 1.256 0.232 2.457 0.655 3.565-0.213 0.039-0.431 0.060-0.655 0.060zM29.625 10c0 1.999-1.626 3.625-3.625 3.625-0.224 0-0.442-0.021-0.655-0.060 0.423-1.107 0.655-2.309 0.655-3.565v-2h3.625v2z"></path>
         </symbol>
-        </defs>
-        </svg>
+      </defs>
+    </svg>
     <header class="header">
       <nav class="navbar navbar-dark fixed-top navbar-expand-sm">
         <div class="container">
           <span class="navbar-brand mb-0 h1">Cards For Humanity</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
           <div class="collapse navbar-collapse" id="navbar-links">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#" id="home-link"
-                 ng-click="animateHomeLink"
-                >Home</a>
+                <a class="nav-link" href="#" id="home-link" ng-click="animateHomeLink">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">How To Play</a>
+                <a class="nav-link" href="#how-to-play">How To Play</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Charity</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="#home">About Us</a>
               </li>
-              <span ng-show="showOptions">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#!/signup">Sign Up</a>
-                  </li>
+              <li class="nav-item" ng-hide="showOptions">
+                <a class="nav-link" href="#" data-toggle='modal' data-target="#userNotifications">
+                  Notifications
+                  <span class="badge badge-danger">{{ notifications.length }}</span>
+                </a>
+              </li>
+              <span ng-hide="showOptions">
+                <li class="nav-item">
+                  <a class="nav-link" href="#!/dashboard">Dashboard</a>
+                </li>
               </span>
               <span ng-show="showOptions">
-                  <li class="nav-item">
-                      <a class="nav-link" href="#!/signin">Sign In</a>
-                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#!/signup">Sign Up</a>
+                </li>
+              </span>
+              <span ng-show="showOptions">
+                <li class="nav-item">
+                  <a class="nav-link" href="#!/signin">Sign In</a>
+                </li>
               </span>
               <span ng-hide="showOptions">
-                  <li class="nav-item">
-                    <a ng-click="signOut()" class="nav-link" href="/signout">Sign Out
-                    </a>
-                  </li>
+                <li class="nav-item">
+                  <a ng-click="signOut()" class="nav-link" href="/signout">Sign Out
+                  </a>
+                </li>
               </span>
             </ul>
           </div>
@@ -83,196 +108,264 @@
       </nav>
     </header>
 
-  <main>
-
-    <div id="background-image">
-      <div class="overlay">
-        <div class="overlay_content">
-          <div>
-            <div class="container">
-              <h1 class="text-center hero-title animated fadeInDown">Cards For Humanity</h1>
-              <h5 class="text-center hero-text animated fadeInLeft">A game for horrible people desperately trying to do good</h5>
-                </div>
-          </div>
-            <span ng-show="showOptions"> 
-                <div class="row d-flex justify-content-between px-4">
-                    <div class="col-md-6 mr-auto"> <a href="/#!/signup" class="btn btn-sm animated-button victoria-one hvr-sweep-to-left">Sign up</a> </div>
-                    <div class="col-md-6"> <a href="/play" class="btn btn-sm animated-button victoria-two hvr-sweep-to-right">Play As Guest</a> </div>
-                  </div>
-            </span>
-            <span ng-hide="showOptions">
-                <div class="row d-flex justify-content-between px-4">
-                    <div class="col-md-6 mr-auto"> <a href="/play" class="btn btn-sm animated-button victoria-one hvr-sweep-to-left">Play as Guest</a> </div>
-                    <div class="col-md-6"> <a href="/play?custom" class="btn btn-sm animated-button victoria-two hvr-sweep-to-right">Play with friends</a> </div>
-                </div>
-            </span>
-        </div>
-      </div>
-    </div>
-
-    <div class="info-section" id="home">
-      <div class="container">
-        <div class="px-4">
-            <h1 class="text-center headers text-white">What is Cards For Humanity?</h1>
-            <p class="info-text">Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally are.</p>
-            <p class="info-text"><span class="text-danger">Warning!</span> This game contains offensive, profane, explicit content created by Cards Against Humanity and provided here, uncensored and complete, in digital form. Human Resources made us say that.</p>    
-        </div>
-      </div>
-    </div>
-
-    <div class="how-to-play" id="how-to-play">
-      <div class="container">
-        <div class="row">
-          <div class="align-self-center">
-      <div class="text-center headers" data-aos="fade-up" id="how-to-play_header"><h1>HOW TO PLAY</h1></div>
-      <div class="container card-container mt-5">
-        <div class="row">
-          
-          <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
-              <div class="mx-auto"><svg class="icon icon-flag"><use xlink:href="#icon-flag"></use></svg></div>
-              <div class="mt-4 px-4"><p data-aos="fade-up">Each player begins with, and will always have, 10 white answer cards</p></div>
-          </div>
-
-          <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
-            <div><svg class="icon icon-spades"><use xlink:href="#icon-spades"></use></svg></div>
-            <div class="mt-4 px-4"><p data-aos="fade-up">For each round, one player is randomly chosen as the Card Czar</p></div>
-          </div>
-
-          <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
-            <div><svg class="icon icon-clubs"><use xlink:href="#icon-clubs"></use></svg></div>
-            <div class="mt-4 px-4"><p data-aos="fade-up">Everyone else answers the black question card by clicking on the answer card they want to use</p></div>
-          </div>
-
-          <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
-            <div><svg class="icon icon-trophy"><use xlink:href="#icon-trophy"></use></svg></div>
-              <div class="mt-4 px-4"><p data-aos="fade-up">The Card Czar then picks a favorite answer, and whoever played that answer wins the round</p></div>
+    <div class="modal fade" id="userNotifications" tabindex="-1" role="dialog" aria-labelledby="userNotifications" aria-hidden="true" ng-hide="showOptions">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h6 id="exampleModalLabel">NOTIFICATIONS</h6>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-  
+            <div class="modal-body">
+              <p class="text-center" ng-if="notifications.length < 1">Nothing here</p>
+              <ul class="ul-style" ng-if="notifications.length > 0">
+                  <li ng-repeat="notification in notifications"> 
+                    <p class="invite-header">CFH-Game-Invite</p>
+                    <a class="link-style" ng-href="{{ notification.link }}" target="_blank">
+                      {{ notification.message }}
+                    </a>
+                    <hr>
+                  </li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" ng-click="readNotifications()" data-dismiss="modal">Close</button>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
-      </div>
-      </div>
-    </div>
-
-    <div class="charity-section" id="charity">
-    <div class="container">
-      <div class="charity-main px-4">
-      <h1 class="text-center headers text-white">
-        CHARITY
-      </h1>
-      <div class="charity_content">
-        <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-6" data-aos="fade-right">
-              <iframe width="100%" height="320" src="https://www.youtube.com/embed/6--fxBe1Ecg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-  
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-6 charity-text">
-            <div>
-                "If you don't give back, no one will like you™" - crowdrise.com
-                We're quite sure you feel the same way, so we've integrated donation widgets 
-                (via crowdrise.com), along with some not-so-subtle reminders throughout the game to 
-                give you the opportunity to donate. If you're signed in when you donate, we'll even 
-                upgrade your account and place a crown on your avatar's head (to remind other players 
-                how much better you are than them).
-                All donations go to the Make-a-Wish Foundation and benefit children in need.                         
+    <div class="modal fade" id="selectRegion" tabindex="-1" role="dialog" aria-labelledby="selectRegion">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h5 class="text-center mb-4">
+              Please select your region.
+            </h5>
+            <select class="form-control mb-4" ng-model="selectedRegion">
+              <option value="1">Afrikaans</option>
+              <option value="2">Asians</option>
+              <option value="3">Americans</option>
+            </select>
+            <div class="text-center">
+              <button class="btn btn-game" ng-click="startGameForRegion()">Start A new Game</button>
             </div>
             <br>
-            <button class="btn btn-block">Donate Now</button>
           </div>
         </div>
       </div>
-      </div>
     </div>
-    </div>
+    <main>
 
-    <div class="team-section" id="about-us">
-      <div class="container">
-        <h1 class="text-center headers">THE TEAM</h1>
+      <div id="background-image">
+        <div class="overlay">
+          <div class="overlay_content">
+            <div>
+              <div class="container">
+                <h1 class="text-center hero-title wow bounceInUp">Cards For Humanity</h1>
+                <h5 class="text-center hero-text animated fadeInLeft">A game for horrible people desperately trying to do good</h5>
+              </div>
+            </div>
+            <span ng-show="showOptions">
+              <div class="row d-flex justify-content-between px-4">
+                <div class="col-md-6 mr-auto">
+                  <a href="/#!/signup" class="btn btn-sm animated-button victoria-one hvr-sweep-to-left">Sign up</a>
+                </div>
+                <div class="col-md-6">
+                  <a href="" ng-click="playGameAsGuest()" class="btn btn-sm animated-button victoria-two hvr-sweep-to-right">Play As Guest</a>
+                </div>
+              </div>
+            </span>
+            <span ng-hide="showOptions">
+              <div class="row d-flex justify-content-between px-4">
+                <div class="col-md-6 mr-auto">
+                  <a href="" ng-click="playGameAsGuest()" class="btn btn-sm animated-button victoria-two hvr-sweep-to-right">Play as Guest</a>
+                </div>
+                <div class="col-md-6">
+                  <a href="" ng-click="playWithFriends()" class="btn btn-sm animated-button victoria-two hvr-sweep-to-right">Play with friends</a>
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-section" id="home">
+        <div class="container">
+          <div class="px-4">
+            <h1 class="text-center headers wow bounceInUp text-white">What is Cards For Humanity?</h1>
+            <p class="info-text">Cards for Humanity is a fast-paced online version of the popular card game, Cards Against Humanity, that gives
+              you the opportunity to donate to children in need - all while remaining as despicable and awkward as you naturally
+              are.
+            </p>
+            <p class="info-text">
+              <span class="text-danger">Warning!</span> This game contains offensive, profane, explicit content created by Cards Against Humanity and
+              provided here, uncensored and complete, in digital form. Human Resources made us say that.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="how-to-play" id="how-to-play">
+        <div class="container">
+          <div class="row">
+            <div class="align-self-center">
+              <div class="text-center headers" id="how-to-play_header">
+                <h1>HOW TO PLAY</h1>
+              </div>
+              <div class="container card-container mt-5">
+                <div class="row">
+
+                  <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
+                    <div class="mx-auto">
+                      <svg class="icon icon-flag">
+                        <use xlink:href="#icon-flag"></use>
+                      </svg>
+                    </div>
+                    <div class="mt-4 px-4">
+                      <p>Each player begins with, and will always have, 10 white answer cards</p>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
+                    <div>
+                      <svg class="icon icon-spades">
+                        <use xlink:href="#icon-spades"></use>
+                      </svg>
+                    </div>
+                    <div class="mt-4 px-4">
+                      <p>For each round, one player is randomly chosen as the Card Czar</p>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
+                    <div>
+                      <svg class="icon icon-clubs">
+                        <use xlink:href="#icon-clubs"></use>
+                      </svg>
+                    </div>
+                    <div class="mt-4 px-4">
+                      <p>Everyone else answers the black question card by clicking on the answer card they want to use</p>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-3 col-lg-3 content text-center">
+                    <div>
+                      <svg class="icon icon-trophy">
+                        <use xlink:href="#icon-trophy"></use>
+                      </svg>
+                    </div>
+                    <div class="mt-4 px-4">
+                      <p>The Card Czar then picks a favorite answer, and whoever played that answer wins the round</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="charity-section" id="charity">
+        <div class="container">
+          <div class="charity-main px-4">
+            <h1 class="text-center headers text-white">
+              CHARITY
+            </h1>
+            <div class="charity_content">
+              <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <iframe width="100%" height="320" src="https://www.youtube.com/embed/6--fxBe1Ecg" frameborder="0" gesture="media" allow="encrypted-media"
+                    allowfullscreen></iframe>
+
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 charity-text">
+                  <div>
+                    "If you don't give back, no one will like you™" - crowdrise.com We're quite sure you feel the same way, so we've integrated
+                    donation widgets (via crowdrise.com), along with some not-so-subtle reminders throughout the game to
+                    give you the opportunity to donate. If you're signed in when you donate, we'll even upgrade your account
+                    and place a crown on your avatar's head (to remind other players how much better you are than them).
+                    All donations go to the Make-a-Wish Foundation and benefit children in need.
+                  </div>
+                  <br>
+                  <button class="btn btn-block">Donate Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-section" id="about-us">
+        <div class="container">
+          <h1 class="text-center headers">THE TEAM</h1>
           <div class="row team_container text-center">
 
             <div class="col-sm-12 col-md-1"></div>
 
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-right"> 
+            <div class="col-sm-12 col-md-2 col-lg-2">
               <div class="member-content-wrapper">
                 <div class="member-content">
-                <img class="team_image" src="../img/seunagbeye-headshot.jpg">
-                <p class="text-center team_names">Seun Agbeye</p>
+                  <img class="team_image wow rubberBand" src="../img/seunagbeye-headshot.jpg">
+                  <p class="text-center team_names">Seun Agbeye</p>
                 </div>
               </div>
             </div>
-  
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-right">
-                <div class="member-content-wrapper">
-                  <div class="member-content">
-                    <img class="team_image" src="../img/kati.jpg">
-                    <div class="text-center team_names">Kati Frantz</div>
-                  </div>
+
+            <div class="col-sm-12 col-md-2 col-lg-2">
+              <div class="member-content-wrapper">
+                <div class="member-content">
+                  <img class="team_image wow rubberBand" src="../img/kati.jpg">
+                  <div class="text-center team_names">Kati Frantz</div>
                 </div>
+              </div>
             </div>
-  
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-up"> 
-                <div class="member-content-wrapper">
-                  <div class="member-content">
-                    <img class="team_image" src="../img/nkoyo.jpg">
-                    <div class="text-center team_names">Nkoyo Ating</div>
-                  </div>
+
+            <div class="col-sm-12 col-md-2 col-lg-2">
+              <div class="member-content-wrapper">
+                <div class="member-content">
+                  <img class="team_image wow rubberBand" src="../img/nkoyo.jpg">
+                  <div class="text-center team_names">Nkoyo Ating</div>
                 </div>
+              </div>
             </div>
-            
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-left"> 
-                <div class="member-content-wrapper">
-                  <div class="member-content">
-                    <img class="team_image" src="../img/kenny.jpg">
-                    <div class="text-center team_names">Kehinde Sanni</div>
-                  </div>
+
+            <div class="col-sm-12 col-md-2 col-lg-2">
+              <div class="member-content-wrapper">
+                <div class="member-content">
+                  <img class="team_image wow rubberBand" src="../img/kenny.jpg">
+                  <div class="text-center team_names">Kehinde Sanni</div>
                 </div>
+              </div>
             </div>
-  
-            <div class="col-sm-12 col-md-2 col-lg-2" data-aos="fade-left"> 
-                <div class="member-content-wrapper justify-content-center">
-                  <div class="member-content">
-                    <img class="team_image" src="../img/gbenga.jpg">
-                    <div class="text-center team_names">Gbenga Oshinaga</div>
-                  </div>
+
+            <div class="col-sm-12 col-md-2 col-lg-2">
+              <div class="member-content-wrapper justify-content-center">
+                <div class="member-content">
+                  <img class="team_image wow rubberBand" src="../img/gbenga.jpg">
+                  <div class="text-center team_names">Gbenga Oshinaga</div>
                 </div>
+              </div>
             </div>
 
             <div class="col-sm-12 col-md-1"></div>
           </div>
-          </div>
+        </div>
       </div>
-  </main>
-  <footer>
-    <div class="container">
-      <p class="text-white">Legal stuff: This game is based on the
-         <a href="http://cardsagainsthumanity.com" class="text-white">Cards Against Humanity</a> card game, 
-        which is CC licensed (BY-NC-SA). Cards for Humanity is not affiliated with Cards Against Humanity. 
-        In complying with the Creative Commons license of the Cards Against Humanity card game, all proceeds 
-        from donations go directly to charity</p>
-    </div>
-  </footer>
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
-<script src="../js/main.js"></script>
-<script>
-  $(document).ready(() => {
-    AOS.init({
-      offset: 200,
-      duration: 600,
-      easing: 'ease-in-sine',
-      delay: 100,
-    });
-
-    AOS.refresh();
-  });
-</script>
-</div>
+    </main>
+    <footer>
+      <div class="container">
+        <p class="text-white">Legal stuff: This game is based on the
+          <a href="http://cardsagainsthumanity.com" class="text-white">Cards Against Humanity</a> card game, which is CC licensed (BY-NC-SA). Cards for Humanity is not affiliated with
+          Cards Against Humanity. In complying with the Creative Commons license of the Cards Against Humanity card game,
+          all proceeds from donations go directly to charity</p>
+      </div>
+    </footer>
+    <script src="../js/main.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+  </div>
 </body>
+
 </html>
-  
-  

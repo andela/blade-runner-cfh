@@ -15,40 +15,40 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       id: 1,
       numAnswers: 1,
       official: true,
-      text: "_?  There's an app for that.",
-      regionId: '59b90186ad7d37a9fb7d3630'
+      text: '_?  The moin moin has left chicken republic.',
+      regionId: '1'
     },
     {
       expansion: 'Base',
       id: 2,
       numAnswers: 1,
       official: true,
-      text: "Why can't I sleep at night?",
-      regionId: '59b90186ad7d37a9fb7d3630'
+      text: 'We smoking trees tonight, right ?',
+      regionId: '1'
     },
     {
       expansion: 'Base',
       id: 3,
       numAnswers: 1,
       official: true,
-      text: "What's that smell?",
-      regionId: '59b90186ad7d37a9fb7d3630'
+      text: 'Sex, or eba ? _',
+      regionId: '1'
     },
     {
       expansion: 'Base',
       id: 4,
       numAnswers: 1,
       official: true,
-      text: "I got 99 problems but _ ain't one.",
-      regionId: '59b90186ad7d37a9fb7d3630'
+      text: "I got swallow problems but _ ain't one.",
+      regionId: '1'
     },
     {
       expansion: 'Base',
       id: 5,
       numAnswers: 1,
       official: true,
-      text: "Maybe she's born with it.  Maybe it's _.",
-      regionId: '59b90186ad7d37a9fb7d3630'
+      text: "Maybe she's born with the swallow disease. Or maybe it's _.",
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -56,23 +56,23 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "What's the next Happy Meal® toy?",
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'Base',
       id: 7,
       numAnswers: 1,
       official: true,
-      text: 'Anthropologists have recently discovered a primitive tribe that worships _.',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      text: 'Buy me some trees. Heavy man will _.',
+      regionId: '1'
     },
     {
       expansion: 'Base',
       id: 8,
       numAnswers: 1,
       official: true,
-      text: "It's a pity that kids these days are all getting involved with _.",
-      regionId: '59b90186ad7d37a9fb7d3630'
+      text: 'The last thing I wanna do before dying is _.',
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -80,7 +80,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "During Picasso's often-overlooked Brown Period, he produced hundreds of paintings of _.",
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -88,7 +88,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Alternative medicine is now embracing the curative powers of _.',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -96,7 +96,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'And the Academy Award for _ goes to _.',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -104,7 +104,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "What's that sound?",
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -112,7 +112,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What ended my last relationship?',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -120,7 +120,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "MTV's new reality show features eight washed-up celebrities living with _.",
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -128,7 +128,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'I drink to forget _.',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -136,7 +136,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "I'm sorry professor, but I couldn't complete my homework because of _.",
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -144,7 +144,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "What is Batman's guilty pleasure?",
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -152,7 +152,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'This is the way the world ends \u003cbr\u003e This is the way the world ends \u003cbr\u003e Not with a bang but with _.',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -160,7 +160,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "What's a girl's best friend?",
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -168,7 +168,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'TSA guidelines now prohibit _ on airplanes.',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -176,7 +176,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "_.  That's how I want to die.",
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -184,7 +184,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'For my next trick, I will pull _ out of _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -192,7 +192,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'In the new Disney Channel Original Movie, Hannah Montana struggles with _ for the first time.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -200,7 +200,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: '_ is a slippery slope that leads to _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -208,7 +208,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What does Dick Cheney prefer?',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -216,7 +216,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "Dear Abby, I'm having some trouble with _ and would like your advice.",
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -224,7 +224,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Instead of coal, Santa now gives the bad children _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -232,7 +232,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "What's the most emo?",
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -240,7 +240,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'In 1,000 years when paper money is but a distant memory, _ will be our currency.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -248,7 +248,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: "What's the next superhero/sidekick duo?",
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -256,7 +256,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: "In M. Night Shyamalan's new movie, Bruce Willis discovers that _ had really been _ all along.",
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -264,7 +264,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'A romantic, candlelit dinner would be incomplete without _.',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -272,7 +272,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "_.  Becha can't have just one!",
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -280,7 +280,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'White people like _.',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -288,7 +288,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: '_.  High five, bro.',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -296,7 +296,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Next from J.K. Rowling: Harry Potter and the Chamber of _.',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -304,7 +304,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'BILLY MAYS HERE FOR _.',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -312,7 +312,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'In a world ravaged by _, our only solace is _.',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -320,7 +320,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'War!  What is it good for?',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -328,7 +328,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'During sex, I like to think about _.',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -336,7 +336,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What are my parents hiding from me?',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -344,7 +344,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What will always get you laid?',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -352,7 +352,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'In L.A. County Jail, word is you can trade 200 cigarettes for _.',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -360,7 +360,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What did I bring back from Mexico?',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -368,7 +368,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "What don't you want to find in your Chinese food?",
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -376,7 +376,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What will I bring back in time to convince people that I am a powerful wizard?',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -384,7 +384,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'How am I maintaining my relationship status?',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -392,7 +392,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "_.  It's a trap!",
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -400,7 +400,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Coming to Broadway this season, _: The Musical.',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -408,7 +408,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'While the United States raced the Soviet Union to the moon, the Mexican government funneled millions of pesos into research on _.',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -416,7 +416,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'After the earthquake, Sean Penn brought _ to the people of Haiti.',
-      regionId: '59b91ad4605e234f4555a4de'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -424,7 +424,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Next on ESPN2, the World Series of _.',
-      regionId: '59b91ad4605e234f4555a4de'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -432,7 +432,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'Step 1: _.  Step 2: _.  Step 3: Profit.',
-      regionId: '59b91ad4605e234f4555a4de'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -440,7 +440,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: "Rumor has it that Vladimir Putin's favorite dish is _ stuffed with _.",
-      regionId: '59b91ad4605e234f4555a4de'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -448,7 +448,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'But before I kill you, Mr. Bond, I must show you _.',
-      regionId: '59b91ad4605e234f4555a4de'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -456,7 +456,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What gives me uncontrollable gas?',
-      regionId: '59b91ad4605e234f4555a4de'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -464,7 +464,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What do old people smell like?',
-      regionId: '59b91ad4605e234f4555a4de'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -472,7 +472,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'The class field trip was completely ruined by _.',
-      regionId: '59b91ad4605e234f4555a4de'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -480,7 +480,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'When Pharaoh remained unmoved, Moses called down a Plague of _.',
-      regionId: '59b91ad4605e234f4555a4de'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -488,7 +488,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "What's my secret power?",
-      regionId: '59b91ad4605e234f4555a4de'
+      regionId: '3'
     },
     {
       expansion: 'Base',
@@ -496,7 +496,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "What's there a ton of in heaven?",
-      regionId: '59b91ad4605e234f4555a4df'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -504,7 +504,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What would grandma find disturbing, yet oddly charming?',
-      regionId: '59b91ad4605e234f4555a4df'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -512,7 +512,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'I never truly understood _ until I encountered _.',
-      regionId: '59b91ad4605e234f4555a4df'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -520,7 +520,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What did the U.S. airdrop to the children of Afghanistan?',
-      regionId: '59b91ad4605e234f4555a4df'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -528,7 +528,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What helps Obama unwind?',
-      regionId: '59b91ad4605e234f4555a4df'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -536,7 +536,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What did Vin Diesel eat for dinner?',
-      regionId: '59b91ad4605e234f4555a4df'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -544,7 +544,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: '_: good to the last drop.',
-      regionId: '59b91ad4605e234f4555a4df'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -552,7 +552,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Why am I sticky?',
-      regionId: '59b91ad4605e234f4555a4df'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -560,7 +560,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What gets better with age?',
-      regionId: '59b91ad4605e234f4555a4df'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -568,7 +568,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: '_: kid-tested, mother-approved.',
-      regionId: '59b91ad4605e234f4555a4df'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -576,7 +576,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "What's the crustiest?",
-      regionId: '59b91ad4605e234f4555a4df'
+      regionId: '1'
     },
     {
       expansion: 'Base',
@@ -584,7 +584,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "What's Teach for America using to inspire inner city students to succeed?",
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -592,7 +592,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Studies show that lab rats navigate mazes 50% faster after being exposed to _.',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -600,7 +600,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Life for American Indians was forever changed when the White Man introduced them to _.',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -608,7 +608,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'I do not know with what weapons World War III will be fought, but World War IV will be fought with _.',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -616,7 +616,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Why do I hurt all over?',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -624,7 +624,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What am I giving up for Lent?',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -632,7 +632,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "In Michael Jackson's final moments, he thought about _.",
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -640,7 +640,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'In an attempt to reach a wider audience, the Smithsonian Museum of Natural History has opened an interactive exhibit on _.',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -648,7 +648,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'When I am President of the United States, I will create the Department of _.',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -656,7 +656,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'Lifetime® presents _, the story of _.',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -664,7 +664,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'When I am a billionaire, I shall erect a 50-foot statue to commemorate _.',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -672,7 +672,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'When I was tripping on acid, _ turned into _.',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -680,7 +680,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: "That's right, I killed _.  How, you ask?  _.",
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -688,7 +688,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "What's my anti-drug?",
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -696,7 +696,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What never fails to liven up the party?',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -704,7 +704,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "What's the new fad diet?",
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'Base',
@@ -712,7 +712,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Major League Baseball has banned _ for giving players an unfair advantage.',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'CAHe1',
@@ -720,7 +720,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'My plan for world domination begins with _.',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'CAHe1',
@@ -728,7 +728,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'The CIA now interrogates enemy agents by repeatedly subjecting them to _.',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'CAHe1',
@@ -736,7 +736,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'Dear Sir or Madam, We regret to inform you that the Office of _ has denied your request for _',
-      regionId: '59b91ad4605e234f4555a4e0'
+      regionId: '2'
     },
     {
       expansion: 'CAHe1',
@@ -744,7 +744,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'In Rome, there are whisperings that the Vatican has a secret room devoted to _.',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -752,7 +752,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Science will never explain _.',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -760,7 +760,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'When all else fails, I can always masturbate to _.',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -768,7 +768,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "I learned the hard way that you can't cheer up a grieving friend with _.",
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -776,7 +776,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'In its new tourism campaign, Detroit proudly proclaims that it has finally eliminated _.',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -784,7 +784,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'An international tribunal has found _ guilty of _.',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -792,7 +792,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'The socialist governments of Scandinavia have declared that access to _ is a basic human right.',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -800,7 +800,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'In his new self-produced album, Kanye West raps over the sounds of _.',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -808,7 +808,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "What's the gift that keeps on giving?",
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -816,7 +816,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Next season on Man vs. Wild, Bear Grylls must survive in the depths of the Amazon with only _ and his wits.',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -824,7 +824,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'When I pooped, what came out of my butt?',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -832,7 +832,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "In the distant future, historians will agree that _ marked the beginning of America's decline.",
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -840,7 +840,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'In a pinch, _ can be a suitable substitute for _.',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -848,7 +848,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What has been making life difficult at the nudist colony?',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -856,7 +856,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: "Michael Bay's new three-hour action epic pits _ against _.",
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -864,7 +864,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "And I would have gotten away with it, too, if it hadn't been for _.",
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe1',
@@ -872,7 +872,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What brought the orgy to a grinding halt?',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe2',
@@ -880,7 +880,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'During his midlife crisis, my dad got really into _.',
-      regionId: '59b90186ad7d37a9fb7d3630'
+      regionId: '1'
     },
     {
       expansion: 'CAHe2',
@@ -888,7 +888,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: '_ would be woefully incomplete without _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -896,7 +896,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'My new favorite porn star is Joey _ McGee.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -904,7 +904,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Before I run for president, I must destroy all evidence of my involvement with _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -912,7 +912,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'This is your captain speaking. Fasten your seatbelts and prepare for _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -920,7 +920,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'In his newest and most difficult stunt, David Blaine must escape from _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -928,7 +928,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'The Five Stages of Grief: denial, anger, bargaining, _, and acceptance.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -936,7 +936,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'My mom freaked out when she looked at my browser history and found _.com/_.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -944,7 +944,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "Members of New York's social elite are paying thousands of dollars just to experience _.",
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -952,7 +952,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Little Miss Muffet Sat on a tuffet, Eating her curds and _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -960,7 +960,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: "If God didn't want us to enjoy _, he wouldn't have given us _.",
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -968,7 +968,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "My country, 'tis of thee, sweet land of _.",
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -976,7 +976,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'After months of debate, the Occupy Wall Street General Assembly could only agree on More _!',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -984,7 +984,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'I spent my whole life working toward _, only to have it ruined by _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -992,7 +992,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Next time on Dr. Phil: How to talk to your child about _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -1000,7 +1000,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Only two things in life are certain: death and _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -1008,7 +1008,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "Everyone down on the ground! We don't want to hurt anyone. We're just here for _.",
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -1016,7 +1016,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'The healing process began when I joined a support group for victims of _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -1024,7 +1024,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'The votes are in, and the new high school mascot is _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -1032,7 +1032,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Charades was ruined for me forever when my mom had to act out _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -1040,7 +1040,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'Before _, all we had was _.',
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHe2',
@@ -1048,7 +1048,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: "You haven't truly lived until you've experienced _ and _ at the same time.",
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHxmas',
@@ -1056,7 +1056,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "After blacking out during New year's Eve, I was awoken by _.",
-      regionId: '59b8ffd328650f1362ca5940'
+      regionId: '3'
     },
     {
       expansion: 'CAHxmas',
@@ -1064,7 +1064,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'This holiday season, Tim Allen must overcome his fear of _ to save Christmas.',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'CAHxmas',
@@ -1072,7 +1072,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Jesus is _.',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'CAHxmas',
@@ -1080,7 +1080,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Every Christmas, my uncle gets drunk and tells the story about _.',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'CAHxmas',
@@ -1088,7 +1088,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What keeps me warm during the cold, cold, winter?',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'CAHxmas',
@@ -1096,7 +1096,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'On the third day of Christmas, my true love gave to me: three French hens, two turtle doves, and _.',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'CAHxmas',
@@ -1104,7 +1104,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Wake up, America. Christmas is under attack by secular liberals and their _.',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1112,7 +1112,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'A successful job interview begins with a firm handshake and ends with _.',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1120,7 +1120,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "Lovin' you is easy 'cause you're _.",
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1128,7 +1128,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'My life is ruled by a vicious cycle of _ and _.',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1136,7 +1136,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: '_. Awesome in theory, kind of a mess in practice.',
-      regionId: '59b8ffde28650f1362ca5941'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1144,7 +1144,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'The blind date was going horribly until we discovered our shared interest in _.',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'CAHe3',
@@ -1152,7 +1152,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "I'm not like the rest of you. I'm too rich and busy for _.",
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'CAHe3',
@@ -1160,7 +1160,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'In the seventh circle of Hell, sinners must endure _ for all eternity.',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'CAHe3',
@@ -1168,7 +1168,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: '_: Hours of fun. Easy to use. Perfect for _!',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'CAHe3',
@@ -1176,7 +1176,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'What left this stain on my couch?',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'CAHe3',
@@ -1184,7 +1184,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Call the law offices of Goldstein \u0026 Goldstein, because no one should have to tolerate _ in the workplace.',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'CAHe3',
@@ -1192,7 +1192,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'When you get right down to it, _ is just _.',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'CAHe3',
@@ -1200,7 +1200,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Turns out that _-Man was neither the hero we needed nor wanted.',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'CAHe3',
@@ -1208,7 +1208,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'As part of his daily regimen, Anderson Cooper sets aside 15 minutes for _.',
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'CAHe3',
@@ -1216,7 +1216,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "Money can't buy me love, but it can buy me _.",
-      regionId: '59b91ad4605e234f4555a4dc'
+      regionId: '1'
     },
     {
       expansion: 'CAHe3',
@@ -1224,7 +1224,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'With enough time and pressure, _ will turn into _.',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1232,7 +1232,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'And what did you bring for show and tell?',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1240,7 +1240,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'During high school, I never really fit in until I found _ club.',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1248,7 +1248,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "Hey, baby, come back to my place and I'll show you _.",
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1256,7 +1256,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: "After months of practice with _, I think I'm finally ready for _.",
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1264,7 +1264,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'To prepare for his upcoming role, Daniel Day-Lewis immersed himself in the world of _.',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1272,7 +1272,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'Finally! A service that delivers _ right to your door.',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1280,7 +1280,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: 'My gym teacher got fired for adding _ to the obstacle course.',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1288,7 +1288,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: 'Having problems with _? Try _!',
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1296,7 +1296,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 1,
       official: true,
       text: "As part of his contract, Prince won't perform without _ in his dressing room.",
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     },
     {
       expansion: 'CAHe3',
@@ -1304,7 +1304,7 @@ MongoCLient.connect(process.env.MONGOHQ_URL, (err, db) => {
       numAnswers: 2,
       official: true,
       text: "Listen, son. If you want to get involved with _, I won't stop you. Just steer clear of _.",
-      regionId: '59b91ad4605e234f4555a4dd'
+      regionId: '2'
     }
   ];
 

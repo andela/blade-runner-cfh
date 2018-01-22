@@ -7,15 +7,17 @@ angular.module('mean.system')
     '$timeout',
     '$location',
     '$window',
+    '$http',
     'MakeAWishFactsService',
     (
       $rootScope, $scope, game, routeActions, $timeout,
-      $location, $window, MakeAWishFactsService
+      $location, $window, $http, MakeAWishFactsService
     ) => {
       $scope.hasPickedCards = false;
       $scope.winningCardPicked = false;
       $scope.showTable = false;
       $scope.modalShown = false;
+      $scope.gameViewLoaded = true;
       $scope.game = game;
       $scope.routeActions = routeActions;
       $scope.pickedCards = [];
@@ -28,6 +30,45 @@ angular.module('mean.system')
         $('#maxPlayersReached').modal();
       });
 
+      $scope.username = '';
+
+      $scope.$watch('username', () => {
+        $scope.searchUser();
+      });
+
+      $scope.sentNotification = null;
+
+      $scope.foundUsers = [];
+
+      $scope.searchUser = () => {
+        const { username } = $scope;
+
+        if (username) {
+          $http.get(`api/search/users?user=${username}`)
+            .then((response) => {
+              $scope.foundUsers = response.data.users;
+              if ($scope.foundUsers.length < 1) {
+                $scope.noUsersFoundNotification = 'No user was found.';
+              } else {
+                $scope.noUsersFoundNotification = null;
+              }
+            });
+        }
+      };
+
+      $scope.inviteUser = (recipientId) => {
+        $http.post('api/users/invite', { recipientId, link: $window.location.href }, {
+          headers: {
+            token: localStorage.getItem('token')
+          }
+        }).then(() => {
+          $scope.sentNotification = 'User invited successfully.';
+
+          setTimeout(() => {
+            $scope.sentNotification = null;
+          }, 2000);
+        });
+      };
       $scope.percentageOfPlayersFound = () =>
         `${Math.floor(($scope.game.players.length / $scope.game.playerMaxLimit) * 100)}%`;
 
@@ -134,17 +175,33 @@ angular.module('mean.system')
         }
       };
 
+      $scope.drawCard = (event) => {
+        const card = $(`#${event.target.id}`);
+        card.addClass('animated flipOutY');
+        const cardId = event.target.id;
+        game.czarHasDrawnCard();
+        $(`#${cardId}back`).addClass('animated filpInY');
+        $(`#${cardId}back`).css('display', 'block');
+        setTimeout(() => {
+          card.removeClass('animated flipOutY');
+          $(`${cardId}back`).css('display', 'none');
+          $('#czarModal').modal('hide');
+        }, 500);
+      };
+
       // start game and save it
       $scope.confirmStartGame = () => {
         game.startGame();
-        const token = $window.localStorage.getItem('token');
-        if (token) {
-          routeActions.saveGame(`/api/games/${game.gameID}/start`, game, token)
-            .then(() => {
-              $scope.message = 'Game saved successfully';
-            }, () => {
-              $scope.message = 'Game not saved';
-            });
+        if (!(/^\d+$/).test(game.gameID)) {
+          const token = $window.localStorage.getItem('token');
+          if (token) {
+            routeActions.saveGame(`/api/games/${game.gameID}/start`, game, token)
+              .then(() => {
+                $scope.message = 'Game saved successfully';
+              }, () => {
+                $scope.message = 'Game not saved';
+              });
+          }
         }
       };
 
@@ -169,7 +226,7 @@ angular.module('mean.system')
       // In case player doesn't pick a card in time, show the table
       $scope.$watch('game.state', () => {
         // if game has ended, update game data
-        if (game.state === 'game ended') {
+        if (game.state === 'game ended' && !(/^\d+$/).test(game.gameID)) {
           const token = $window.localStorage.getItem('token');
           if (token) {
             routeActions.updateGame(`/api/games/${game.gameID}/start`, game, token)
@@ -183,6 +240,18 @@ angular.module('mean.system')
         if (game.state === 'waiting for czar to decide' && $scope.showTable === false) {
           $('#background-image').css('height', '100vh');
           $scope.showTable = true;
+        }
+
+        if (game.state === 'waiting for players to pick') {
+          $scope.showTable = false;
+        }
+
+
+        if ($scope.isCzar() && game.state === 'waiting for czar to draw a card') {
+          $('#czarModal').modal({
+            dismissible: false
+          });
+          $('#czarModal').modal('open');
         }
       });
 
@@ -226,7 +295,7 @@ angular.module('mean.system')
           intro: 'Game needs a minimum of 3 players to start. Wait for the minimum number of players then start the game. Also when the game starts, the questions are displayed here'
         },
         {
-          element: '#timer-container',
+          element: '#timer-status-round',
           intro: 'You have 20 seconds to submit an answer. After time out, the CZAR selects his favorite answer. Whoever submits CZAR\'s favorite answer wins the round'
         },
         {
@@ -245,7 +314,6 @@ angular.module('mean.system')
         ],
         showStepNumbers: true,
         disableInteraction: true,
-        overlayOpacity: 0.5,
         showBullets: false
       });
 
