@@ -18,6 +18,7 @@ button {
 
 ul {
   padding-left: 15px;
+  margin-top: 10px;
 }
 
 /* Global Button Styles */
@@ -396,3 +397,8 @@ footer {
   margin-top: 50px;
   margin-bottom: 0px;
   padding: 1.5rem; }
+
+.table-div {
+  height: 300px;
+  overflow: auto;
+}
