@@ -1,4 +1,3 @@
-require('babel-polyfill');
 require('mocha');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
@@ -15,50 +14,50 @@ const { createUser } = require('./../factories/user');
 
 const fakeUser = createUser();
 
+const { expect } = chai;
 chai.use(chaiHttp);
 
 let token;
 
-describe('api endpoint for create game in db', () => {
+describe('api endpoints for dashboard routes', () => {
   before(async () => {
     const user = new User(fakeUser);
     const returnedUser = await user.save();
     // eslint-disable-next-line
-    token = jwt.sign({ id: returnedUser._id }, secret, {
+        token = jwt.sign({ id: returnedUser._id }, secret, {
       expiresIn: '3h',
     });
   });
 
-  it('should create game data in db', (done) => {
+  it('should return array of games', (done) => {
     chai.request(app)
-      .post('/api/games/1/start')
+      .get('/api/games/history')
       .set({ 'x-access-token': token })
-      .send({
-        owner: 1,
-        players: [{}, {}],
-        winner: '',
-        completed: false
-      })
       .end((err, res) => {
-        res.should.have.status(201);
-        res.body.result.completed.should.equal(false);
+        expect(res).to.have.status(200);
+        expect(res.body.result).to.be.an('array');
         done();
       });
   });
 
-  it('should update game data in db', (done) => {
+  it('should return array of objects', (done) => {
     chai.request(app)
-      .put('/api/games/1/start')
+      .get('/api/leaderboard')
       .set({ 'x-access-token': token })
-      .send({
-        owner: 1,
-        players: [{}, {}],
-        winner: 'charles',
-        completed: false
-      })
       .end((err, res) => {
-        res.should.have.status(200);
-        res.body.updatedGame.winner.should.equal('charles');
+        expect(res).to.have.status(200);
+        expect(res.body.result).to.be.an('array');
+        done();
+      });
+  });
+
+  it('should return array of donations made by user', (done) => {
+    chai.request(app)
+      .get('/api/donations')
+      .set({ 'x-access-token': token })
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body.donations).to.be.an('array');
         done();
       });
   });

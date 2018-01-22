@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>CFH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/common.css">
+  <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Quattrocento+Sans" rel="stylesheet">
+</head>
+
+<body>
+  <div class="bg-gray" ng-controller="DashboardController">
+    <header class="header">
+      <nav class="navbar navbar-dark navbar-expand-sm scrolled fixed-top bg-blue">
+        <div class="container">
+          <span class="navbar-brand mb-0 h1">Cards For Humanity</span>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-links">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/play?custom">Play Game With Friends</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/play">Play Game With Strangers</a>
+              </li> 
+              <li class="nav-item">
+                <a ng-click="signOut()" class="nav-link" href="/signout">Sign Out</a>
+              </li>              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+            
+    <div class="container" ng-init="getData()">
+        <div class="card games-section">
+            <h2 class="dashboard-headers text-center">Games Played</h2>
+            <table class="table table-hover">
+            <thead>
+                <tr class="text-white bg-black">
+                  <th scope="col">#</th>
+                  <th scope="col">Owner</th>
+                  <th scope="col">Players</th>
+                  <th scope="col">Winner</th>
+                  <th scope="col">Completed</th>
+                  <th scope="col">Rounds</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="game in games">
+                <tr>
+                  <th scope="row">{{ $index + 1 }}</th>
+                  <td>{{ game.ownerUsername }}</td>
+                  <td>
+                      <ul ng-repeat="player in game.players">
+                      <li>{{ player.username }}</li>
+                      </ul>
+                  </td>
+                  <td>{{ game.winner.username || 'No Winner' }}</td>
+                  <td>{{ game.completed }}</td>
+                  <td>{{ game.rounds }}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
+        <div class="card leaderboard-section">
+            <h2 class="dashboard-headers text-center">Leaderboard</h2>
+            <table class="table table-hover">
+            <thead>
+                <tr class="text-white bg-black">
+                  <th scope="col">Player</th>
+                  <th scope="col">Number of Wins</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="record in leaderboard">
+                <tr ng-if="record._id !== null">
+                  <td>{{ record._id }}</td>
+                  <td>{{ record.count }}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
+        <div class="card donation-section">
+          <h2 class="dashboard-headers text-center">Donations</h2>
+          <table class="table table-hover">
+            <p class="ml-2" ng-if="donations.length === 0">Looks like you have no donations. What a shame.</p>
+          </table>
+        </div>
+    </div>
+  </div>
+</body>
+
+</html>
