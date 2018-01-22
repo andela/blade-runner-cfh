@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../css/chat.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body >
+    <main ng-controller="chatController">
+      <div class="chat-window collapse is-closed" id="chat-window">
+        <div class="chat-head">
+          <div>
+            Chat
+          </div>
+          <div data-id="chat_window_1" class="fa fa-times" data-target="#chat-window" data-toggle="collapse" ng-click="toggleWindow()">
+          </div>
+        </div>   
+        <div class="chat-body" id="chat-body">
+          <div class="chat-content">
+            <div ng-repeat="data in chatMessages" class="row" style="margin:auto;">
+              <div class="col-sm-9 col-md-9 chat-text">
+                <div class="user-username">
+                    <img ng-src={{data.avatar}} class="chat-img">
+                    {{data.username}}
+                    <small>{{  data.timestamp }}</small>
+                </div>
+                <div class="chat-messages">{{data.message}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <input type="text" class="form-control chat-form" placeholder="Type Here" ng-model="message" ng-keypress="addMessage($event)" />
+      </div>
+      <div>
+          <span class="fa fa-comment" aria-hidden="true" data-target="#chat-window" data-toggle="collapse" id="chat-icon" ng-hide="icon" ng-click="toggleWindow($event)">
+            <sup class="pop-icon">
+                <span class="badge badge-light badge-icon"><b><p>{{unreadMessageCount}}</p></b></span>
+            </sup>
+          </span>
+      </div>
+    </main>
+
+    <script>
+
+    </script>
+  </body>
+</html>

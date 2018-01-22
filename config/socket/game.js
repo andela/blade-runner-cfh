@@ -2,6 +2,10 @@ var async = require('async');
 var _ = require('underscore');
 var questions = require(__dirname + '/../../app/controllers/questions.js');
 var answers = require(__dirname + '/../../app/controllers/answers.js');
+const DEFAULT_REGION_ID = '1';
+const STATE_CHOOSING_TIME_LIMITS = 21;
+const STATE_JUDGING_TIME_LIMITS = 16;
+const STATE_RESULT_TIME_LIMIT = 6;
 var guestNames = [
   "Disco Potato",
   "Silver Blister",
@@ -27,17 +31,18 @@ function Game(gameID, io) {
   this.winnerAutopicked = false;
   this.czar = -1; // Index in this.players
   this.playerMinLimit = 3;
-  this.playerMaxLimit = 6;
+  this.playerMaxLimit = 12;
   this.pointLimit = 5;
   this.state = "awaiting players";
   this.round = 0;
   this.questions = null;
   this.answers = null;
   this.curQuestion = null;
+  this.regionId = DEFAULT_REGION_ID;
   this.timeLimits = {
-    stateChoosing: 21,
-    stateJudging: 16,
-    stateResults: 6
+    stateChoosing: STATE_CHOOSING_TIME_LIMITS,
+    stateJudging: STATE_JUDGING_TIME_LIMITS,
+    stateResults: STATE_RESULT_TIME_LIMIT
   };
   // setTimeout ID that triggers the czar judging state
   // Used to automatically run czar judging if players don't pick before time limit
@@ -105,46 +110,73 @@ Game.prototype.assignGuestNames = function() {
   });
 };
 
-Game.prototype.prepareGame = function() {
-  this.state = "game in progress";
+// eslint-disable-next-line func-names
+Game.prototype.prepareGame = function () {
+  this.state = 'game in progress';
 
-  this.io.sockets.in(this.gameID).emit('prepareGame',
+  this.io.sockets.in(this.gameID).emit(
+    'prepareGame',
     {
       playerMinLimit: this.playerMinLimit,
       playerMaxLimit: this.playerMaxLimit,
       pointLimit: this.pointLimit,
       timeLimits: this.timeLimits
-    });
+    }
+  );
 
-  var self = this;
-  async.parallel([
-    this.getQuestions,
-    this.getAnswers
-    ],
-    function(err, results){
-      if (err) {
-        console.log(err);
-      }
-      self.questions = results[0];
-      self.answers = results[1];
-
-      self.startGame();
-    });
+  const self = this;
+  self.startGame();
 };
 
-Game.prototype.startGame = function() {
-  console.log(this.gameID,this.state);
-  this.shuffleCards(this.questions);
-  this.shuffleCards(this.answers);
-  this.stateChoosing(this);
+// eslint-disable-next-line func-names
+Game.prototype.startGame = function () {
+  this.setCzar(this);
+};
+
+// eslint-disable-next-line func-names
+Game.prototype.setCzar = function (self) {
+  self.state = 'waiting for czar to draw a card';
+  if (self.czar === -1) {
+    self.czar = 0;
+  } else if (self.czar >= self.players.length - 1) {
+    self.czar = 0;
+  } else {
+    self.czar += 1;
+  }
+  self.czarState = false;
+  self.sendUpdate();
+};
+
+// eslint-disable-next-line func-names
+Game.prototype.czarHasDrawnCard = function () {
+  const self = this;
+  async.parallel(
+    [
+      this.getQuestions,
+      this.getAnswers
+    ],
+    (err, results) => {
+      if (err) {
+        return err;
+      }
+      self.questions = results[0]; // eslint-disable-line prefer-destructuring
+      self.answers = results[1]; // eslint-disable-line prefer-destructuring
+    }
+  );
+  setTimeout(() => {
+    this.shuffleCards(this.questions);
+    this.shuffleCards(this.answers);
+    this.stateChoosing(this);
+  }, 100);
 };
 
 Game.prototype.sendUpdate = function() {
   this.io.sockets.in(this.gameID).emit('gameUpdate', this.payload());
 };
 
-Game.prototype.stateChoosing = function(self) {
-  self.state = "waiting for players to pick";
+// eslint-disable-next-line func-names
+Game.prototype.stateChoosing = function (self) {
+  self.state = 'waiting for players to pick';
   // console.log(self.gameID,self.state);
   self.table = [];
   self.winningCard = -1;
@@ -152,23 +184,17 @@ Game.prototype.stateChoosing = function(self) {
   self.winnerAutopicked = false;
   self.curQuestion = self.questions.pop();
   if (!self.questions.length) {
-    self.getQuestions(function(err, data) {
+    self.getQuestions((err, data) => {
       self.questions = data;
     });
   }
-  self.round++;
+  self.round += 1;
   self.dealAnswers();
-  // Rotate card czar
-  if (self.czar >= self.players.length - 1) {
-    self.czar = 0;
-  } else {
-    self.czar++;
-  }
   self.sendUpdate();
 
-  self.choosingTimeout = setTimeout(function() {
+  self.choosingTimeout = setTimeout(() => {
     self.stateJudging(self);
-  }, self.timeLimits.stateChoosing*1000);
+  }, self.timeLimits.stateChoosing * 1000);
 };
 
 Game.prototype.selectFirst = function() {
@@ -181,7 +207,7 @@ Game.prototype.selectFirst = function() {
     this.stateResults(this);
   } else {
     // console.log(this.gameID,'no cards were picked!');
-    this.stateChoosing(this);
+    this.setCzar(this);
   }
 };
 
@@ -216,7 +242,7 @@ Game.prototype.stateResults = function(self) {
     if (winner !== -1) {
       self.stateEndGame(winner);
     } else {
-      self.stateChoosing(self);
+      self.setCzar(self);
     }
   }, self.timeLimits.stateResults*1000);
 };
@@ -260,9 +286,10 @@ Game.prototype.shuffleCards = function(cards) {
 };
 
 Game.prototype.dealAnswers = function(maxAnswers) {
+  const self = this;
   maxAnswers = maxAnswers || 10;
   var storeAnswers = function(err, data) {
-    this.answers = data;
+    self.answers = data;
   };
   for (var i = 0; i < this.players.length; i++) {
     while (this.players[i].hand.length < maxAnswers) {
@@ -371,7 +398,7 @@ Game.prototype.removePlayer = function(thisPlayer) {
       if (this.state === "waiting for players to pick") {
         clearTimeout(this.choosingTimeout);
         this.sendNotification('The Czar left the game! Starting a new round.');
-        return this.stateChoosing(this);
+        return this.setCzar(this);
       } else if (this.state === "waiting for czar to decide") {
         // If players are waiting on a czar to pick, auto pick.
         this.sendNotification('The Czar left the game! First answer submitted wins!');
