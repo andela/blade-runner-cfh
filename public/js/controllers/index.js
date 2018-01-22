@@ -1,6 +1,16 @@
 angular.module('mean.system')
-  .controller('IndexController', ['$scope', '$window', 'Global', '$http', '$location', 'socket', 'game', 'AvatarService',
-    ($scope, $window, Global, $http, $location, socket, game, AvatarService) => {
+  .controller('IndexController', ['$scope', '$rootScope', '$window', 'Global', '$http', '$location', 'socket', 'game', 'NotificationService',
+    (
+      $scope,
+      $rootScope,
+      $window,
+      Global,
+      $http,
+      $location,
+      socket,
+      game,
+      NotificationService
+    ) => {
       $scope.global = Global;
       $scope.data = {};
       $scope.serverErrors = {};
@@ -109,8 +119,4 @@ angular.module('mean.system')
       };
 
       $scope.avatars = [];
-      AvatarService.getAvatars()
-        .then((data) => {
-          $scope.avatars = data;
-        });
     }]);
