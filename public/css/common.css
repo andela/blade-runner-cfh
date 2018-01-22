@@ -326,7 +326,14 @@ a.animated-button.victoria-two {
 
 @media only screen and (max-width: 425px) {
   .charity-text {
-    margin-top: 25px; } }
+    margin-top: 25px; }
+  
+  .victora-one, .victoria-two{
+      width: 60vw !important;
+      font-size: 0.8rem !important;
+    }
+
+   }
 
 .info-section {
   background-color: #1b1b1b; }
@@ -392,11 +399,6 @@ a.animated-button.victoria-two {
   background-color: #FAFAFA;
 }
 
-.modal-title {
-  text-align: center;
-  margin: auto;
-}
-
 .modal-header {
   background-color: #eeeeee;
 }
@@ -413,10 +415,39 @@ i.fa-search {
 
 
 .list-group-item {
-box-shadow: 5px 10px 18px #888888;
+box-shadow: 2px 5px 10px #888888;
 height: auto;
+padding: 8px !important;
 }
 
+.nav-link:focus {
+  outline: none !important;
+}
+
+.ul-style {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.link-style {
+  color:  darkblue;
+  margin-top: -30px;
+  font-weight: bolder;
+}
+
+.invite-header {
+  margin-bottom: 0;
+}
+
+.badge {
+  vertical-align: super;
+}
+
+.modal-footer {
+  border-top: none;
+}
 
 footer {
   margin-top: 50px;

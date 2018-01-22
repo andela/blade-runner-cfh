@@ -314,7 +314,7 @@ exports.inviteUser = (req, res) => {
     if (user) {
       Notification.create({
         read: false,
-        message: `You have been invited to play a game by ${user.name}`,
+        message: `${user.name} invited you to join a game`,
         senderId: user._id,
         recipientId,
         link
@@ -345,7 +345,7 @@ exports.readNotifications = (req, res) => {
     recipientId: req.decoded.id
   }, {
     read: true
-  }, (error) => {
+  }, { multi: true }, (error) => {
     if (error) {
       return res.status(500).json({ message: 'Something went wrong.' });
     }
