@@ -237,9 +237,14 @@ angular.module('mean.system')
               });
           }
         }
+
         if (game.state === 'waiting for czar to decide' && $scope.showTable === false) {
           $('#background-image').css('height', '100vh');
           $scope.showTable = true;
+        }
+
+        if (game.state === 'waiting for czar to draw a card') {
+          $('#background-image').css('height', '100vh');
         }
 
         if (game.state === 'waiting for players to pick') {

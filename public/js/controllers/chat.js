@@ -65,7 +65,9 @@ angular.module('mean.system')
         }
       };
       $(document).ready(() => {
-        const ref = new Firebase(`https://blade-runner-cfh-ee939.firebaseio.com/${game.gameID}`);
+        console.log('gameId>>>>>>>>>>>>>>>>>', game.gameID);
+        const isGameNull = game.gameID === null;
+        const ref = new Firebase(`https://blade-runner-cfh-ee939.firebaseio.com/${ isGameNull ? 1 : game.gameID}`);
         $scope.chatMessages = $firebaseArray(ref);
         const emoji = $('#emoji').emojioneArea({
           emojiPlaceholder: ':smile_cat:',
