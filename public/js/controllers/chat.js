@@ -5,6 +5,7 @@ angular.module('mean.system')
     '$firebaseArray',
     ($scope, game, $firebaseArray) => {
       $scope.message = '';
+      $scope.chatMessages = [];
       // const ref = new Firebase(`https://blade-runner-cfh-ee939.firebaseio.com/${game.gameID}`);
       // $scope.chatMessages = $firebaseArray(ref);
       $scope.username = game.players[game.playerIndex];
