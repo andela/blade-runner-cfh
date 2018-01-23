@@ -5,8 +5,8 @@ angular.module('mean.system')
     '$firebaseArray',
     ($scope, game, $firebaseArray) => {
       $scope.message = '';
-      const ref = new Firebase(`https://blade-runner-cfh-ee939.firebaseio.com/${game.gameID}`);
-      $scope.chatMessages = $firebaseArray(ref);
+      // const ref = new Firebase(`https://blade-runner-cfh-ee939.firebaseio.com/${game.gameID}`);
+      // $scope.chatMessages = $firebaseArray(ref);
       $scope.username = game.players[game.playerIndex];
       $scope.unreadMessageCount = null;
       $scope.icon = false;
@@ -64,6 +64,8 @@ angular.module('mean.system')
         }
       };
       $(document).ready(() => {
+        const ref = new Firebase(`https://blade-runner-cfh-ee939.firebaseio.com/${game.gameID}`);
+        $scope.chatMessages = $firebaseArray(ref);
         const emoji = $('#emoji').emojioneArea({
           emojiPlaceholder: ':smile_cat:',
           placeholder: 'Type something here',
