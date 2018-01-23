@@ -12,13 +12,15 @@
   <!-- Selected answers -->
 </div>
 
-<div class="row" ng-hide="game.state === 'game ended' || game.state ==='game dissolved' || game.state === 'waiting for czar to draw a card'" ng-repeat="answer in game.table">
-  <div class="col-xs-6 col-sm-6 cards-wrapper col-md-3 col-lg-3" ng-repeat="card in answer.card" ng-style="pointerCursorStyle()"
-    ng-click="pickWinning(answer)" ng-show="showTable || isCzar()">
-    <div class="cards text-center p-1"  style="font-size: 11px; background-color: {{winningColor($parent.$index)}}" ng-bind-html-unsafe="card.text">
+<div class="row">
+  <div class="col-xs-6 col-sm-6 cards-wrapper col-md-3 col-lg-3" ng-hide="game.state === 'game ended' || game.state ==='game dissolved' || game.state === 'waiting for czar to draw a card'"
+    ng-repeat="answer in game.table">
+    <div ng-repeat="card in answer.card" ng-style="pointerCursorStyle()" ng-click="pickWinning(answer)" ng-show="showTable || isCzar()">
+      <div class="cards text-center p-1" style="font-size: 11px; background-color: {{winningColor($parent.$index)}}" ng-bind-html-unsafe="card.text">
+      </div>
+      <span id='selection-number' ng-show="firstAnswer($index)"> 1 </span>
+      <span id='selection-number' ng-show="secondAnswer($index)"> 2 </span>
     </div>
-    <span id='selection-number' ng-show="firstAnswer($index)"> 1 </span>
-    <span id='selection-number' ng-show="secondAnswer($index)"> 2 </span>
   </div>
 </div>
 
@@ -42,22 +44,22 @@
     <span id="smaller-text">Players are choosing their answers. Prepare to select a winner.</span>
     <div id='charity-fact-container'>
       <div id='charity-fact-tagline'>Did you know?</div>
-  
+
       <div id='charity-fact'>
         {{ makeAWishFact }}
       </div>
-  
+
       <div id='charity-logo-container'>
         <img src='/img/make-a-wish-logo.png' />
       </div>
-  
+
     </div>
   </div>
 </div>
 
 <div class="container col-sm-12" ng-show="game.state ==='game dissolved' && game.gameWinner === -1">
   <div class="czar-awaiting-players" style="padding: 10px;">
-      <a href="/play" class="btn btn-game">Join a new game</a>
-      <a href="/" class="btn btn-game">Return to arena</a>
+    <a href="/play" class="btn btn-game">Join a new game</a>
+    <a href="/" class="btn btn-game">Return to arena</a>
   </div>
 </div>
