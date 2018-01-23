@@ -4,6 +4,8 @@ require("console-stamp")(console, "m/dd HH:MM:ss");
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
+const DEFAULT_REGION = '1';
+
 var avatars = require(__dirname + '/../../app/controllers/avatars.js').all();
 // Valid characters to use to generate random private game IDs
 var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
@@ -48,9 +50,10 @@ module.exports = function(io) {
       joinGame(socket,data);
     });
 
-    socket.on('startGame', function() {
+    socket.on('startGame', () => {
       if (allGames[socket.gameID]) {
-        var thisGame = allGames[socket.gameID];
+        const thisGame = allGames[socket.gameID];
+        // thisGame.regionId = data.regionId || DEFAULT_REGION;
         console.log('comparing',thisGame.players[0].socket.id,'with',socket.id);
         if (thisGame.players.length >= thisGame.playerMinLimit) {
           // Remove this game from gamesNeedingPlayers so new players can't join it.
@@ -62,6 +65,15 @@ module.exports = function(io) {
           thisGame.prepareGame();
           thisGame.sendNotification('The game has begun!');
         }
+      }
+    });
+
+    socket.on('czar has drawn card', (data) => {
+      if (allGames[socket.gameID]) {
+        const thisGame = allGames[socket.gameID];
+        thisGame.regionId = data.regionId || DEFAULT_REGION;
+        thisGame.czarHasDrawnCard();
+        thisGame.sendNotification('Players should select their answers!');
       }
     });
 
@@ -135,6 +147,7 @@ module.exports = function(io) {
           game.prepareGame();
         }
       } else {
+        socket.emit('maxPlayersReached');
         // TODO: Send an error message back to this user saying the game has already started
       }
     } else {
