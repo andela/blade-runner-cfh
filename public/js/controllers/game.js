@@ -98,9 +98,6 @@ angular.module('mean.system')
         return {};
       };
 
-      $scope.selectCardStyle = () => {
-      };
-
       $scope.sendPickedCards = () => {
         game.pickCards($scope.pickedCards);
         $scope.showTable = true;
@@ -155,10 +152,6 @@ angular.module('mean.system')
         if (game.winningCardPlayer !== -1 && $index === game.winningCard) {
           return $scope.colors[game.players[game.winningCardPlayer].color];
         }
-        return '#f9f9f9';
-      };
-
-      $scope.changeColor = ($index) => {
         return '#f9f9f9';
       };
 
