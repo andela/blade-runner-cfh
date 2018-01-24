@@ -253,6 +253,10 @@ angular.module('mean.system')
           });
           $('#czarModal').modal('open');
         }
+
+        if (game.state === 'waiting for czar to draw a card') {
+          $('#background-image').css('height', '100vh');
+        }
       });
 
       $scope.$watch('game.gameID', () => {

@@ -1,7 +1,7 @@
 <div class="row" style="margin-left: 4%;" ng-hide="game.state === 'game ended' || game.state ==='game dissolved'">
   <div class="col-xs-6 col-sm-6 cards-wrapper col-md-3 col-lg-3" ng-repeat="card in game.players[game.playerIndex].hand" ng-animate="{enter:'animated fadeInUp', leave: 'animated fadeInOut'}"
     ng-click="pickCard(card)" ng-hide="showTable || isCzar()" id="answers" style="cursor: pointer;">
-    <div class="cards text-center p-1" style="font-size: 11px;" ng-bind-html-unsafe="card.text">
+    <div class="cards text-center p-1" id="answer-{{ $index }}" style="font-size: 11px;" onclick="changeBackgroundColor(this.id)" ng-bind-html-unsafe="card.text">
 
     </div>
     <span id='selection-number' ng-show="showFirst(card)"> 1 </span>
@@ -15,7 +15,7 @@
 <div class="row">
   <div class="col-xs-6 col-sm-6 cards-wrapper col-md-3 col-lg-3" ng-hide="game.state === 'game ended' || game.state ==='game dissolved' || game.state === 'waiting for czar to draw a card'"
     ng-repeat="answer in game.table">
-    <div ng-repeat="card in answer.card" ng-style="pointerCursorStyle()" ng-click="pickWinning(answer)" ng-show="showTable || isCzar()">
+    <div ng-repeat="card in answer.card" ng-style="pointerCursorStyle()" ng-click="pickWinning(answer)" ng-show="showTable || isCzar()" ng-animate="{enter: 'animated bounceInLeft'}">
       <div class="cards text-center p-1" style="font-size: 11px; background-color: {{winningColor($parent.$index)}}" ng-bind-html-unsafe="card.text">
       </div>
       <span id='selection-number' ng-show="firstAnswer($index)"> 1 </span>
